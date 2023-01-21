@@ -2,11 +2,16 @@
  "Pre-Proposal-Fabio"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
-                     '(("report" "12pt")))
+                     '(("article" "12pt")))
+   (TeX-add-to-alist 'LaTeX-provided-package-options
+                     '(("fontenc" "T1")))
    (TeX-run-style-hooks
     "latex2e"
-    "report"
-    "rep12"
-    "setspace"))
+    "article"
+    "art12"
+    "unicode"
+    "setspace"
+    "fontenc"
+    "helvet"))
  :latex)
 
