@@ -7,8 +7,10 @@
                      '(("fontenc" "T1")))
    (TeX-run-style-hooks
     "latex2e"
+    "../Fabio-Proposal/Pre-Proposal-Fabio"
     "../Guillermo-Proposal/Pre-Proposal-Guillermo"
     "../Ruben-Proposal/Pre-Proposal-Ruben"
+    "../Enrique-Proposal/Pre-Proposal-Enrique"
     "article"
     "art12"
     "unicode"

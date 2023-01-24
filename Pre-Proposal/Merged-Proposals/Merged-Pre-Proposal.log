@@ -1,15 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.1.21)  24 JAN 2023 08:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.1.21)  24 JAN 2023 10:07
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Prop
-osals/Merged-Pre-Proposal.tex"
-
-(/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Propos
-als/Merged-Pre-Proposal.tex
+**"/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex"
+(/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex
 LaTeX2e <2022-11-01>
-L3 programming layer <2022-11-02>
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2022-11-02> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
@@ -25,25 +22,19 @@ File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen140
-)
-(/usr/share/texlive/texmf-dist/tex/xmltex/passivetex/unicode.sty
-Package: unicode 2000/01/13 S Rahtz: load various font-related packages for Uni
-code
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+) (/usr/share/texlive/texmf-dist/tex/xmltex/passivetex/unicode.sty
+Package: unicode 2000/01/13 S Rahtz: load various font-related packages for Unicode
+ (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-
-(/usr/share/texmf/tex/latex/tipa/t3enc.def
+ (/usr/share/texmf/tex/latex/tipa/t3enc.def
 File: t3enc.def 2001/12/31 T3 encoding
 Now handling font encoding T3 ...
 ... no UTF-8 mapping file for font encoding T3
-)
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2aenc.def
+) (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2aenc.def
 File: t2aenc.def 2022/06/11 v1.0j Cyrillic encoding definition file
 Now handling font encoding T2A ...
 ... processing UTF-8 mapping file for font encoding T2A
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/t2aenc.dfu
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t2aenc.dfu
 File: t2aenc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+00A4 (decimal 164)
    defining Unicode char U+00A7 (decimal 167)
@@ -243,18 +234,14 @@ File: t2aenc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+FB04 (decimal 64260)
    defining Unicode char U+FB05 (decimal 64261)
    defining Unicode char U+FB06 (decimal 64262)
-)))
-(/usr/share/texmf/tex/latex/tipa/tipa.sty
+))) (/usr/share/texmf/tex/latex/tipa/tipa.sty
 Package: tipa 2002/08/08 TIPA version 1.1
-)
-(/usr/share/texmf/tex/latex/tipa/tone.sty
+) (/usr/share/texmf/tex/latex/tipa/tone.sty
 \@tonebarhtunit=\dimen141
 \@tonebarhalfwd=\dimen142
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks16
 \symAMSa=\mathgroup4
@@ -262,37 +249,28 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
 Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
 Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-)
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/wasysym/wasysym.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
 \symwasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 \symstmry=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
@@ -328,26 +306,20 @@ Now handling font encoding LELA ...
 ... no UTF-8 mapping file for font encoding LELA
 Now handling font encoding LETI ...
 ... no UTF-8 mapping file for font encoding LETI
-)
-(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-))
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+)) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count193
 \l__pdf_internal_box=\box51
-)
-(./Merged-Pre-Proposal.aux)
+) (./Merged-Pre-Proposal.aux)
 \openout1 = `Merged-Pre-Proposal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -365,17 +337,14 @@ LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for T3/ptm/m/n on input line 13.
-LaTeX Font Info:    Trying to load font information for T3+ptm on input line 13
-.
+LaTeX Font Info:    Trying to load font information for T3+ptm on input line 13.
  (/usr/share/texmf/tex/latex/tipa/t3ptm.fd
 File: t3ptm.fd 2001/12/31 TIPA font definitions
 )
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 13.
-LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 1
-3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 13.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    ... okay on input line 13.
@@ -396,49 +365,39 @@ LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for LETI/omseti/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 14
-.
-
-(/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 14.
+ (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-4.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 14.
+ (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
-(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] (../Fabio-Proposal/Pre-Proposal-Fabio.tex [2])
+Overfull \hbox (5.89638pt too wide) in paragraph at lines 5--28
+\T1/cmr/m/n/12 Kali Vil-le-gas (Tem-per-a-ture sen-si-tive med-i-ca-tion pa-tient) Car-men Perez Muños
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] [2] [3]
-(../Guillermo-Proposal/Pre-Proposal-Guillermo.tex [4]) [5]
-(../Ruben-Proposal/Pre-Proposal-Ruben.tex [6]) [7] (./Merged-Pre-Proposal.aux) 
-) 
+[3] (../Guillermo-Proposal/Pre-Proposal-Guillermo.tex [4]) [5] (../Ruben-Proposal/Pre-Proposal-Ruben.tex [6]) [7] (../Enrique-Proposal/Pre-Proposal-Enrique.tex [8] [9]) [10] (./Merged-Pre-Proposal.aux) ) 
 Here is how much of TeX's memory you used:
- 3988 strings out of 474971
- 56940 string characters out of 5778662
+ 4000 strings out of 474971
+ 57376 string characters out of 5778662
  372168 words of memory out of 5000000
- 25433 multiletter control sequences out of 15000+600000
+ 25437 multiletter control sequences out of 15000+600000
  479615 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,6n,66p,1543b,218s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/
-fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/c
-m-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfrm2074.pfb>
-Output written on Merged-Pre-Proposal.pdf (8 pages, 78121 bytes).
+ 56i,6n,66p,2131b,218s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb>
+Output written on Merged-Pre-Proposal.pdf (11 pages, 82980 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
