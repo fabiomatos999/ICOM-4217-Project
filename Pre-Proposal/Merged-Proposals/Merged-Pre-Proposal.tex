@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{report}
 \usepackage{unicode}
 \usepackage{setspace}
 \usepackage[T1]{fontenc}
@@ -14,9 +14,11 @@ Rubén Marrero}
 \begin{document}
 \maketitle
 \newpage
-\thispagestyle{empty}
+\tableofcontents
+\newpage
+\setcounter{secnumdepth}{-1}
 \pagestyle{plain}
-\section{Team Members}
+\chapter{Team Members}
 \pagenumbering{arabic}
 \begin{itemize}
   \item Fabio Matos (Leader)

@@ -5,17 +5,17 @@ INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex
 OUTPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.log
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -339,13 +339,43 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary7.tfm
 OUTPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx2488.tfm
+INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.toc
+INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.toc
+INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.toc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm
+OUTPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.toc
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Fabio-Proposal/Pre-Proposal-Fabio.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Fabio-Proposal/Pre-Proposal-Fabio.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Fabio-Proposal/Pre-Proposal-Fabio.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Fabio-Proposal/Pre-Proposal-Fabio.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Guillermo-Proposal/Pre-Proposal-Guillermo.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Guillermo-Proposal/Pre-Proposal-Guillermo.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Guillermo-Proposal/Pre-Proposal-Guillermo.tex
@@ -359,9 +389,11 @@ INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/..
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Enrique-Proposal/Pre-Proposal-Enrique.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/../Enrique-Proposal/Pre-Proposal-Enrique.tex
 INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.aux
-INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb
