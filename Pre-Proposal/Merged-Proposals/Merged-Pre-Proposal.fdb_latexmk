@@ -1,11 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1674931803 "/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex" "Merged-Pre-Proposal.pdf" "Merged-Pre-Proposal" 1674931804 0
+["pdflatex"] 1674932601 "/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex" "Merged-Pre-Proposal.pdf" "Merged-Pre-Proposal" 1674932601 0
   "../Enrique-Proposal/Pre-Proposal-Enrique.tex" 1674924477 2085 1fa567fa647db44d778ee0b356d0c5d4 ""
-  "../Fabio-Proposal/Pre-Proposal-Fabio.tex" 1674931645 1893 3674ab96fb8c42d2bd7d63f139e39b8a ""
+  "../Fabio-Proposal/Pre-Proposal-Fabio.tex" 1674932290 1869 13932d5c959fbf0149cf7a0ba9904db7 ""
   "../Guillermo-Proposal/Pre-Proposal-Guillermo.tex" 1674924477 1633 6d32d05a200b9481ab1e56e83482d5a5 ""
+  "../Ranking/ranking.tex" 1674931534 804 14e939e85f7905079177e625b002d941 ""
   "../Ruben-Proposal/Pre-Proposal-Ruben.tex" 1674931784 1449 b0bf9d8c675dbc4370d644548d617468 ""
   "/etc/texmf/web2c/texmf.cnf" 1671211280 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex" 1674931645 860 c324c98081db1e54894a12d4139f0717 ""
+  "/home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.tex" 1674932290 900 0e6f3a89b4aec8bbf57b18b2516c64af ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -91,9 +92,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1669588429 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1674332038 4623429 ed16de41d8b39db3d8ec06984af1a4c0 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1674332071 3065067 30ac1eb592fe3072c0eb788719003ddf ""
-  "Merged-Pre-Proposal.aux" 1674931804 1321 c38f6df1aaba8fd4e1472d42af8a09aa "pdflatex"
-  "Merged-Pre-Proposal.tex" 1674931645 860 c324c98081db1e54894a12d4139f0717 ""
-  "Merged-Pre-Proposal.toc" 1674931804 615 c5125de7a506326d4355f81c6dc4ea65 "pdflatex"
+  "Merged-Pre-Proposal.aux" 1674932601 1287 93c0dca495ffcefe4c91db39879c29df "pdflatex"
+  "Merged-Pre-Proposal.tex" 1674932290 900 0e6f3a89b4aec8bbf57b18b2516c64af ""
+  "Merged-Pre-Proposal.toc" 1674932601 581 6c18262a6a311ae29b00d7af464f4b88 "pdflatex"
   (generated)
   "Merged-Pre-Proposal.aux"
   "Merged-Pre-Proposal.log"
