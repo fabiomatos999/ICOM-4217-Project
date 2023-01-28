@@ -1,0 +1,8 @@
+PWD /home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Ruben-Proposal
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Ruben-Proposal/Pre-Proposal-Ruben.tex
+OUTPUT Pre-Proposal-Ruben.log
+OUTPUT Pre-Proposal-Ruben.pdf
