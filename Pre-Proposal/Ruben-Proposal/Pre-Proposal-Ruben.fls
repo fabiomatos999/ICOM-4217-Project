@@ -6,3 +6,4 @@ INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT /home/uwu/Github Repos/University/ICOM-4217-Project/Pre-Proposal/Ruben-Proposal/Pre-Proposal-Ruben.tex
 OUTPUT Pre-Proposal-Ruben.log
 OUTPUT Pre-Proposal-Ruben.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
