@@ -11,12 +11,26 @@
   Enrique Chompré\\
   Guillermo Colón\\
 Rubén Marrero\\}
+\setcounter{secnumdepth}{-1}
 \begin{document}
 \linespread{1.0}
 \input{../Title-Page/title-page}
 \linespread{2.0}
-uwu
-\cite{bahendekaEADSGGuidelinesInsulin2019}
+\input{../Abstract/abstract.tex}
+\tableofcontents
+\newpage
+\input{../Introduction/introduction.tex}
+\input{../System-Conception/system-conception.tex}
+\input{../System-Architecture-and-Functionality/system-architecture-and-functionality.tex}
+\input{../Processor-Selection/processor-selection.tex}
+\input{../Specifications/specifications.tex}
+\input{../Market-Description/market-description.tex}
+\input{../Design-Criteria/design-criteria.tex}
+\input{../Project-Time-Table/project-time-table.tex}
+\input{../Client-Opinion/client-opinion.tex}
+\nocite{*}
 \bibliographystyle{IEEEtranN}
 \bibliography{../References/Proposal-Biliography}
+\addcontentsline{toc}{chapter}{References}
+\input{../Appendices/appendices.tex}
 \end{document}
