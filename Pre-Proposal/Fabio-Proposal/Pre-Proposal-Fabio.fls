@@ -1,8 +1,0 @@
-PWD /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Fabio-Proposal
-INPUT /etc/texmf/web2c/texmf.cnf
-INPUT /usr/share/texmf/web2c/texmf.cnf
-INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Fabio-Proposal/Pre-Proposal-Fabio.tex
-OUTPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Fabio-Proposal/Pre-Proposal-Fabio.log
-OUTPUT /home/gram/Github Repos/ICOM-4217-Project/Pre-Proposal/Fabio-Proposal/Pre-Proposal-Fabio.pdf

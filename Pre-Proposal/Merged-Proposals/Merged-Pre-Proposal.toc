@@ -1,9 +1,0 @@
-\contentsline {chapter}{Team Members}{1}{}%
-\contentsline {chapter}{Insulin Temperature Warning System}{2}{}%
-\contentsline {section}{Insulin Temperature Warning System Client}{4}{}%
-\contentsline {chapter}{Cardiac Monitoring Warning System}{5}{}%
-\contentsline {section}{Who is your Client? Guillermo}{6}{}%
-\contentsline {chapter}{Humidity and Temperature sensor}{7}{}%
-\contentsline {section}{Who is your client? (contact information)}{8}{}%
-\contentsline {chapter}{Potential Project Description Enrique}{9}{}%
-\contentsline {section}{Who is your client? Enrique}{11}{}%
