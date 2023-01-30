@@ -15,8 +15,8 @@
     linkcolor=black,
     urlcolor=black
 }
-\usepackage{graphicx}
 \setcounter{secnumdepth}{-1}
+\usepackage{graphicx}
 \begin{document}
 \linespread{1.0}
 \input{../Title-Page/title-page}
@@ -25,7 +25,17 @@
 \tableofcontents
 \newpage
 \input{../Introduction/introduction.tex}
-\input{../System-Conception/system-conception.tex}
+\chapter{System Conception}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{../System-Conception/Figures/global-system-view.png}
+  \caption{Global System View}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{../System-Conception/Figures/user-interface-level.png}
+  \caption{User Interface Level}
+\end{figure}
 \input{../System-Architecture-and-Functionality/system-architecture-and-functionality.tex}
 \input{../Processor-Selection/processor-selection.tex}
 \input{../Specifications/specifications.tex}
