@@ -1,7 +1,8 @@
 \section{Processor Selection}
 Based on the global system view, there are two, three piece seven segment displays, a push button and a thermometer. This means that the microcontroller has to have at least 1 ADC and a minimum of 49 I/O lines. With this in mind we chose 3 potential candidates, that are still in active use and have inventory on DIGIKEY. Here is a list of 3 candidates in order of most to least viable:
 \begin{enumerate}
-  \item MSP430F5515IPN: It has 63 I/O pins, a real time clock (RTC) and 12 bit ADC with a unit price of \$5.50. It also has a development kit and IDE for rapid prototyping.
-  \item PIC24FJ256GA106-I/PT: It has 64 I/O pins, also has an RTC, a 16 bit ADC with a unit price of \$7.57. It also has a development kit and IDE but the development kit is almost three times more expensive than the MSP430 and per unit price it is almost 50\% more expensive.
-        \item
+  \item MSP430F5515IPN: It has 63 I/O, a real time clock (RTC) and 12 bit ADC with a unit price of \$5.50. It also has a development kit and IDE for rapid prototyping.
+  \item STM32F100RCT6B: It has 51 I/O, also has an RTC and a 12 bit ADC with a unit price of \$7.59. It also has an IDE, official libraries and development kit similar in price to the MSP430 but with a unit price almost 50\% more expensive than the MSP430.
+  \item PIC24FJ256GA106-I/PT: It has 64 I/O, also has an RTC, a 16 bit ADC with a unit price of \$7.57. It also has a development kit and IDE but the development kit is almost three times more expensive than the MSP430 and per unit price it is almost 50\% more expensive.
 \end{enumerate}
+With this design being focued on low cost due to mass production, the MSP430F5515IPN was chosen due to it's lowest price per unit, IDE and development kit availability.
