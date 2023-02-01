@@ -1,1 +1,16 @@
 \section{Specifications}
+The major requirements, features and limitations for hardware and software for this design are as follows:
+\begin{itemize}
+    \item Read the temperature of the environment that the insulin is being stored using the temperature sensor. It should be able to detect from $-5^{\circ}C$ to $35^{\circ}C$ to check if the insulin has been frozen or overheated.
+    \item Display the current temperature of the insulin in either Celsius or Fahrenheit on one of the 3 piece 7 segment displays. The rationale for only needing 3 pieces is only needing 2 for the digits and 1 for the unit.
+    \item Display the remaining time of safe injection on the other 3 piece 7 segment displays if the insulin temperature has exceeded $15^{\circ}C$ in units of weeks, days, hours and seconds. The rationale for using a 3 piece 7 segment display is because the guidelines say that once the insulin has surpassed $15^{\circ}C$ the insulin is only viable for 2 weeks and thus if there is less than 1 week remaining the units switch to days, if there is less than 1 day remaining, the units change to hours and so on and so fourth for minutes and seconds.
+  \item Allow the user to reset the state once the insulin has been used or discarded. This will check for mains power, if there is mains power the time remaining display will shut off and will only display the current temperature. This is because refrigerated insulin is perishable at times specified by the manufacturer and thus cannot be calculated. This will also clear any warning messages displays by either 7 segment displays.
+  \item Warn the user if the insulin has either been frozen or overheated. If the insulin has either been overheated or frozen the time remaining display will show DSC for discard, because if either case occurs the insulin should be discarded immediately and should not be injected. The temperature display shall show the reason why it should be discarded,either FZN for frozen or HOT for overheated.
+\end{itemize}
+This design satisfies all four essential component for eligibility as follows:
+\begin{enumerate}
+  \item \underline{Communications}: This design communicates primarily with the temperature sensor using the ADC and has the push button as means of communication with the system and user.
+  \item \underline{User Interface}: The main part of this design is the two 3 piece 7 segment displays that communicates vital information to the user such as the current temperature of the environment that the insulin is stored in as well as the remaining time for safe injection.
+  \item \underline{Control Scheme}: This system monitors the environment that insulin is stored in and the current availability of mains power.
+  \item \underline{Microprocessor-based}: This design necessitates the use of a microcontroller because it needs a decent amount of I/O, an ADC as well as a RTC all in a small package that requires little power due to the possibility of not having access to mains power for months on end.
+\end{enumerate}
