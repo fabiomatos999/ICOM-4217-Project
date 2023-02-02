@@ -16,6 +16,7 @@
     urlcolor=black
 }
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \begin{document}
 \linespread{1.0}
 \input{../Title-Page/title-page}
@@ -47,6 +48,7 @@
 \input{../Market-Description/market-description.tex}
 \input{../Design-Criteria/design-criteria.tex}
 \input{../Project-Time-Table/project-time-table.tex}
+\includepdf[pages=-]{../Project-Time-Table/project-time-table.pdf}
 \input{../Client-Opinion/client-opinion.tex}
 \bibliographystyle{IEEEtranN}
 \bibliography{../References/Proposal-Biliography}
