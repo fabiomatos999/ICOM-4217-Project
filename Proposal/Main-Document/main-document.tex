@@ -15,8 +15,10 @@
     linkcolor=black,
     urlcolor=black
 }
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{pdfpages}
+
 \begin{document}
 \linespread{1.0}
 \input{../Title-Page/title-page}
@@ -26,18 +28,18 @@
 \newpage
 \input{../Introduction/introduction.tex}
 \section{System Conception}
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../System-Conception/Figures/global-system-view.png}
   \caption{Global System View}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../System-Conception/Figures/user-interface-level.png}
   \caption{User Interface Level}
 \end{figure}
 \section{System Architecture and Functionality}
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../System-Architecture-and-Functionality/Figures/system-architecture-block-diagram.png}
   \caption{System Architecture Block Diagram}
@@ -57,7 +59,7 @@ As seen in this table where we are comparing both devices, one noticeable aspect
 \bibliographystyle{IEEEtranN}
 \bibliography{../References/Proposal-Biliography}
 \section{Appendices}
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../Appendices/Figures/work-distrobution-table.jpeg}
   \caption{Work Distribution Table}

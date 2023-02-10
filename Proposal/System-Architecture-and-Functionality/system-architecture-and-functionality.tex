@@ -1,15 +1,4 @@
-\begin{itemize}
-  \item Low Voltage Power Supply: Trickle charges the battery when there is mains power and is used in the microcontroller to check if there is mains power available.
-  \item Battery: Used to power the microcontroller and all I/O devices.
-  \item LM35CZ Temperature Sensor: Sends the current temperature to the microcontroller.
-  \item Microcontroller: Receives the data from the LM35CZ sensor and check if the is mains power available. If there is mains power, the microcontroller shall use the normal storage guidelines \cite{bahendekaEADSGGuidelinesInsulin2019}, else the microcontroller shall use the emergency storage guidelines \cite{ManagingInsulinEmergency2021}. The MCU shall also display the current temperature of the insulin or warning messages (on the 3 piece 7 segment). The MCU will also receive a control signal from the reset state button to reset any warning messages on the display.
-  \item 3 Piece 7 Segment Display: Will display the current temperature of the insulin detected by the LM35CZ and warning messages such as:
-        \begin{itemize}
-          \item FZN: If the temperature of the insulin has dropped below $0^{\circ}C$
-          \item HOT: If the temperature of the insulin has surpassed $30^{\circ}C$
-        \end{itemize}
-  \item Reset State Button: Will send a controll signal to the MCU to clear all warnings and check if the is mains power available.
-\end{itemize}
+As shown above, this design will have two distinct units, the sub-units and a main unit.\\
 The major software functions of this design will be:
 \begin{enumerate}
   \item Convert the output of the temperature sensor to temperature in Celsius.
