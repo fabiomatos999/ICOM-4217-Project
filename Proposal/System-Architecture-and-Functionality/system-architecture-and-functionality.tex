@@ -1,10 +1,20 @@
 As shown above, this design will have two distinct units, the sub-units and a main unit.\\
+\begin{enumerate}
+  \item Sub-Unit:
+        \begin{itemize}
+          \item Hold the current time and date, expiration date, and lot number.
+          \item Check the current temperature.
+          \item Verify if the temperature is meeting the guidelines.
+          \item If the guidelines are not met, turn on an LED and send a warning to the main unit.
+        \end{itemize}
+  \item Main Unit:
+        \begin{itemize}
+          \item Receive error signals from the sub-units.
+          \item Keep inventory of the lots.
+          \item Send log files either periodically or on demand to an application.
+                \item Send warning notifications to an application if an error has occurred.
+        \end{itemize}
+\end{enumerate}
 The major software functions of this design will be:
 \begin{enumerate}
-  \item Convert the output of the temperature sensor to temperature in Celsius.
-        \item Check if there is mains power available.
-        \item If mains power is available, use normal storage guidelines, else use emergency guidelines.
-        \item Verify that the temperature meets the guidelines. If it does not meet the guidelines. Raise warning.
-        \item Display the current temperature of the temperature sensor. If a warning is raised in the MCU display warning.
-        \item If a warning is displayed accept input from button when pressed to clear status and recheck for compliance.
 \end{enumerate}
