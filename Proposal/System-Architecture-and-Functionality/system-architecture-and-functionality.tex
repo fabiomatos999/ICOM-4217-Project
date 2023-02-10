@@ -1,20 +1,43 @@
+\newpage
 As shown above, this design will have two distinct units, the sub-units and a main unit.\\
 \begin{enumerate}
-  \item Sub-Unit:
+  \item Sub\-Unit:
         \begin{itemize}
           \item Hold the current time and date, expiration date, and lot number.
           \item Check the current temperature.
           \item Verify if the temperature is meeting the guidelines.
-          \item If the guidelines are not met, turn on an LED and send a warning to the main unit.
+          \item If the guidelines are not met, turn on an LED and send a warning
+                to the main unit.
         \end{itemize}
   \item Main Unit:
         \begin{itemize}
           \item Receive error signals from the sub-units.
           \item Keep inventory of the lots.
-          \item Send log files either periodically or on demand to an application.
-                \item Send warning notifications to an application if an error has occurred.
+          \item Send log files either periodically or on demand to an
+                application.
+          \item Send warning notifications to an application if an error has
+                occurred.
         \end{itemize}
 \end{enumerate}
 The major software functions of this design will be:
-\begin{enumerate}
-\end{enumerate}
+\begin{itemize}
+  \item Sub-Unit:
+        \begin{itemize}
+          \item Hold the current date and verify that is it less than the
+                expiration date.
+          \item If the current date is greater than expiration date, raise an
+                error, send it to the main unit and turn on an LED.
+          \item Verify that
+                \textnormal{$2^{\circ}C < Current Temperature <= 8^{\circ}C$}.
+                If not, turn on an LED and send a specific warning to the main
+                unit following the current criteria.
+                \begin{itemize}
+                  \item \textnormal{$Current Temperature \leq 0^{\circ}C$}
+                  \item
+                        \textnormal{$0^{\circ}C < Current Temperature \leq 2^{\circ}C$}
+                  \item
+                        \textnormal{$8^{\circ}C < Current Temperature \leq 15^{\circ}C$}
+                  \item \textnormal{$Current Temperature > 15^{\circ}C$}
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
