@@ -1,16 +1,34 @@
 \section{Specifications}
 The major requirements, features and limitations for hardware and software for this design are as follows:
 \begin{itemize}
-    \item Read the temperature of the environment that the insulin is being stored using the temperature sensor. It should be able to detect from $-5^{\circ}C$ to $35^{\circ}C$ to check if the insulin has been frozen or overheated.
-    \item Display the current temperature of the insulin in either Celsius or Fahrenheit on one of the 3 piece 7 segment displays. The rationale for only needing 3 pieces is only needing 2 for the digits and 1 for the unit.
-    \item Display the remaining time of safe injection on the other 3 piece 7 segment displays if the insulin temperature has exceeded $15^{\circ}C$ in units of weeks, days, hours and seconds. The rationale for using a 3 piece 7 segment display is because the guidelines say that once the insulin has surpassed $15^{\circ}C$ the insulin is only viable for 2 weeks and thus if there is less than 1 week remaining the units switch to days, if there is less than 1 day remaining, the units change to hours and so on and so fourth for minutes and seconds.
-  \item Allow the user to reset the state once the insulin has been used or discarded. This will check for mains power, if there is mains power the time remaining display will shut off and will only display the current temperature. This is because refrigerated insulin is perishable at times specified by the manufacturer and thus cannot be calculated. This will also clear any warning messages displays by either 7 segment displays.
-  \item Warn the user if the insulin has either been frozen or overheated. If the insulin has either been overheated or frozen the time remaining display will show DSC for discard, because if either case occurs the insulin should be discarded immediately and should not be injected. The temperature display shall show the reason why it should be discarded,either FZN for frozen or HOT for overheated.
+  \item Sub-Unit:
+        \begin{itemize}
+          \item Hold the current time, expiration date and lot number in memory.
+          \item Check the current temperature using the on-board temperature sensor.
+          \item Check that the current temperature meets safe storage guidelines.
+          \item Check that the current time is less than the expiration date
+          \item Send an appropriate error code if either expiration date has been passed or the current temperature is not within the guidelines.
+                \item Send lot number information to the main-unit.
+        \end{itemize}
+  \item Main-Unit:
+        \begin{itemize}
+          \item Check that the current temperature meets safety guidelines for safe storage.
+          \item Receive error codes from the sub-units.
+          \item Forward error codes to an application that an operator can take appropriate action on.
+          \item Check if mains power is available.
+          \item Log the current temperature power, status and time to a log file and periodically forward it to a server.
+          \item Alert an operator via an app if the temperature does not meet the safety guidelines or that power is not available.
+          \item Send logs of lots of sub-units that entered the main-units range.
+        \end{itemize}
 \end{itemize}
 This design satisfies all four essential component for eligibility as follows:
 \begin{enumerate}
-  \item \underline{Communications}: This design communicates primarily with the temperature sensor using the ADC and has the push button as means of communication with the system and user.
-  \item \underline{User Interface}: The main part of this design is the two 3 piece 7 segment displays that communicates vital information to the user such as the current temperature of the environment that the insulin is stored in as well as the remaining time for safe injection.
-  \item \underline{Control Scheme}: This system monitors the environment that insulin is stored in and the current availability of mains power.
-  \item \underline{Microprocessor-based}: This design necessitates the use of a microcontroller because it needs a decent amount of I/O, an ADC as well as a RTC all in a small package that requires little power due to the possibility of not having access to mains power for months on end.
+  \item \underline{Communications}: This design communicates 2 ways:
+        \begin{itemize}
+               \item The sub-units sends their lot numbers to the main-unit once they are in range and the main-unit forwards that information to a server.
+               \item The sub-units send error codes to the main-unit and then the main unit sends the error information to an application where an operator can take further action based on the information provided.
+        \end{itemize}
+  \item \underline{User Interface}: For the sub-units the only way that it interacts with a user is via an LED, warning the user if an error status has occurred. The main unit, interacts with a user via the sent logs being displayed by an app and warning notifications if a critical error has occured.
+  \item \underline{Control Scheme}: The main way that this design controls something, is that it notifies an operator to take action if a sub-unit sends an error and then can take appropriate action the box on insulin.
+  \item \underline{Microprocessor-based}: This design meets the needs for it to be microprocessor based in that we need the sub-units to be low cost, and exceedingly power efficient without needing access to a lot of RAM or storage but still needing to have I/O. The main unit also necessitates it based due to not having to compute much, needing to have I/O and relatively low requirements for memory and storage and needing it being inexpensive.
 \end{enumerate}
