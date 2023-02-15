@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{jeep}
+\usepackage{unicode}
+\usepackage{setspace}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage[numbers]{natbib}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\newcommand\createfigure[2]{
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{#1}
+  \caption{#2}
+\end{figure}}
+
+\begin{document}
+\linespread{2.0}
+\section{Hold a meeting with your project teammates and discuss your individual recommendations and provide a team agreed choice of:}
+\subsection{Revised Top-level System View}
+\createfigure{../Figures/global-system-view.png}{Top Level System View}
+\subsection{Expected system life cycle with brief explanation of planned stages}
+\subsection{System HW architecture (BDV2). }
+\end{document}
