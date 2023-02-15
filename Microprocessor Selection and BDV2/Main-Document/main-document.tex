@@ -89,7 +89,7 @@
                 applet.
         \end{itemize}
 \end{itemize}
-\subsection{List technical details of this design in terms of data type, speed
+\subsubsection{List technical details of this design in terms of data type, speed
   requirements for real-time reactive operation, power source, size and weight,
   and two design constraints to be carried throughout the system design.}
 In terms of data types the sub-units need to hold a 30 character lot number (240
@@ -112,4 +112,10 @@ inexpensive do be able to easily integrated into currently existing
 manufacturing processes and storage facilities. In terms of the environment,
 this design has to work in extended blackouts whilst still accurately reporting
 data and verifying compliance.
+\subsubsection{Based on your transient data type prediction, estimate the data memory requirements of this application. Briefly justify your estimate.}
+In terms of data types the sub-units need to hold a 30 character lot number (240
+bits in total), the current time (32 bits) and a 7 bit signed integer for the
+temperature and an error code (4 bit integer) totaling 279 bits of RAM. The main unit needs to hold the
+current time (32 bits), power status (1 bit), the current temperature (7 bit signed integer) and an array of lot numbers and
+error codes $n\cdot244$ bits totaling $40 + N\cdot244$ bits where N is the amount of error structures in memory. \vspace{\baselineskip}\\
 \end{document}
