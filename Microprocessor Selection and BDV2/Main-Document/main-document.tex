@@ -89,9 +89,10 @@
                 applet.
         \end{itemize}
 \end{itemize}
-\subsubsection{List technical details of this design in terms of data type, speed
-  requirements for real-time reactive operation, power source, size and weight,
-  and two design constraints to be carried throughout the system design.}
+\subsubsection{List technical details of this design in terms of data type,
+  speed requirements for real-time reactive operation, power source, size and
+  weight, and two design constraints to be carried throughout the system
+  design.}
 In terms of data types the sub-units need to hold a 30 character lot number (240
 bits in total), the current time (32 bits) and a 7 bit signed integer for the
 temperature and an error code (4 bit integer). The main unit needs to hold the
@@ -112,10 +113,47 @@ inexpensive do be able to easily integrated into currently existing
 manufacturing processes and storage facilities. In terms of the environment,
 this design has to work in extended blackouts whilst still accurately reporting
 data and verifying compliance.
-\subsubsection{Based on your transient data type prediction, estimate the data memory requirements of this application. Briefly justify your estimate.}
+\subsubsection{Based on your transient data type prediction, estimate the data
+  memory requirements of this application. Briefly justify your estimate.}
 In terms of data types the sub-units need to hold a 30 character lot number (240
 bits in total), the current time (32 bits) and a 7 bit signed integer for the
-temperature and an error code (4 bit integer) totaling 279 bits of RAM. The main unit needs to hold the
-current time (32 bits), power status (1 bit), the current temperature (7 bit signed integer) and an array of lot numbers and
+temperature and an error code (4 bit integer) totaling 279 bits of RAM. The main
+unit needs to hold the current time (32 bits), power status (1 bit), the current
+temperature (7 bit signed integer) and an array of lot numbers and
 error codes $n\cdot244$ bits totaling $40 + N\cdot244$ bits where N is the amount of error structures in memory. \vspace{\baselineskip}\\
+\subsubsection{Processor selection. A table comparing the features of at least
+  three processors.}
+\begin{center}
+  \begin{tabularx}{\textwidth}{|X|X|X|X|}
+    \hline
+    MCU & Dev Kit Availability & IDE Availability & Cost\\
+    \hline
+    MSP430FR2000 & Yes & Yes & \$0.276 per unit at 1ku\\
+    \hline
+    MSP430FR2100 & Yes & Yes & \$0.291 per unit at 1ku\\
+    \hline
+    MSP430FR2110 & Yes & Yes & \$0.305 per unit at 1ku\\
+    \hline
+  \end{tabularx}
+  \begin{center}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+      \hline
+      MCU & Advantages & Disadvantages\\
+      \hline
+      MSP430FR2000 & 12 GPIO pins, an RTC, 1 UART port and an integrated temperature sensor and is the cheapest out of the three options. & Having 1 UART port limits the amount of communication channels the MCU can use. \\
+      \hline
+      MSP430FR2100 & 12 GPIO pins, an RTC, 1 UART port and an integrated temperature sensor. & Having 1 UART port limits the amount of communication channels the MCU can use. \\
+      \hline
+      MSP430FR2110 & 12 GPIO pins, an RTC, 1 UART port and an integrated temperature sensor. & Having 1 UART port limits the amount of communication channels the MCU can use and is the most expensive out of the three options. \\
+      \hline
+    \end{tabularx}
+  \end{center}
+\end{center}
+\subsubsection{Provide a recommendation of the processor to be used for this application.}
+For the sub-units, at most, they need to hold the current time and 31 byte error data
+structure in memory, thus the MSP430FR2000 would be an excellent choice for this
+since they are the lowest cost MCU that meets the feature requirements. For the
+main unit, the MSP430FR2110 would be great since it could potentially need to
+hold and process donzens of error codes at a time, thus the extra ram would be
+required for this case.
 \end{document}
