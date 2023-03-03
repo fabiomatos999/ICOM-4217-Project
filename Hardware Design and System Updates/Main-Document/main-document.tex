@@ -1,4 +1,25 @@
-\usepackage{pstricks}
+\documentclass[12pt]{article} 
+\usepackage{unicode}
+\usepackage{setspace} 
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+\usepackage[numbers]{natbib} 
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref} 
+\hypersetup{ colorlinks, citecolor=black,
+  filecolor=black, 
+  linkcolor=black, 
+  urlcolor=black } 
+\usepackage{float}
+\usepackage{graphicx} 
+\usepackage{pdfpages} 
+\usepackage{tabularx}
+\newcommand\createfigure[2]{
+  \begin{figure}[H]
+    \centering \includegraphics[width=\textwidth]{#1}
+    \caption{#2}
+  \end{figure}}
 \begin{document}
-\input{../Software-Plan/software-plan-sub-unit-rtc-isr.tex}
+\createfigure{../Software-Plan/main-unit-rtc-isr.png}{Test}
 \end{document}
