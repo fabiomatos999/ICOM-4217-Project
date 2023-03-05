@@ -1,0 +1,9 @@
+Order list for C:/Users/gram/Documents/ICOM-4217-Project/Hardware Design and System Updates/Power-Supply/Main Unit PSU/main-unit-psu.sch
+Exported from EAGLE with DesignLink
+
+Quantity	Value	Package	Order code	Manufacturer	Manuf. Code	Availability	Price (from)	Description				
+1	10 uF	C050-024X044	87AC8155	KEMET	ESW106M025AC3AA	19585	0.061	KEMET - ESW106M025AC3AA - Electrolytic Capacitor, 10 µF, 25 V, ± 20%, PC Pin, 3000 hours @ 105°C, Polar
+3	1N4004	DO41-10	84K8827	ONSEMI	1N4004RLG	55122	0.052	ONSEMI - 1N4004RLG - Standard Recovery Diode, 400 V, 1 A, Single, 1.1 V, 150 ns, 30 A
+2	3.3V	NME	29X1501	MURATA POWER SOLUTIONS	CME0303S3C	0	2.74	MURATA POWER SOLUTIONS - CME0303S3C - Isolated Through Hole DC/DC Converter, ITE, 1:1, 750 mW, 1 Output, 3.3 V, 227 mA				
+2	LP38852T-ADJ/NOPB 				
+Missing FBR and Transformer and battery			
