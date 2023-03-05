@@ -5108,9 +5108,9 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 </part>
 <part name="X_5" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="TR1" library="trafo" library_urn="urn:adsk.eagle:library:394" deviceset="EE20-1" device="" package3d_urn="urn:adsk.eagle:package:28342/1">
-<attribute name="MF" value=""/>
-<attribute name="MPN" value=""/>
-<attribute name="OC_NEWARK" value="unknown"/>
+<attribute name="MF" value="TRIAD MAGNETICS"/>
+<attribute name="MPN" value="TCT3-11E07AE"/>
+<attribute name="OC_NEWARK" value="98M4353"/>
 </part>
 <part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="3.3V">
 <attribute name="MF" value="MURATA POWER SOLUTIONS"/>
