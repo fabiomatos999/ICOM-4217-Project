@@ -1,1 +1,19 @@
 \section{Power, voltage compatibility, and Timing Analyses}
+\subsection{Main Unit PSU}
+According to TCT3-11E07AE data sheet \cite{TCT311E07AETriadMagnetics}, given 120 V RMS input it will output 10 V RMS at Node $N\$1$ and $N\$2$. At $N\$8$ the voltage was calculated as follows:
+\begin{equation}
+  N\$8 = 10 - V_{BR}
+  \label{eq:main-N8}
+\end{equation}
+where $V_{BR}$ is the forward voltage drop per section of the bridge rectifier. In this case $V_{BR}$ is \num{1.1}\si{\V} RMS according to the LM3281YFQR data sheet \cite{LM3281YFQR} which results in equation \ref{eq:main-N8} equal to 8.9\si{\V}. Component D2 is a NZX9V1B,133, a 8.9 V through hole zener diode and C1 is a 10\si{\micro\farad} 25V capacitor and thus in equation \ref{eq:main-N8} will be 8.9\si{\V} DC. $N\$11$ is the output of a voltage divider in order to meet the requirements for the 2 DC-DC converters and was calculated as follows:
+\begin{equation}
+  N\$11 = \frac{R2}{R1+R2}N\$8
+  \label{eq:main-N11}
+\end{equation}
+where R2 was chosen to be 100\si{\ohm} and R1 is 68\si{\ohm} and thus $N\$11$ equals 5.3\si{\V}. Both 3.3\si{\V} are LM3281YFQR \cite{LM3281YFQR} are 3.3\si{\V} DC-DC converters with a +VIN max equal to 5.5\si{\V} and thus DC2 and DC1 are compatible. Since DC2 +VIN is the same as equation \ref{eq:main-N11}, +VIN will be at 5.3 V. $N\$9$ will be the regulated output of DC and thus will be at 3.3V when mains power is available. According to the LP38852T-ADJ/NOPB data sheet, \cite{LP38852TADJNOPB} it can accept from 0.93\si{\V} to 5.5\si{\V} it is compatible with the regulated supply voltage from $N\$9$ which is 3.3\si{\V}. $N\$5$ was calculated as follows:
+\begin{equation}
+  N\$5 =  N\$11 - V_{D}
+  \label{eq:main-N5}
+\end{equation}
+where $V_{D}$ is typically 0.93\si{\V} according to the 1N4004 data sheet \cite{1N4004RLG}. There for $N\$5$ is equal to 4.37\si{\V}
+When mains power is available D3 is in reverse bias and BATT is not operating, since BATT is 4.8\si{\V}, $N\$5$ is equal to 4.37\si{\V} and $V_{D}$ is equal to 0.93\si{\V}, this means that BATT does not have enough voltage to surpass with the $N\$5$ voltage when mains power and the diode drop from D3.
