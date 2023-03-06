@@ -1,6 +1,7 @@
-\documentclass[12pt]{article} 
+\documentclass[12pt]{article}
+\usepackage{amsmath}
 \usepackage{unicode}
-\usepackage{setspace} 
+\usepackage{setspace}
 \usepackage[scaled]{helvet}
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
@@ -15,13 +16,26 @@
 \usepackage{graphicx} 
 \usepackage{pdfpages} 
 \usepackage{tabularx}
-\newcommand\createfigure[2]{
+\newcommand\createfigurew[2]{
+  \begin{center}
   \begin{figure}[H]
     \centering \includegraphics[width=\textwidth]{#1}
     \caption{#2}
-  \end{figure}}
+  \end{figure}
+  \end{center}
+}
+\newcommand\createfigurel[2]{
+  \begin{center}
+  \begin{figure}[H]
+    \centering \includegraphics[height=0.8\textheight]{#1}
+    \caption{#2}
+  \end{figure}
+  \end{center}
+}
 \begin{document}
+\linespread{1.0}
 \input{../Title-Page/title-page.tex}
+\linespread{2.0}
 \tableofcontents
 \input{../BDv3/bdv3.tex}
 \input{../System-Schematic-Diagrams/system-schematic-diagrams.tex}
