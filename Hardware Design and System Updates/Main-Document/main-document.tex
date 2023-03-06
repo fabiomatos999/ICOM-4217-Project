@@ -16,19 +16,21 @@
 \usepackage{graphicx} 
 \usepackage{pdfpages} 
 \usepackage{tabularx}
-\newcommand\createfigurew[2]{
+\newcommand\createfigurew[3]{
   \begin{center}
   \begin{figure}[H]
     \centering \includegraphics[width=\textwidth]{#1}
     \caption{#2}
+    \label{#3}
   \end{figure}
   \end{center}
 }
-\newcommand\createfigurel[2]{
+\newcommand\createfigurel[3]{
   \begin{center}
   \begin{figure}[H]
     \centering \includegraphics[height=0.8\textheight]{#1}
     \caption{#2}
+    \label{#3}
   \end{figure}
   \end{center}
 }
@@ -37,6 +39,7 @@
 \input{../Title-Page/title-page.tex}
 \linespread{2.0}
 \tableofcontents
+\listoffigures
 \input{../BDv3/bdv3.tex}
 \input{../System-Schematic-Diagrams/system-schematic-diagrams.tex}
 \input{../BOM/bom.tex}
