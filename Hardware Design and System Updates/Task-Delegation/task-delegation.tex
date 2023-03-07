@@ -1,1 +1,27 @@
 \section{Delegation of Tasks}
+For this proposal, the Insulin Temperature System modulerized into 3 separate parts, those being:
+\begin{itemize}
+  \item Main Unit
+  \item Sub Unit
+  \item PSU
+\end{itemize}
+The main unit consists of the MSP-EXP430FR2311 development board and the HM-10 BLE Bluetooth module. The sub unit consists of another MSP-EXP430FR2311, a HM-10 BLE Bluetooth module and an LED. The PSU consists of 2 individual parts:
+\begin{itemize}
+  \item Main Unit PSU
+  \item Sub unit PSU
+\end{itemize}
+The main unit consists of a 3.3\si{\V} power supply along with a 3.3\si{\V} voltage sense for a GPIO pin with a battery backup circuit.  The sub unit PSU consists of a 3.3\si{\V} regulated battery supply.\\
+The following table demonstrates how the modules were distributed within the team:
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|X|}
+ \hline
+ Team Member & Assigned Module\\
+ \hline
+ Fabio J. Matos Nieves & PSU\\
+ \hline
+ Enrique Chompré & Main Unit\\
+ \hline
+ Guillermo Colón & Sub Unit\\
+ \hline
+\end{tabularx}
+\end{center}
