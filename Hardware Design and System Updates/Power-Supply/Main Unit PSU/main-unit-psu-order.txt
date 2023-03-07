@@ -7,6 +7,7 @@ Quantity	Value	Package	Order code	Manufacturer	Manuf. Code	Availability	Price (f
 2	3.3V	LM3281YFQR				
 2	LDO     BA033CC0FP-E2
 1	EE20-1	98M4353	TRIAD MAGNETICS	TCT3-11E07AE	0	7.08	TRIAD MAGNETICS - TCT3-11E07AE - Chassis Mount Transformer, Class II, Class 2 Energy Limiting, 120V, 10V, 2.5 VA, 50Hz / 60Hz
-1		BGN1800-4DWP-A800EC (BATT)
+2	B2	ICR18650-2200-F 
+1	BH1	MPD BK-18650-PC4
 1	B1	CS10D
 1 	D2  NZX9V1B,133
