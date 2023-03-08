@@ -6406,9 +6406,9 @@ ERA</description>
 <part name="X_2" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="X_3" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="TR1" library="trafo" library_urn="urn:adsk.eagle:library:394" deviceset="EE20-1" device="" package3d_urn="urn:adsk.eagle:package:28342/1" value="TCT3-11E07AE"/>
-<part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="3.3V DC-DC Converter"/>
+<part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="K7803-500R3"/>
 <part name="X_4" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
-<part name="DC2" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="3.3V DC-DC Converter"/>
+<part name="DC2" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="K7803-500R3"/>
 <part name="X_6" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="CR1" library="2023-03-08_11-41-24_Library" deviceset="1N914B" device="AFL-W2C8.9D"/>
 <part name="BT1" library="BK-18650-PC2" deviceset="BK-18650-PC2" device=""/>
