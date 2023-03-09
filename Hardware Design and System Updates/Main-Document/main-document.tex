@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{unicode}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{pdflscape}
 \usepackage{siunitx}
 \usepackage{setspace}
 \usepackage[scaled]{helvet}
@@ -11,8 +14,11 @@
 \usepackage[hidelinks]{hyperref} 
 \hypersetup{ colorlinks, citecolor=black,
   filecolor=black, 
-  linkcolor=black, 
-  urlcolor=black } 
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={Hardware Design and System Updates},
+  pdfpagemode=FullScreen,
+}
 \usepackage{float}
 \usepackage{graphicx} 
 \usepackage{pdfpages} 
@@ -41,6 +47,7 @@
 \linespread{2.0}
 \tableofcontents
 \listoffigures
+\listoftables
 \input{../Task-Delegation/task-delegation.tex}
 \input{../BDv3/bdv3.tex}
 \input{../System-Schematic-Diagrams/system-schematic-diagrams.tex}
