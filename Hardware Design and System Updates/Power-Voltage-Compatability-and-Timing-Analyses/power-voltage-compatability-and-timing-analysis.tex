@@ -1,4 +1,23 @@
 \section{Power, voltage compatibility,\\ and Timing Analyses}
 \subsection{Main Unit PSU}
-According to the TCT50-01E07AB data-sheet \cite{TCT5001E07AB}
+According to the TCT50-01E07AB data-sheet \cite{TCT5001E07AB}, given an input voltage of 120$\si{\V}_{RMS}$ AC voltage, it will output a 10$\si{\V}_{RMS}$ AC voltage, thus $N\$1$ and $N\$2$ will have a voltage of -10\si{\V} to 10\si{\V}, depending on which part of the sine wave is currently being supplied. The voltage at the output of the bridge rectifier B1 at $N\$8$ was calculated as follows:
+\begin{equation}
+  B1_{Out} = N\$1 - V_{BD}
+  \label{eq:main-b1out}
+\end{equation}
+In this design B1 has a drop of 0.55 per element and since there are 2 elements per cycle this means $V_{BD}$ is equal to 1.1\si{V} \ref{KMB23S}. This means that equation \ref{eq:main-b1out} is 22.9\si{\V} for this design. Then the voltage at $N\$8$ is rectified to 22.8\si{V} by D2 (a 22.8\si{\V} zener diode) and is denoised by C1 (a 25\si{\V} 10\si{\micro\farad} capacitor), then $N\$8$ is fed to $+VIN$ which is compatible with the input voltage since $+VIN_{Min} < N\$8 < +VIN_{Max}$ which are 11\si{\V} and 32\si{\V} respectively \cite{R78W900}.
+$N\$11$ was calculated as follows:
+\begin{equation}
+  N\$11 = DC3_{+VOUT}
+  \label{eq:main-N11}
+\end{equation}
+In this case since $+VOUT$ is the output of a 9\si{\V} DC-DC converter, thus $N\$11$ is at 9\si{V} DC. Since $N\$11$ is at 9\si{V}, $DC2_{+VIN}$ is compatible since $+VIN_{Min} < N\$11 < +VIN_{Max}$ which are 4.75\si{\V} and 36\si{\V} respectively. $N\$9$ is the output of DC2 (a 3.3\si{\V} regulator) and thus will be at 3.3\si{\V} which U2 is compatible since $N\$9$ is less than $VIN_{Max}$ for the BA033CC0FP-E2 of 2.5\si{\V} \cite{BA033CC0FPE2}. Then $N\$3$ will be at 3.3\si{\V} denoised and will serve as the GPIO input mains power sense pin for the MCU.
+Going back down to $N\$5$, when mains power is available the voltage at this node is calculated as follows:
+\begin{equation}
+  N\$5_{Mains} = N\$11 - V_{D}
+  \label{eq:main-N5-mains}
+\end{equation}
+To understand why equation \ref{eq:main-N5-mains} is calculated this way, we need first see how BT1, BT2 and D3 interact with each other. BT1 and BT2 are both 3.7\si{\V} 18650 cells \cite{ICR186502200F} in series, thus the voltage at the input of D3 will 7.4\si{\V}. The diode drop for D3 is 1.0\si{\V} \cite{1N4004}, this means that the potential difference at $N\$6$ by the batteries is 6.4\si{\V}. The potential difference by $N\$11$ is 8\si{\V}, thus the voltage difference between the output of DC3 minus $V_{D}$ of D1 and the voltage of the batteries minus $V_{D}$ is 1.6\si{\V}. This means that the D3 will be placed in reverse bias and therefor the batteries will not conduct. When mains power is available, $DC1_{+VINMin} < N\$5 < DC1_{+VINMax}$, this making it compatible with DC1 \cite{K7803500R3}. Since $N\$4$ is the same as $N\$9$, U1 is compatible. The output of U1 ($N\$12$) will serve as the VCC for the MCU.
+When mains power is not available, initially $N\$5$ but instantaneously D3 is placed in forward bias and the batteries can conduct, and as calculated above $N\$5$ will be at 6.4\si{\V} which is sufficient to power DC1 and U1.
 \subsection{Sub Unit PSU}
+$N\$6$ will be at $2V_{BATT}$, this is due to BT1 and BT2 being in series and each cell is 3.7\si{\V} \cite{ICR186502200F} and thus $N\$6$ will be at 7.4\si{\V}. Since $N\$6$ is at 7.4\si{\V}, it is in the compatible voltage range for DC1 \cite{BA033CC0FPE2}. At $N\$4$ the voltage will be regulated by DC1 and thus will be at 3.3\si{\V}, not exceeding the maximum voltage rating for U1 \cite{BA033CC0FPE2}. $N\$1$ will serve as the regulated output for the MCU.
