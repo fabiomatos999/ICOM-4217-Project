@@ -1,21 +1,4 @@
 \section{Power, voltage compatibility,\\ and Timing Analyses}
 \subsection{Main Unit PSU}
-According to TCT3-11E07AE data sheet \cite{TCT311E07AETriadMagnetics}, given 120 V RMS input it will output 10 V RMS at Node $N\$1$ and $N\$2$. At $N\$8$ the voltage was calculated as follows:
-\begin{equation}
-  N\$8 = 10 - V_{BR}
-  \label{eq:main-N8}
-\end{equation}
-where $V_{BR}$ is the forward voltage drop per section of the bridge rectifier. In this case $V_{BR}$ is \num{1.1}\si{\V} RMS according to the CS10D data sheet \cite{CS10D} which results in equation \ref{eq:main-N8} equal to 8.9\si{\V}. Component D2 is a NZX9V1B,133, a 8.9\si{V} through hole zener diode and C1 is a 10\si{\micro\farad} 25V capacitor and thus equation \ref{eq:main-N8} will be 8.9\si{\V} DC. $N\$11$ is the output of a 5\si{\V} DC-DC converter with a maximum input voltage of 32\si{\V}, therefor DC3 is compatible and $N\$11$ will be at 5.0\si{\V}. Both 3.3\si{\V} are LM3281YFQR \cite{LM3281YFQR} are 3.3\si{\V} DC-DC converters with a +VIN max equal to 5.5\si{\V} and thus DC2 and DC1 are compatible. Since DC2 +VIN is the same as , +VIN will be at 5.3 V. $N\$9$ will be the regulated output of DC and thus will be at 3.3V when mains power is available. According to the BA033CC0FP-E2 data sheet, \cite{BA033CC0FPE2} it can accept from 0.93\si{\V} to 5.5\si{\V} it is compatible with the regulated supply voltage from $N\$9$ which is at 3.3\si{\V}. At $N\$3$ the regulated output serves as a GPIO pin for to detect wether mains power is available. $N\$5$ was calculated as follows:
-\begin{equation}
-  N\$5 =  N\$11 - V_{D}
-  \label{eq:main-N5}
-\end{equation}
-where $V_{D}$ is typically 0.93\si{\V} according to the 1N4004 data sheet \cite{1N4004RLG}. Therefor $N\$5$ is equal to 4.03\si{\V}
-When mains power is available D3 is in reverse bias and BATT is at 3.7\si{\V}. $N\$5$ is equal to 4.03\si{\V} and $V_{D}$ for CR1 is equal to 0.63\si{\V} \cite{1N914B}, this means that BATT does not have enough voltage to surpass with the $N\$5$ voltage when mains power and the diode drop from D3 and thus BATT is not conducting when mains power is on. Given that $N\$5$ is equal to 4.03\si{\V}, DC1 will be able to regulate and thus $N\$4$ is equal to 3.3\si{\V}. $N\$12$ serves as the VCC for the main unit MCU which will be at 3.3V due to the BA033CC0FP-E2 3.3V linear regulator. When mains power is not available, $N\$5$ will initially be at 0\si{\V} and thus BATT will be able to surpass $V_{D}$ and will conduct. D1 will be reversed biased in order to prevent the battery from powering the rest of the transformer circuit. CR1 and D1 are both compatible being reversed biased in this circuit since according to the data sheet for the 1N4044 \cite{1N4004RLG} $V_{R} = 400V$, and for the 1N914B $V_{RRM} = 100V$. When BATT is able to conduct and $N\$5$ was calculated as follows:
-\begin{equation}
-  N\$5 = V_{BATT} - 4V_{D}
-  \label{eq:main-N5-BATT}
-\end{equation}
-where $V_{BATT}$ is equal to the battery voltage, which in this case is 7.4\si{\V} and $V_{D}$ is the forward voltage drop of D3 which according to the data sheet \cite{1N4004RLG} is equal to 0.93\si{\V} meaning that $N\$5$ will be at 4.08\si{\V} which DC1 is compatible with \cite{LM3281YFQR}. Both $N\$4$ and $N\$12$ will be exactly the same since they are the output of the regulators DC1 and IC1 while the rest of the circuit will be off since mains power is not available.
+According to the TCT50-01E07AB data-sheet \cite{TCT5001E07AB}
 \subsection{Sub Unit PSU}
-$N\$6$ minus $4V_{D}$ is the current battery voltage from BATT minus four series 1N4004 diodes, resulting in a volatge of 4.08\si{\V} at $N\$6$. According to the LM3281YFQR data sheet, \cite{LM3281YFQR} $N\$6$ is above 3\si{\V}, thus $N\$4$ will be fixed at 3.3\si{\V}. $N\$1$ will also be at 3.3\si{\V} while DC1 is conducting. $N\$1$ will serve as the VCC supply for the sub unit MCU.
