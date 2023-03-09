@@ -6402,23 +6402,24 @@ ERA</description>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="050-024X044" package3d_urn="urn:adsk.eagle:package:23643/1" value="10 uF"/>
 <part name="B1" library="rectifier" library_urn="urn:adsk.eagle:library:336" deviceset="B-DIL" device="" package3d_urn="urn:adsk.eagle:package:23868/1" value="CS10D"/>
 <part name="X_1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
-<part name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="ZENER-DIODE" device="DO41Z10" package3d_urn="urn:adsk.eagle:package:43341/1" value="NZX9V1B,133"/>
+<part name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="ZENER-DIODE" device="DO41Z10" package3d_urn="urn:adsk.eagle:package:43341/1" value="NZX22C,133"/>
 <part name="X_2" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="X_3" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
-<part name="TR1" library="trafo" library_urn="urn:adsk.eagle:library:394" deviceset="EE20-1" device="" package3d_urn="urn:adsk.eagle:package:28342/1" value="TCT3-11E07AE"/>
-<part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="3.3V DC-DC Converter"/>
+<part name="TR1" library="trafo" library_urn="urn:adsk.eagle:library:394" deviceset="EE20-1" device="" package3d_urn="urn:adsk.eagle:package:28342/1" value="TCT50-01E07AB"/>
+<part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="K7803-500R3"/>
 <part name="X_4" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
-<part name="DC2" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="3.3V DC-DC Converter"/>
+<part name="DC2" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="K7803-500R3"/>
 <part name="X_6" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="CR1" library="2023-03-08_11-41-24_Library" deviceset="1N914B" device="AFL-W2C8.9D"/>
 <part name="BT1" library="BK-18650-PC2" deviceset="BK-18650-PC2" device=""/>
 <part name="X_5" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
-<part name="DC3" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="R-78W5.0-0.5"/>
+<part name="DC3" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="R-78W9.0-0.5"/>
 <part name="X_7" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="U1" library="2023-03-08_12-17-23_Library" deviceset="BA033CC0FP-E2" device="TO252-3_ROM"/>
 <part name="X_8" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="X_9" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="U2" library="2023-03-08_12-17-23_Library" deviceset="BA033CC0FP-E2" device="TO252-3_ROM"/>
+<part name="BT2" library="BK-18650-PC2" deviceset="BK-18650-PC2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6458,15 +6459,15 @@ ERA</description>
 <attribute name="VALUE" x="88.9" y="68.58" size="1.778" layer="96"/>
 </instance>
 <instance part="X_6" gate="G$1" x="83.82" y="71.12" smashed="yes"/>
-<instance part="CR1" gate="A" x="93.98" y="7.62" smashed="yes" rot="R90">
-<attribute name="VALUE" x="99.5299" y="3.7369" size="3.48" layer="96" ratio="10" rot="R90"/>
-<attribute name="NAME" x="91.2749" y="4.8052" size="3.48" layer="95" ratio="10" rot="R90"/>
+<instance part="CR1" gate="A" x="60.96" y="45.72" smashed="yes">
+<attribute name="VALUE" x="57.0769" y="40.1701" size="3.48" layer="96" ratio="10"/>
+<attribute name="NAME" x="58.1452" y="48.4251" size="3.48" layer="95" ratio="10"/>
 </instance>
-<instance part="BT1" gate="G$1" x="93.98" y="-12.7" smashed="yes" rot="R90">
-<attribute name="NAME" x="90.17" y="-16.51" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="99.06" y="-16.51" size="1.778" layer="96" rot="R90"/>
+<instance part="BT1" gate="G$1" x="50.8" y="2.54" smashed="yes" rot="R90">
+<attribute name="NAME" x="46.99" y="-1.27" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="55.88" y="-1.27" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="X_5" gate="G$1" x="93.98" y="-25.4" smashed="yes"/>
+<instance part="X_5" gate="G$1" x="50.8" y="-10.16" smashed="yes"/>
 <instance part="DC3" gate="G$1" x="30.48" y="66.04" smashed="yes">
 <attribute name="NAME" x="20.32" y="71.755" size="1.778" layer="95"/>
 <attribute name="VALUE" x="20.32" y="55.88" size="1.778" layer="96"/>
@@ -6481,6 +6482,10 @@ ERA</description>
 <instance part="U2" gate="A" x="116.84" y="81.28" smashed="yes">
 <attribute name="NAME" x="134.9746" y="90.3986" size="2.083" layer="95" ratio="6"/>
 <attribute name="VALUE" x="134.3352" y="87.8586" size="2.083" layer="96" ratio="6"/>
+</instance>
+<instance part="BT2" gate="G$1" x="50.8" y="22.86" smashed="yes" rot="R90">
+<attribute name="NAME" x="46.99" y="19.05" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="55.88" y="19.05" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -6518,7 +6523,7 @@ ERA</description>
 <segment>
 <pinref part="X_5" gate="G$1" pin="0"/>
 <pinref part="BT1" gate="G$1" pin="+"/>
-<wire x1="93.98" y1="-25.4" x2="93.98" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="-10.16" x2="50.8" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="DC3" gate="G$1" pin="-VIN"/>
@@ -6549,13 +6554,14 @@ ERA</description>
 <net name="N$5" class="0">
 <segment>
 <pinref part="D1" gate="1" pin="C"/>
-<wire x1="78.74" y1="55.88" x2="93.98" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="DC1" gate="G$1" pin="+VIN"/>
-<wire x1="93.98" y1="55.88" x2="111.76" y2="55.88" width="0.1524" layer="91"/>
-<junction x="93.98" y="55.88"/>
+<wire x1="78.74" y1="55.88" x2="96.52" y2="55.88" width="0.1524" layer="91"/>
 <label x="96.52" y="58.42" size="1.778" layer="95"/>
 <pinref part="CR1" gate="A" pin="1"/>
-<wire x1="93.98" y1="17.78" x2="93.98" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="55.88" x2="111.76" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="45.72" x2="96.52" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="45.72" x2="96.52" y2="55.88" width="0.1524" layer="91"/>
+<junction x="96.52" y="55.88"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -6638,9 +6644,17 @@ ERA</description>
 </net>
 <net name="N$6" class="0">
 <segment>
+<pinref part="BT2" gate="G$1" pin="+"/>
 <pinref part="BT1" gate="G$1" pin="-"/>
+<wire x1="50.8" y1="10.16" x2="50.8" y2="15.24" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="BT2" gate="G$1" pin="-"/>
+<wire x1="50.8" y1="30.48" x2="50.8" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="CR1" gate="A" pin="2"/>
-<wire x1="93.98" y1="-5.08" x2="93.98" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="45.72" x2="50.8" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
