@@ -687,7 +687,7 @@
 </class>
 </classes>
 <parts>
-<part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="3.3V"/>
+<part name="DC1" library="dc-dc-converter" library_urn="urn:adsk.eagle:library:208" deviceset="NME" device="" package3d_urn="urn:adsk.eagle:package:12313/1" value="K7803-500R3"/>
 <part name="X_4" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="BT1" library="BK-18650-PC2" deviceset="BK-18650-PC2" device=""/>
 <part name="X_1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>

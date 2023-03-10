@@ -693,6 +693,7 @@
 <part name="X_1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="U1" library="2023-03-08_12-17-23_Library" deviceset="BA033CC0FP-E2" device="TO252-3_ROM"/>
 <part name="X_2" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
+<part name="BT2" library="BK-18650-PC2" deviceset="BK-18650-PC2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -704,16 +705,20 @@
 <attribute name="VALUE" x="157.48" y="137.16" size="1.778" layer="96"/>
 </instance>
 <instance part="X_4" gate="G$1" x="152.4" y="139.7" smashed="yes"/>
-<instance part="BT1" gate="G$1" x="116.84" y="134.62" smashed="yes" rot="R90">
-<attribute name="NAME" x="113.03" y="130.81" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="121.92" y="130.81" size="1.778" layer="96" rot="R90"/>
+<instance part="BT1" gate="G$1" x="116.84" y="114.3" smashed="yes" rot="R90">
+<attribute name="NAME" x="113.03" y="110.49" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="121.92" y="110.49" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="X_1" gate="G$1" x="116.84" y="121.92" smashed="yes"/>
+<instance part="X_1" gate="G$1" x="116.84" y="101.6" smashed="yes"/>
 <instance part="U1" gate="A" x="185.42" y="149.86" smashed="yes">
 <attribute name="NAME" x="203.5546" y="158.9786" size="2.083" layer="95" ratio="6"/>
 <attribute name="VALUE" x="202.9152" y="156.4386" size="2.083" layer="96" ratio="6"/>
 </instance>
 <instance part="X_2" gate="G$1" x="185.42" y="139.7" smashed="yes"/>
+<instance part="BT2" gate="G$1" x="116.84" y="134.62" smashed="yes" rot="R90">
+<attribute name="NAME" x="113.03" y="130.81" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="121.92" y="130.81" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -728,7 +733,7 @@
 <segment>
 <pinref part="X_1" gate="G$1" pin="0"/>
 <pinref part="BT1" gate="G$1" pin="+"/>
-<wire x1="116.84" y1="121.92" x2="116.84" y2="127" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="101.6" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="DC1" gate="G$1" pin="-VOUT"/>
@@ -754,11 +759,18 @@
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="BT1" gate="G$1" pin="-"/>
-<wire x1="116.84" y1="142.24" x2="116.84" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="DC1" gate="G$1" pin="+VIN"/>
 <wire x1="116.84" y1="149.86" x2="154.94" y2="149.86" width="0.1524" layer="91"/>
 <label x="139.7" y="149.86" size="1.778" layer="95"/>
+<pinref part="BT2" gate="G$1" pin="-"/>
+<wire x1="116.84" y1="142.24" x2="116.84" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="BT1" gate="G$1" pin="-"/>
+<pinref part="BT2" gate="G$1" pin="+"/>
+<wire x1="116.84" y1="127" x2="116.84" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
