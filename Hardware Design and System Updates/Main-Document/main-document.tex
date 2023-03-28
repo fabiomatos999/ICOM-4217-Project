@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
+\usepackage[export]{adjustbox}
 \usepackage{unicode}
 \usepackage[table]{xcolor}
 \usepackage{longtable}
@@ -42,6 +43,8 @@
   \end{figure}
   \end{center}
 }
+\usepackage{etoolbox}
+\apptocmd{\thebibliography}{\raggedright}{}{}
 \begin{document}
 \linespread{1.0}
 \input{../Title-Page/title-page.tex}
