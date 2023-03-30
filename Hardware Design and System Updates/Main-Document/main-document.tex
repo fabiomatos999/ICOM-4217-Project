@@ -6,6 +6,7 @@
 \usepackage{longtable}
 \usepackage{pdflscape}
 \usepackage{siunitx}
+\usepackage{svg}
 \usepackage{setspace}
 \usepackage[scaled]{helvet}
 \renewcommand\familydefault{\sfdefault} 
@@ -42,6 +43,15 @@
     \label{#3}
   \end{figure}
   \end{center}
+}
+\newcommand\createfigurewsvg[3]{
+ \begin{figure}[H]
+  \begin{center}
+    \centering\includesvg[width=\textwidth]{#1}
+    \caption{#2}
+    \label{#3}
+  \end{center}
+ \end{figure}
 }
 \usepackage{etoolbox}
 \apptocmd{\thebibliography}{\raggedright}{}{}
