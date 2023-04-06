@@ -10346,9 +10346,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="-299.72" y1="17.78" x2="-317.5" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="TEST/SBWTCK"/>
-<wire x1="-317.5" y1="17.78" x2="-317.5" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="-317.5" y1="116.84" x2="-299.72" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="P2.7/TB0CLK/XIN"/>
+<wire x1="-317.5" y1="17.78" x2="-317.5" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-317.5" y1="106.68" x2="-299.72" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
