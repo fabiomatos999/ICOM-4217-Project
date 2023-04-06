@@ -2,6 +2,23 @@
 \usepackage{setspace}
 \usepackage{float}
 \usepackage{svg}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage[export]{adjustbox}
+\hypersetup{ colorlinks, citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={Hardware Design and System Updates},
+  pdfpagemode=FullScreen,
+}
+\usepackage{siunitx}
+\usepackage{bookmark}
+\bookmarksetup{
+  numbered,
+  open,
+}
 \newcommand\createfigurew[3]{
   \begin{center}
   \begin{figure}[H]
@@ -36,6 +53,8 @@
  \input{../Title-Page/title-page.tex}
 \linespread{2.0}
  \tableofcontents
+ \listoffigures
+ \listoftables
  \input{../Completion-Table/completion-table.tex}
  \input{../BDv4/BDv4.tex}
  \input{../System-Schematic-Diagrams/system-schematic-diagrams.tex}
