@@ -1,0 +1,13 @@
+@startuml
+start
+:Initialize PORT1;
+:Initalize RTC (Real Time Clock);
+:Initialize UART at 9600 Baud;
+:Initalize ADC (Analog to Digital Converter);
+if (Does log file exist?) then (no)
+   :Create Log File;
+else (yes)
+endif
+:Enable Global Interrupts;
+:Activate Low Power Mode;
+@enduml
