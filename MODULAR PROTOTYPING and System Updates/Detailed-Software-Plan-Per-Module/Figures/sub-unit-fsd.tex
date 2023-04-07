@@ -1,5 +1,7 @@
-\begin{figure}[H]
 \begin{center}
+\begin{landscape}
+\begin{figure}[!ht]
+  \begin{subfigure}{\textwidth}
 \begin{tikzpicture}[scale=0.2]
 \tikzstyle{every node}+=[inner sep=0pt]
 \draw [black] (36.8,-8) circle (3);
@@ -23,7 +25,7 @@
 \draw (41.85,-12.97) node [above] {$RTC$};
 \draw [black] (57.903,-17.214) arc (58.79222:-25.87219:7.596);
 \fill [black] (57.9,-17.21) -- (58.33,-18.06) -- (58.85,-17.2);
-\draw (62.02,-20.97) node [right] {$\overline{BLUETOOTH}$};
+\draw (62.02,-20.97) node [right] {$SENT$};
 \draw [black] (53.003,-18.341) arc (-49.24761:-116.61893:17.757);
 \fill [black] (53,-18.34) -- (52.07,-18.48) -- (52.72,-19.24);
 \draw (46.82,-24.07) node [below] {$\overline{ERROR}\mbox{ }\cdot\mbox{ }\overline{RTC}$};
@@ -37,7 +39,39 @@
 \draw (24.47,-14.46) node [left] {$RTC$};
 \fill [black] (29.28,-16.69) -- (29.43,-15.76) -- (28.51,-16.15);
 \end{tikzpicture}
-\end{center}
+\caption{Sub Unit Functional State Diagram}
+\label{fig:sub-unit-fsd}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+      \begin{tabular}{c|cccc}
+        STATE&\multicolumn{3}{c}{OUTPUTS}\\
+        \hline
+        &&&\\
+        INIT&$RESET$&$\overline{RTC}$&$\overline{SENT}$&$\overline{ERROR}$\\
+        SLEEP&$\overline{RESET}$&$\overline{RTC}$&$\overline{SENT}$&$\overline{ERROR}$\\
+        WAKE&$\overline{RESET}$&$RTC$&$\overline{SENT}$&$\overline{ERROR}$\\
+        SEND&$\overline{RESET}$&$\overline{RTC}$&$\overline{SENT}$&$ERROR$\\
+      \end{tabular}
+      \caption{Main Unit Functional State Diagram: State and Outputs}
+      \label{fig:main-unit-fsd-state-outputs}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+   \begin{tabular}{|c|}
+    \hline
+     Output List\\
+    \hline
+     RESET = Power on Reset\\
+     SLEEP = MCU is in LPM4\\
+     WAKE = RTC Timer turned on MCU\\
+     SEND = Bluetooth module is sending data\\
+     ERROR = Temperature or Age Related Error Detected\\
+    \hline
+   \end{tabular}
+      \caption{Main Unit Functional State Diagram: Output List}
+      \label{fig:main-unit-fsd-outputs-list}
+  \end{subfigure}
 \caption{Sub Unit Functional State Diagram}
 \label{fig:sub-unit-fsd}
 \end{figure}
+\end{landscape}
+\end{center}
