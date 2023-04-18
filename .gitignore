@@ -364,3 +364,7 @@ Pre-Proposal/Merged-Proposals/Merged-Pre-Proposal.aux
 !Proposal/Market-Description/documentation.pdf
 !Microprocessor Selection and BDV2/Figures/project-poster.pdf
 !Microprocessor Selection and BDV2/Presentation/presentation.pdf
+/.metadata/
+/.metadata/
+*.lf
+.jxbrowser*
