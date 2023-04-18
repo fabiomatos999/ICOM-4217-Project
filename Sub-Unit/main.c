@@ -1,13 +1,27 @@
 #include <msp430.h> 
 #include <temperatureSensor.h>
+#include <bluetooth.h>
 
 typedef enum
 {
     OLD, FROZEN, COLD, WARM, HOT, TRASH, NONE
 } ERROR;
 
+char*ERROR_STRING[7] = {
+    "OLD",
+    "FROZEN",
+    "COLD",
+    "WARM",
+    "HOT",
+    "TRASH",
+    "NONE"
+};
+
+char LOT[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234";
+
 void checkExpDate();
 void raiseError(ERROR err);
+
 
 unsigned int currHour = 0;
 const unsigned int expDateHours = 17520;
@@ -39,7 +53,7 @@ int main(void)
     UCA0CTLW0 |= UCSSEL_2;
     UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
     UCA0CTL1 &= ~UCSWRST;
-    UCA0IE |= UCTXIE;
+
     __bis_SR_register(LPM4_bits + GIE);
 }
 
@@ -91,6 +105,7 @@ __interrupt void RTC_ISR(void)
     {
         P2OUT &= ~BIT0;
     }
+
     __bic_SR_register_on_exit(LPM4_bits);   // Exit active CPU
 }
 
@@ -106,5 +121,32 @@ void raiseError(ERROR err)
 {
     error = err;
     P2OUT |= BIT0;
+    sprintf(BLUETOOTHBUFFER,"%s %s",LOT,ERROR_STRING[err]);
+    UCA0IE |= UCTXIE;
+
 }
 
+#pragma vector=USCI_A0_VECTOR
+__interrupt void USCI_A0_ISR(){
+    switch(__even_in_range(UCA0IV,4)){
+    case 0: break;
+    case 2: break;
+    case 4:
+        if (charindex < BLUETOOTHBUFSIZE){
+            UCA0TXBUF = BLUETOOTHBUFFER[charindex];
+            charindex += 1;
+        }
+        else if (charindex == BLUETOOTHBUFSIZE) {
+            UCA0TXBUF = '\n';
+            charindex += 1;
+        }
+        else {
+            UCA0TXBUF = '\r';
+            charindex = 0;
+            resetBuffer();
+            UCA0IE &= ~UCTXIE;
+        }
+        break;
+    default: break;
+    }
+}
