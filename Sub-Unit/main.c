@@ -37,12 +37,9 @@ int main(void)
     ADCIE |= ADCIE0;
     ADCCTL0 |= ADCENC;
 
-    TB0CTL |= TBSSEL_1 + MC_1;
-    TB0CCR0 = 32768;
-    TB0CCTL0 |= CCIE;
     PM5CTL0 &= ~LOCKLPM5;
 
-    RTCMOD = 3600 - 1;
+    RTCMOD = (3600*32) - 1;
     RTCCTL = RTCSS__XT1CLK | RTCSR | RTCPS__1024 | RTCIE;
 
     P2DIR |= BIT0;
@@ -141,16 +138,6 @@ __interrupt void USCI_A0_ISR(){
         if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
             UCA0TXBUF = BTTXBUF[txcharindex];
             txcharindex += 1;
-        }
-        else if (txcharindex == strlen(BTTXBUF) || txcharindex == BTBUFSIZE) {
-            UCA0TXBUF = '\n';
-            txcharindex += 1;
-        }
-        else {
-            UCA0TXBUF = '\r';
-            txcharindex = 0;
-            resetTXBuffer();
-            UCA0IE &= ~UCTXIE;
         }
         break;
     default: break;
