@@ -42,7 +42,7 @@ char* AT_COMMANDS[] = {
     "AT+PWRM?",     // 28 Query Module sleep type
     "AT+PWRM[]",    // 29 Set Module sleep type
     "AT+RENEW",     // 30 Restore all setup value to factory setup
-    "AT+RESET",     // 31 .Restart module
+    "AT+RESET",     // 31 Restart module
     "AT+ROLE?",     // 32 Query Master and Slaver Role
     "AT+ROLE[]",    // 33 Set Master and Slaver Role
     "AT+RSSI?",     // 34 Query RSSI Value
@@ -61,15 +61,156 @@ char* AT_COMMANDS[] = {
     "AT+VERS?"      // 47 Query Software Version
 };
 
-void resetTXBuffer(){
+void resetBuffer(char* buf){
     unsigned int i = 0;
     for(;i<BTBUFSIZE;i++){
-        BTTXBUF[i] = '\0';
+        buf[i] = '\0';
     }
 }
-void resetRXBuffer(){
+
+int commandPosition(char* command){
+    unsigned int i =0;
+    for(;i<47;i++){
+        if(strcmp(AT_COMMANDS[i],command) == 0){
+            return i;
+        }
+    }
+    return -1;
+}
+
+void printBufferNoArgs(char* buff, char* command){
+    resetBuffer(buff);
+    sprintf(buff,"%s",command);
+}
+
+void printBufferOneArg(char* buff, char* command,char* parm1){
+    resetBuffer(buff);
+    char commandCopy[BTBUFSIZE];
+    strcpy(commandCopy,buff);
     unsigned int i = 0;
     for(;i<BTBUFSIZE;i++){
-        BTRXBUF[i] = '\0';
+        if (commandCopy[i] == '[' || commandCopy[i] == ']')
+            commandCopy[i] = '\0';
+    }
+    sprintf(buff,"%s[%s]",command,parm1);
+}
+
+void printBufferTwoArg(char* buff, char* command,char* parm1, char* parm2){
+    resetBuffer(buff);
+    char commandCopy[BTBUFSIZE];
+    strcpy(commandCopy,buff);
+    unsigned int i = 0;
+    for(;i<BTBUFSIZE;i++){
+        if (commandCopy[i] == '[' || commandCopy[i] == ']')
+            commandCopy[i] = '\0';
+    }
+    sprintf(buff,"%s[%s][%s]",command,parm1,parm2);
+}
+
+void executeAT_Command(char* command,char* parm1, char* parm2){
+    switch (commandPotition(command)){
+        case 0:
+            printBufferNoArgs(BTTXBUF,command);
+            UCA0IE |= UCRXIE;
+            break;
+        case 1:
+            printBufferNoArgs(BTTXBUF,command);
+            UCA0IE |= UCRXIE;
+            break;
+        case 2:
+            printBufferNoArgs(BTTXBUF,command);
+            UCA0IE |= UCRXIE;
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+        case 10:
+            break;
+        case 11:
+            break;
+        case 12:
+            break;
+        case 13:
+            break;
+        case 14:
+            break;
+        case 15:
+            break;
+        case 16:
+            break;
+        case 17:
+            break;
+        case 18:
+            break;
+        case 19:
+            break;
+        case 20:
+            break;
+        case 21:
+            break;
+        case 22:
+            break;
+        case 23:
+            break;
+        case 24:
+            break;
+        case 25:
+            break;
+        case 26:
+            break;
+        case 27:
+            break;
+        case 28:
+            break;
+        case 29:
+            break;
+        case 30:
+            break;
+        case 31:
+            break;
+        case 32:
+            break;
+        case 33:
+            break;
+        case 34:
+            break;
+        case 35:
+            break;
+        case 36:
+            break;
+        case 37:
+            break;
+        case 38:
+            break;
+        case 39:
+            break;
+        case 40:
+            break;
+        case 41:
+            break;
+        case 42:
+            break;
+        case 43:
+            break;
+        case 44:
+            break;
+        case 45:
+            break;
+        case 46:
+            break;
+        case 47:
+            break;
+        default: break;
     }
 }
