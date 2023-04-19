@@ -53,6 +53,7 @@ int main(void)
     UCA0CTLW0 |= UCSSEL_2;
     UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
     UCA0CTL1 &= ~UCSWRST;
+    UCA0IE |= UCRXIE;
 
     __bis_SR_register(LPM4_bits + GIE);
 }
@@ -121,7 +122,7 @@ void raiseError(ERROR err)
 {
     error = err;
     P2OUT |= BIT0;
-    sprintf(BLUETOOTHBUFFER,"%s %s",LOT,ERROR_STRING[err]);
+    sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
     UCA0IE |= UCTXIE;
 
 }
@@ -130,20 +131,25 @@ void raiseError(ERROR err)
 __interrupt void USCI_A0_ISR(){
     switch(__even_in_range(UCA0IV,4)){
     case 0: break;
-    case 2: break;
-    case 4:
-        if (charindex < BLUETOOTHBUFSIZE){
-            UCA0TXBUF = BLUETOOTHBUFFER[charindex];
-            charindex += 1;
+    case 2:
+        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
+            UCA0RXBUF = BTRXBUF[rxcharindex];
+            rxcharindex += 1;
         }
-        else if (charindex == BLUETOOTHBUFSIZE) {
+        break;
+    case 4:
+        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
+            UCA0TXBUF = BTTXBUF[txcharindex];
+            txcharindex += 1;
+        }
+        else if (txcharindex == strlen(BTTXBUF) || txcharindex == BTBUFSIZE) {
             UCA0TXBUF = '\n';
-            charindex += 1;
+            txcharindex += 1;
         }
         else {
             UCA0TXBUF = '\r';
-            charindex = 0;
-            resetBuffer();
+            txcharindex = 0;
+            resetTXBuffer();
             UCA0IE &= ~UCTXIE;
         }
         break;
