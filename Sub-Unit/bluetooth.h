@@ -11,7 +11,7 @@ unsigned int rxcharindex = 0;
 
 
 char* AT_COMMANDS[] = {
-    "AT",           // 0 Test COmmand
+    "AT",           // 0 Test Command
     "AT+ADDR?",     // 1 Query module address
     "AT+BAUD?",     // 2 Query baud rate
     "AT+BAUD[]",    // 3 Set baud rate
