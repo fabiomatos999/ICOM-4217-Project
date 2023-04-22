@@ -33,7 +33,7 @@ int main(void)
 
     ADCCTL0 |= ADCSHT_15 + ADCON;
     ADCCTL1 = ADCSHP;
-    ADCMCTL0 |= ADCINCH_7 + ADCSREF_7;
+    ADCMCTL0 |= ADCINCH_5 + ADCSREF_7;
     ADCIE |= ADCIE0;
     ADCCTL0 |= ADCENC;
 
@@ -48,8 +48,9 @@ int main(void)
     P1SEL0 |= BIT6 + BIT7;
     UCA0CTLW0 |= UCSWRST;
     UCA0CTLW0 |= UCSSEL_2;
+    UCA0BRW= 6;
     UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
-    UCA0CTL1 &= ~UCSWRST;
+    UCA0CTLW0 &= ~UCSWRST;
     UCA0IE |= UCRXIE;
 
     __bis_SR_register(LPM4_bits + GIE);
