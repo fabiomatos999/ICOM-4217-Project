@@ -39,7 +39,7 @@ int main(void)
 
     PM5CTL0 &= ~LOCKLPM5;
 
-    RTCMOD = (3600*32) - 1;
+    RTCMOD = 32 - 1;
     RTCCTL = RTCSS__XT1CLK | RTCSR | RTCPS__1024 | RTCIE;
 
     P2DIR |= BIT0;
@@ -48,20 +48,12 @@ int main(void)
     P1SEL0 |= BIT6 + BIT7;
     UCA0CTLW0 |= UCSWRST;
     UCA0CTLW0 |= UCSSEL_2;
-    UCA0BRW= 6;
+    UCA0BRW = 6;
     UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
     UCA0CTLW0 &= ~UCSWRST;
     UCA0IE |= UCRXIE;
 
     __bis_SR_register(LPM4_bits + GIE);
-}
-
-#pragma vector=ADC_VECTOR
-__interrupt void ADC12ISR(void)
-{
-    voltage = ADCMEM0;
-    tempts[tempindex] = (voltage - 600) / 10.0;
-    tempindex = (++tempindex) % TEMPBUFSIZE;
 }
 
 #pragma vector=RTC_VECTOR
@@ -71,9 +63,11 @@ __interrupt void RTC_ISR(void)
     unsigned int i = 0;
     for (; i < TEMPBUFSIZE; i++)
     {
-        while (ADCCTL1 & ADCBUSY)
-            ;
         ADCCTL0 |= ADCSC;
+        while (ADCCTL1 & ADCBUSY);
+        voltage = ADCMEM0;
+        tempts[tempindex] = (voltage - 500) / 10.0;
+        tempindex = (++tempindex) % TEMPBUFSIZE;
     }
     float average = average_celsius();
     if (average < 2 || average > 8)
