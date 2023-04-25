@@ -33,13 +33,14 @@ int main(void)
 
     ADCCTL0 |= ADCSHT_15 + ADCON;
     ADCCTL1 = ADCSHP;
+    ADCCTL2 |= ADCRES_1;
     ADCMCTL0 |= ADCINCH_5 + ADCSREF_7;
     ADCIE |= ADCIE0;
     ADCCTL0 |= ADCENC;
 
     PM5CTL0 &= ~LOCKLPM5;
 
-    RTCMOD = 32 - 1;
+    RTCMOD = 1;
     RTCCTL = RTCSS__XT1CLK | RTCSR | RTCPS__1024 | RTCIE;
 
     P2DIR |= BIT0;
