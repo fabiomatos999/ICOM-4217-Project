@@ -1,4 +1,4 @@
-#define TEMPBUFSIZE 100
+#define TEMPBUFSIZE 10
 
 float tempts[TEMPBUFSIZE];
 unsigned int tempindex = 0;
@@ -10,6 +10,6 @@ float average_celsius(){
     for(;i<TEMPBUFSIZE;i++){
         total +=tempts[i];
     }
-    return total/100.0;
+    return total/((float)TEMPBUFSIZE);
 }
 

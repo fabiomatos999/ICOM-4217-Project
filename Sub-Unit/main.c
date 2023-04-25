@@ -31,7 +31,7 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 
-    ADCCTL0 |= ADCSHT_15 + ADCON;
+    ADCCTL0 |= ADCSHT_7 + ADCON;
     ADCCTL1 = ADCSHP;
     ADCCTL2 |= ADCRES_1;
     ADCMCTL0 |= ADCINCH_5 + ADCSREF_7;
@@ -40,21 +40,24 @@ int main(void)
 
     PM5CTL0 &= ~LOCKLPM5;
 
-    RTCMOD = 1;
-    RTCCTL = RTCSS__XT1CLK | RTCSR | RTCPS__1024 | RTCIE;
+    RTCMOD = 32;
+    RTCCTL = RTCSS_1 | RTCSR | RTCPS__1024 | RTCIE;
 
     P2DIR |= BIT0;
     P2OUT &= ~BIT0;
 
-    P1SEL0 |= BIT6 + BIT7;
+    P1SEL0 |= BIT6 | BIT7;
     UCA0CTLW0 |= UCSWRST;
     UCA0CTLW0 |= UCSSEL_2;
-    UCA0BRW = 6;
-    UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
+    UCA0BR0 = 6;
+    UCA0BR1 = 0;
+    UCA0MCTLW = 0x22D1;
     UCA0CTLW0 &= ~UCSWRST;
-    UCA0IE |= UCRXIE;
+    UCA0IE |= UCTXIE + UCRXIE;
+    __enable_interrupt();
+    while(1){
 
-    __bis_SR_register(LPM4_bits + GIE);
+    }
 }
 
 #pragma vector=RTC_VECTOR
@@ -103,6 +106,26 @@ __interrupt void RTC_ISR(void)
     __bic_SR_register_on_exit(LPM4_bits);   // Exit active CPU
 }
 
+//#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
+//#pragma vector=RTC_VECTOR
+//__interrupt void RTC_ISR(void)
+//#elif defined(__GNUC__)
+//void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
+//#else
+//#error Compiler not supported!
+//#endif
+//{
+//    switch(__even_in_range(RTCIV,RTCIV_RTCIF))
+//    {
+//        case  RTCIV_NONE:   break;          // No interrupt
+//        case  RTCIV_RTCIF:                  // RTC Overflow
+//            P1OUT ^= BIT0;
+//            break;
+//        default: break;
+//    }
+//}
+
+
 void checkExpDate()
 {
     if (currHour > expDateHours)
@@ -115,7 +138,7 @@ void raiseError(ERROR err)
 {
     error = err;
     P2OUT |= BIT0;
-    sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
+//    sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
     UCA0IE |= UCTXIE;
 
 }
@@ -125,16 +148,18 @@ __interrupt void USCI_A0_ISR(){
     switch(__even_in_range(UCA0IV,4)){
     case 0: break;
     case 2:
-        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
-            UCA0RXBUF = BTRXBUF[rxcharindex];
-            rxcharindex += 1;
-        }
+//        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
+//            UCA0RXBUF = BTRXBUF[rxcharindex];
+//            rxcharindex += 1;
+//        }
         break;
     case 4:
-        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
-            UCA0TXBUF = BTTXBUF[txcharindex];
-            txcharindex += 1;
-        }
+//        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
+//            UCA0TXBUF = BTTXBUF[txcharindex];
+//            txcharindex += 1;
+//        }
+        UCA0IFG &= ~BIT1;
+        UCA0TXBUF = 'A';
         break;
     default: break;
     }
