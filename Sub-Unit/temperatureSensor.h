@@ -10,6 +10,6 @@ float average_celsius(){
     for(;i<TEMPBUFSIZE;i++){
         total +=tempts[i];
     }
-    return total/TEMPBUFSIZE;
+    return total/100.0;
 }
 

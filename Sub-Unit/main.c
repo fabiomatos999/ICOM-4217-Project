@@ -67,7 +67,7 @@ __interrupt void RTC_ISR(void)
         ADCCTL0 |= ADCSC;
         while (ADCCTL1 & ADCBUSY);
         voltage = ADCMEM0;
-        tempts[tempindex] = (voltage - 500) / 10.0;
+        tempts[tempindex] = (voltage) / 10.0;
         tempindex = (++tempindex) % TEMPBUFSIZE;
     }
     float average = average_celsius();
