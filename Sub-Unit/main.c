@@ -39,10 +39,12 @@ int main(void)
     ADC12CTL0 |= ADC12ENC;
 
 
-    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
-                                              // overflow interrupt enable
-    RTCPS0CTL = RT0PSDIV_2;                   // ACLK, /8, start timer
-    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
+//    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
+//                                              // overflow interrupt enable
+//    RTCPS0CTL = RT0PSDIV_2;                   // ACLK, /8, start timer
+//    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
+    RTCCTL0 |= RTCTEVIE + RTCRDYIE;
+    RTCCTL1 |= RTCTEV_0 + RTCBCD;
 
     P2DIR |= BIT0;
     P2OUT &= ~BIT0;
@@ -58,53 +60,79 @@ int main(void)
     __enable_interrupt();
 
     executeAT_Command("AT",NULL,NULL);
-    __bis_SR_register(LPM4_bits);
+    __bis_SR_register(LPM3_bits);
 }
 
 #pragma vector=RTC_VECTOR
 __interrupt void RTC_ISR(void)
 {
-    currHour += 1;
-    unsigned int i = 0;
-    for (; i < TEMPBUFSIZE; i++)
-    {
-        ADC12CTL0 |= ADC12SC;
-        while (ADC12CTL1 & ADC12BUSY);
-        voltage = ADC12MEM0;
-        tempts[tempindex] = (voltage) / 10.0;
-        tempindex = (++tempindex) % TEMPBUFSIZE;
-    }
-    float average = average_celsius();
-    if (average < 2 || average > 8)
-    {
-        if (average <= 0)
-        {
-            raiseError(FROZEN);
-        }
-        else if (average > 0 && average < 2)
-        {
-            raiseError(COLD);
-        }
-        else if (average > 8 && average < 15)
-        {
-            raiseError(WARM);
-        }
-        else if (average >= 15 && average < 30)
-        {
-            raiseError(WARM);
-        }
-        else
-        {
-            raiseError(TRASH);
-        }
-    }
-    checkExpDate();
-    if (error == NONE)
-    {
-        P2OUT &= ~BIT0;
-    }
 
-    __bic_SR_register_on_exit(LPM4_bits);   // Exit active CPU
+}
+
+#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma vector=RTC_VECTOR
+__interrupt void RTC_ISR(void)
+#elif defined(__GNUC__)
+void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
+#else
+#error Compiler not supported!
+#endif
+{
+  switch(__even_in_range(RTCIV,16))
+  {
+    case 0: break;                          // No interrupts
+    case 2: break;                          // RTCRDYIFG
+    case 4:                                 // RTCEVIFG
+        currHour += 1;
+        unsigned int i = 0;
+        for (; i < TEMPBUFSIZE; i++)
+        {
+            ADC12CTL0 |= ADC12SC;
+            while (ADC12CTL1 & ADC12BUSY);
+            voltage = ADC12MEM0;
+            tempts[tempindex] = (voltage) / 10.0;
+            tempindex = (++tempindex) % TEMPBUFSIZE;
+        }
+        float average = average_celsius();
+        if (average < 2 || average > 8)
+        {
+            if (average <= 0)
+            {
+                raiseError(FROZEN);
+            }
+            else if (average > 0 && average < 2)
+            {
+                raiseError(COLD);
+            }
+            else if (average > 8 && average < 15)
+            {
+                raiseError(WARM);
+            }
+            else if (average >= 15 && average < 30)
+            {
+                raiseError(WARM);
+            }
+            else
+            {
+                raiseError(TRASH);
+            }
+        }
+        checkExpDate();
+        if (error == NONE)
+        {
+            P2OUT &= ~BIT0;
+        }
+
+        __bic_SR_register_on_exit(LPM3_bits);   // Exit active CPU
+      break;
+    case 6: break;                          // RTCAIFG
+    case 8: break;                          // RT0PSIFG
+    case 10: break;                         // RT1PSIFG
+    case 12: break;                         // Reserved
+    case 14: break;                         // Reserved
+    case 16: break;                         // Reserved
+    default: break;
+  }
 }
 
 void checkExpDate()
