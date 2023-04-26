@@ -1,0 +1,25 @@
+@startuml
+!pragma useVerticalIf on
+:RTC_ISR;
+if (2°C <= CURR_TEMP <= 8°C) then (yes)
+    :ERROR = NONE;
+    (no) elseif (CURR_TEMP <= 0°C) then (yes)
+    :ERROR = FROZEN;
+    (no) elseif (0°C < CURR_TEMP < 2°C) then (yes)
+    :ERROR = COLD;
+    (no) elseif (8°C < CURR_TEMP < 15°C) then (yes)
+    :ERROR = WARM;
+    (no) elseif (15°C <= CURR_TEMP < 30°C) then (yes)
+    :ERROR = HOT;
+    else (no)
+        :ERROR = TRASH;
+    endif
+if (Mains Power GPIO High?) then (yes)
+        :POWER_AVAILABLE = TRUE;
+        else (no)
+        :POWER_AVAILABLE = FALSE;
+    endif
+:Create a log file incuding\nPOWER_AVAILABLE, ERROR and TEMP;
+:Send logfile to the host computer via bluetooth;
+:RETI;
+@enduml

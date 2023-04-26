@@ -1,0 +1,10 @@
+@startuml
+start
+:Initalize PORT1;
+:Initalize ADC;
+:Initialize UART at 9600 baud;
+:Initalize Bluetooth Module;
+:Initalize RTC;
+:Enable Global Interrupts;
+:Activate Low Power Mode;
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+:UART_ISR;
+    :Create Logfile including POWER_AVAILABLE, CURR_TIME, CURR_TEMP, ERROR;
+    :Send logfile to host computer;
+:RETI;
+@enduml
