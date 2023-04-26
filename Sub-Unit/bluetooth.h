@@ -8,15 +8,16 @@ char BTRXBUF[BTBUFSIZE];
 unsigned int txcharindex = 0;
 unsigned int rxcharindex = 0;
 
-char *AT_COMMANDS[] = { "AT",           // 0 Test Command
+char *AT_COMMANDS[] = {
+        "AT",           // 0 Test Command
         "AT+ADDR?",     // 1 Query module address
         "AT+BAUD?",     // 2 Query baud rate
         "AT+BAUD[]",    // 3 Set baud rate
         "AT+CLEAR",     // 4 Clear Last Connected device address
         "AT+CONNL",     // 5 Try connect to last succeeded device
         "AT+CON[]",     // 6 Try connect an address
-        "AT+FILT?", // 7 Query filter AT command parameter in AT+MODE value is 2
-        "AT+FILT[]",  // 8 Set filter AT command parameter in AT+MODE value is 2
+        "AT+FILT?",     // 7 Query filter AT command parameter in AT+MODE value is 2
+        "AT+FILT[]",    // 8 Set filter AT command parameter in AT+MODE value is 2
         "AT+HELP?",     // 9 System Help Information
         "AT+IMME?",     // 10 Query Module work type
         "AT+IMME[]",    // 11 Set Module work type
@@ -30,8 +31,8 @@ char *AT_COMMANDS[] = { "AT",           // 0 Test Command
         "AT+PARI[]",    // 19 Set Parity bit
         "AT+PIO1?",     // 20 Query PIO1 output status (System LED)
         "AT+PIO1[]",    // 21 Set PIO1 output status (System LED)
-        "AT+PIO[]?" // 22 Query/Set PIO pins output high or low (Only this time, when module next power on, this value is not be used)
-        "AT+PIO[][]",// 23 Query/Set PIO pins output high or low (Only this time, when module next power on, this value is not be used)
+        "AT+PIO[]?"     // 22 Query/Set PIO pins output high or low (Only this time, when module next power on, this value is not be used)
+        "AT+PIO[][]",   // 23 Query/Set PIO pins output high or low (Only this time, when module next power on, this value is not be used)
         "AT+PASS?",     // 24 Query Pin Code
         "AT+PIN[]",     // 25 Set Pin Code
         "AT+POWE?",     // 26 Query Module Power
@@ -45,7 +46,7 @@ char *AT_COMMANDS[] = { "AT",           // 0 Test Command
         "AT+RSSI?",     // 34 Query RSSI Value
         "AT+RADD",      // 35 Query Last Connected Device Address
         "AT+STOP?"      // 36 Query Stop bit
-        "AT+STOP[]",// 37 Set Stop bit
+        "AT+STOP[]",    // 37 Set Stop bit
         "AT+START",     // 38 Work immediately
         "AT+SLEEP",     // 39 Query Module into sleep mode
         "AT+SAVE?",     // 40 Query Module save connected address parameter

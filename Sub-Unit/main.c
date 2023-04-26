@@ -31,33 +31,34 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 
-    ADCCTL0 |= ADCSHT_7 + ADCON;
-    ADCCTL1 = ADCSHP;
-    ADCCTL2 |= ADCRES_1;
-    ADCMCTL0 |= ADCINCH_5 + ADCSREF_7;
-    ADCIE |= ADCIE0;
-    ADCCTL0 |= ADCENC;
+    P6SEL |= BIT7;
+    ADC12CTL0 |= ADC12SHT0_15 + ADC12ON;
+    ADC12CTL1 = ADC12SHP;
+    ADC12MCTL0 |= ADC12INCH_7 + ADC12SREF_7;
+    ADC12IE |= BIT0;
+    ADC12CTL0 |= ADC12ENC;
 
-    PM5CTL0 &= ~LOCKLPM5;
 
-    RTCMOD = 32;
-    RTCCTL = RTCSS_1 | RTCSR | RTCPS__1024 | RTCIE;
+    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
+                                              // overflow interrupt enable
+    RTCPS0CTL = RT0PSDIV_2;                   // ACLK, /8, start timer
+    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
 
     P2DIR |= BIT0;
     P2OUT &= ~BIT0;
 
-    P1SEL0 |= BIT6 | BIT7;
-    UCA0CTLW0 |= UCSWRST;
-    UCA0CTLW0 |= UCSSEL_2;
-    UCA0BR0 = 6;
-    UCA0BR1 = 0;
-    UCA0MCTLW = 0x22D1;
-    UCA0CTLW0 &= ~UCSWRST;
+    P3SEL = BIT4 + BIT5;
+    UCA0CTL1 |= UCSWRST;
+    UCA0CTL1 |= UCSSEL_2;
+    UCA0BR0 = 109;
+    UCA0BR1 = 0x00;
+    UCA0MCTL = UCBRS_2+UCBRF_0;
+    UCA0CTL1 &= ~UCSWRST;
     UCA0IE |= UCTXIE + UCRXIE;
     __enable_interrupt();
-    while(1){
 
-    }
+    executeAT_Command("AT",NULL,NULL);
+    __bis_SR_register(LPM4_bits);
 }
 
 #pragma vector=RTC_VECTOR
@@ -67,9 +68,9 @@ __interrupt void RTC_ISR(void)
     unsigned int i = 0;
     for (; i < TEMPBUFSIZE; i++)
     {
-        ADCCTL0 |= ADCSC;
-        while (ADCCTL1 & ADCBUSY);
-        voltage = ADCMEM0;
+        ADC12CTL0 |= ADC12SC;
+        while (ADC12CTL1 & ADC12BUSY);
+        voltage = ADC12MEM0;
         tempts[tempindex] = (voltage) / 10.0;
         tempindex = (++tempindex) % TEMPBUFSIZE;
     }
@@ -106,26 +107,6 @@ __interrupt void RTC_ISR(void)
     __bic_SR_register_on_exit(LPM4_bits);   // Exit active CPU
 }
 
-//#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
-//#pragma vector=RTC_VECTOR
-//__interrupt void RTC_ISR(void)
-//#elif defined(__GNUC__)
-//void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
-//#else
-//#error Compiler not supported!
-//#endif
-//{
-//    switch(__even_in_range(RTCIV,RTCIV_RTCIF))
-//    {
-//        case  RTCIV_NONE:   break;          // No interrupt
-//        case  RTCIV_RTCIF:                  // RTC Overflow
-//            P1OUT ^= BIT0;
-//            break;
-//        default: break;
-//    }
-//}
-
-
 void checkExpDate()
 {
     if (currHour > expDateHours)
@@ -138,7 +119,7 @@ void raiseError(ERROR err)
 {
     error = err;
     P2OUT |= BIT0;
-//    sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
+    sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
     UCA0IE |= UCTXIE;
 
 }
@@ -148,19 +129,29 @@ __interrupt void USCI_A0_ISR(){
     switch(__even_in_range(UCA0IV,4)){
     case 0: break;
     case 2:
-//        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
-//            UCA0RXBUF = BTRXBUF[rxcharindex];
-//            rxcharindex += 1;
-//        }
+        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
+            UCA0RXBUF = BTRXBUF[rxcharindex];
+            rxcharindex += 1;
+        }
+        else {
+            resetBuffer(BTRXBUF);
+            rxcharindex = 0;
+        }
         break;
     case 4:
-//        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
-//            UCA0TXBUF = BTTXBUF[txcharindex];
-//            txcharindex += 1;
-//        }
-        UCA0IFG &= ~BIT1;
-        UCA0TXBUF = 'A';
+        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
+            UCA0TXBUF = BTTXBUF[txcharindex];
+            txcharindex += 1;
+        }
+        else {
+            txcharindex = 0;
+            UCA0IE &= ~UCTXIE;
+        }
         break;
     default: break;
     }
 }
+
+
+
+
