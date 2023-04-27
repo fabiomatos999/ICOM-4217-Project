@@ -1,6 +1,11 @@
 #include <msp430.h> 
 #include <temperatureSensor.h>
-#include <bluetooth.h>
+
+char at[] = "AT+ADDR?\n\r\0";
+
+char BUFF[10];
+
+unsigned int i = 0;
 
 typedef enum
 {
@@ -39,15 +44,13 @@ int main(void)
     ADC12CTL0 |= ADC12ENC;
 
 
-//    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
-//                                              // overflow interrupt enable
-//    RTCPS0CTL = RT0PSDIV_2;                   // ACLK, /8, start timer
-//    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
-    RTCCTL0 |= RTCTEVIE + RTCRDYIE;
-    RTCCTL1 |= RTCTEV_0 + RTCBCD;
+    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
+                                              // overflow interrupt enable
+    RTCPS0CTL = RT0PSDIV_3;                   // ACLK, /8, start timer
+    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
 
-    P2DIR |= BIT0;
-    P2OUT &= ~BIT0;
+    P1DIR |= BIT4;
+    P1OUT &= ~BIT4;
 
     P3SEL = BIT4 + BIT5;
     UCA0CTL1 |= UCSWRST;
@@ -59,14 +62,8 @@ int main(void)
     UCA0IE |= UCTXIE + UCRXIE;
     __enable_interrupt();
 
-    executeAT_Command("AT",NULL,NULL);
+    __delay_cycles(10000);
     __bis_SR_register(LPM3_bits);
-}
-
-#pragma vector=RTC_VECTOR
-__interrupt void RTC_ISR(void)
-{
-
 }
 
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
@@ -90,7 +87,7 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
             ADC12CTL0 |= ADC12SC;
             while (ADC12CTL1 & ADC12BUSY);
             voltage = ADC12MEM0;
-            tempts[tempindex] = (voltage) / 10.0;
+            tempts[tempindex] = (voltage-500) / 10.0;
             tempindex = (++tempindex) % TEMPBUFSIZE;
         }
         float average = average_celsius();
@@ -120,7 +117,7 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
         checkExpDate();
         if (error == NONE)
         {
-            P2OUT &= ~BIT0;
+            P1OUT &= ~BIT4;
         }
 
         __bic_SR_register_on_exit(LPM3_bits);   // Exit active CPU
@@ -146,7 +143,7 @@ void checkExpDate()
 void raiseError(ERROR err)
 {
     error = err;
-    P2OUT |= BIT0;
+    P1OUT |= BIT4;
     sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
     UCA0IE |= UCTXIE;
 
@@ -154,32 +151,17 @@ void raiseError(ERROR err)
 
 #pragma vector=USCI_A0_VECTOR
 __interrupt void USCI_A0_ISR(){
+
     switch(__even_in_range(UCA0IV,4)){
     case 0: break;
     case 2:
-        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
-            UCA0RXBUF = BTRXBUF[rxcharindex];
-            rxcharindex += 1;
-        }
-        else {
-            resetBuffer(BTRXBUF);
-            rxcharindex = 0;
-        }
+        BUFF[i] = UCA0RXBUF;
+        i = (++i)%10;
+        volatile char buffcpy[10] = BUFF;
         break;
     case 4:
-        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
-            UCA0TXBUF = BTTXBUF[txcharindex];
-            txcharindex += 1;
-        }
-        else {
-            txcharindex = 0;
-            UCA0IE &= ~UCTXIE;
-        }
+        UCA0TXBUF = 'A';
         break;
     default: break;
     }
 }
-
-
-
-

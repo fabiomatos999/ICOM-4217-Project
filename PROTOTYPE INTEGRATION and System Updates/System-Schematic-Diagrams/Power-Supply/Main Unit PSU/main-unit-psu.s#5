@@ -6300,7 +6300,7 @@ ERA</description>
 <parts>
 <part name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:43336/1"/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="050-024X044" package3d_urn="urn:adsk.eagle:package:23643/1" value="10 uF"/>
-<part name="B1" library="rectifier" library_urn="urn:adsk.eagle:library:336" deviceset="B-DIL" device="" package3d_urn="urn:adsk.eagle:package:23868/1" value="CS10D"/>
+<part name="B1" library="rectifier" library_urn="urn:adsk.eagle:library:336" deviceset="B-DIL" device="" package3d_urn="urn:adsk.eagle:package:23868/1" value="KMB23S"/>
 <part name="X_1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="ZENER-DIODE" device="DO41Z10" package3d_urn="urn:adsk.eagle:package:43341/1" value="NZX22C,133"/>
 <part name="X_2" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
