@@ -1,10 +1,8 @@
 #include <msp430.h> 
 #include <temperatureSensor.h>
+#include <bluetooth.h>
 
-char at[] = "AT+ADDR?\n\r\0";
-
-char BUFF[10];
-
+char at[82] = "";
 unsigned int i = 0;
 
 typedef enum
@@ -48,6 +46,8 @@ int main(void)
                                               // overflow interrupt enable
     RTCPS0CTL = RT0PSDIV_3;                   // ACLK, /8, start timer
     RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
+//    RTCCTL0 |= RTCTEVIE + RTCRDYIE;
+//    RTCCTL1 |= RTCTEV_0 + RTCBCD;
 
     P1DIR |= BIT4;
     P1OUT &= ~BIT4;
@@ -62,6 +62,7 @@ int main(void)
     UCA0IE |= UCTXIE + UCRXIE;
     __enable_interrupt();
 
+//    executeAT_Command("AT+ADDR?",NULL,NULL);
     __delay_cycles(10000);
     __bis_SR_register(LPM3_bits);
 }
@@ -155,12 +156,29 @@ __interrupt void USCI_A0_ISR(){
     switch(__even_in_range(UCA0IV,4)){
     case 0: break;
     case 2:
-        BUFF[i] = UCA0RXBUF;
-        i = (++i)%10;
-        volatile char buffcpy[10] = BUFF;
+        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
+            UCA0RXBUF = BTRXBUF[rxcharindex];
+            rxcharindex += 1;
+        }
+        else {
+            resetBuffer(BTRXBUF);
+            rxcharindex = 0;
+        }
         break;
     case 4:
-        UCA0TXBUF = 'A';
+//        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
+//            UCA0TXBUF = BTTXBUF[txcharindex];
+//            txcharindex += 1;
+//        }
+//        else {
+//            txcharindex = 0;
+//            resetBuffer(BTTXBUF);
+//            UCA0IE &= ~UCTXIE;
+//        }
+        if (i < strlen(at)){
+            UCA0TXBUF = at[i];
+            i +=1;
+        }
         break;
     default: break;
     }
