@@ -32,22 +32,32 @@ int main(void)
 
 
 //    PM5CTL0 &= ~LOCKLPM5;//sends GPIO pins to low impedance mode
-    P2OUT &= ~(BIT1 + BIT0);
-    P2DIR |= BIT1+BIT0;//P2.1 = GREEN LED, P2.0= RED LED, P2.2= Voltage sensing pin
-    P2OUT |= BIT1;
-    P1IES |= BIT3;
+    P4OUT &= ~(BIT1 + BIT0);
+    P4DIR |= BIT1+BIT0;//P2.1 = GREEN LED, P2.0= RED LED, P2.2= Voltage sensing pin
     P1REN |= BIT3;
     P1IE |= BIT3;
+    if (((P1IN>>3)& 1)==1){//verifies that power is present
+                P4OUT &= ~BIT0;
+                P4OUT |= BIT1;
+                P1IES |= BIT3;
+                //toggles LEDs
+            }
+            else {
+                P4OUT &= ~BIT1;
+                P4OUT |= BIT0;
+                P1IES &= ~BIT3;
 
+                //toggles LEDs
+            }
     P1IFG &= ~BIT3;
-//    P1SEL0 |= BIT6 + BIT7;//UART Pins P1.6=RX, P1.7=TX
-//    UCA0CTLW0 |= UCSWRST;
-//    UCA0CTLW0 |= UCSSEL_2;
-//    UCA0BR0 = 6; //baud rate
-//    UCA0BR1 = 0x00;
-//    UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
-//    UCA0CTLW0 &= ~UCSWRST;
-//    UCA0IE |= UCRXIE;//enable interrupts for the receiver
+    P1SEL0 |= BIT6 + BIT7;//UART Pins P1.6=RX, P1.7=TX
+    UCA0CTLW0 |= UCSWRST;
+    UCA0CTLW0 |= UCSSEL_2;
+    UCA0BR0 = 6; //baud rate
+    UCA0BR1 = 0x00;
+    UCA0MCTLW = UCOS16 + (13<<4) + (0x22<<8);
+    UCA0CTLW0 &= ~UCSWRST;
+    UCA0IE |= UCRXIE;//enable interrupts for the receiver
     P3SEL = BIT4 + BIT5;
     UCA0CTL1 |= UCSWRST;
     UCA0CTL1 |= UCSSEL_2;
@@ -57,33 +67,34 @@ int main(void)
     UCA0CTL1 &= ~UCSWRST;
     UCA0IE |= UCTXIE + UCRXIE;
     UCA0TXBUF = 'A';
-//    executeAT_Command("AT+IMME[]", "1", NULL);
-//    executeAT_Command("AT+ROLE[]", "1", NULL);
-//    ownerAddr=executeAT_Command("AT+ADDR?", NULL, NULL);
-//    subAddr= executeAT_Command("AT+DISC?", NULL, NULL);
+    __enable_interrupt();
     __bis_SR_register(LPM3_bits | GIE);
+    __no_operation();
 }
 
-#pragma vector=PORT2_VECTOR
-__interrupt void PORT2_ISR(void)
+#pragma vector=PORT1_VECTOR
+__interrupt void PORT1_ISR(void)
 {
-    if(P2IFG & BIT3){
-        P1IES ^= BIT3;//toggles interrupt edge
+    switch(__even_in_range(P1IV,16)){
+    case 8:
         if (((P1IN>>3)& 1)==1){//verifies that power is present
-            P2OUT &= ~BIT0;
-            P2OUT |= BIT1;
+            P4OUT &= ~BIT0;
+            P4OUT |= BIT1;
+            P1IES |= BIT3;
+
             //toggles LEDs
         }
         else {
-            P2OUT &= ~BIT1;
-            P2OUT |= BIT1;
+            P4OUT &= ~BIT1;
+            P4OUT |= BIT0;
+            P1IES &= ~BIT3;
             //toggles LEDs
         }
-        P1IFG &= ~BIT3;//clears P2.2 flag
+    break;
+    default:
+    break;
     }
-    else{
-        P1IFG &= BIT3;//clears all flags except P2.2
-    }
+    __bis_SR_register_on_exit(LPM3_bits);
 
 }
 
