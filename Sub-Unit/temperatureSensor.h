@@ -12,4 +12,3 @@ float average_celsius(){
     }
     return total/((float)TEMPBUFSIZE);
 }
-

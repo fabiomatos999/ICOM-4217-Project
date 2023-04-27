@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
-\usepackage{minted}
+\usepackage{caption}
+\usepackage[newfloat]{minted}
 \usepackage{setspace}
 \usepackage{float}
 \usepackage{svg}
@@ -23,6 +24,7 @@
 }
 \usepackage{siunitx}
 \usepackage{tabularx}
+\usepackage{caption}
 \usepackage{bookmark}
 \bookmarksetup{
   numbered,
@@ -66,6 +68,8 @@
 }
 \usepackage{etoolbox}
 \apptocmd{\thebibliography}{\raggedright}{}{}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Source Code}
 \begin{document}
 \linespread{1.0}
  \input{../Title-Page/title-page.tex}
@@ -79,6 +83,6 @@
  \input{../Bill-Of-Materials/bill-of-materials.tex}
  \input{../Power-Voltage-Compatability-Timing-Analysis/power-voltage-compatability-timing-analysis.tex}
  \input{../Individual-BD-SCH-Pictures/individual-bd-sch-pictures.tex}
- \input{../Detailed-Software-Plan-Per-Module/detailed-software-plan-per-module.tex}
  \input{../References/references.tex}
+ \input{../Detailed-Software-Plan-Per-Module/detailed-software-plan-per-module.tex}
 \end{document}

@@ -165,7 +165,3 @@ __interrupt void USCI_A0_ISR(){
     default: break;
     }
 }
-
-
-
-

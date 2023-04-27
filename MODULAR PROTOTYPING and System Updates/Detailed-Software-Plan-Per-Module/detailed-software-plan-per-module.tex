@@ -1,6 +1,7 @@
 \appendix
-\section{Detailed Software Plan Per Module}
-\subsection{Main Unit}
+\section{Code appendix}
+\subsection{Detailed Software Plan Per Module}
+\subsubsection{Main Unit}
 \createfiguresw{0.50\textwidth}{../Detailed-Software-Plan-Per-Module/Figures/main-unit-main-function.png}{Main Unit Main Function Flowchart}{fig:main-unit-main-function-flowchart}
 \createfiguresw{0.54\textwidth}{../Detailed-Software-Plan-Per-Module/Figures/main-unit-rtc-isr.png}{Main Unit RTC ISR Flowchart}{fig:main-unit-rtc-isr-flowchart}
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/main-unit-bluetooth-isr.png}{Main Unit Bluetooth ISR Flowchart}{fig:main-unit-bluetooth-isr-flowchart}
@@ -9,7 +10,7 @@
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/main-unit-main-function-pseudo-code.png}{Main Unit Main Function Pseudo Code}{fig:main-unit-main-function-pseudo-code}
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/main-unit-rtc-isr-pseudo-code.png}{Main Unit RTC ISR Pseudo Code}{fig:main-unit-rtc-isr-pseudo-code}
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/main-unit-bluetooth-isr-pseudo-code.png}{Main Unit Bluetooth ISR Pseudo Code}{fig:main-unit-bluetooth-isr-pseudo-code}
-\subsection{Sub Unit}
+\subsubsection{Sub Unit}
 \createfiguresw{0.50\textwidth}{../Detailed-Software-Plan-Per-Module/Figures/sub-unit-main-function.png}{Sub Unit Main Function Flowchart}{fig:sub-unit-main-function-flowchart}
 \createfiguresw{0.75\textwidth}{../Detailed-Software-Plan-Per-Module/Figures/sub-unit-rtc-isr.png}{Sub Unit RTC ISR Flowchart}{fig:sub-unit-rtc-isr-flowchart}
 \createfiguresw{0.75\textwidth}{../Detailed-Software-Plan-Per-Module/Figures/sub-unit-bluetooth-isr.png}{Sub Unit Bluetooth ISR Flowchart}{fig:sub-unit-bluetooth-isr-flowchart}
@@ -17,10 +18,18 @@
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/sub-unit-main-function-pseudo-code.png}{Sub Unit Main Function Pseudo Code}{fig:sub-unit-main-function-pseudo-code}
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/sub-unit-rtc-isr-pseudo-code.png}{Sub Unit RTC ISR Pseudo Code}{fig:sub-unit-rtc-isr-pseudo-code}
 \createfigurew{../Detailed-Software-Plan-Per-Module/Figures/sub-unit-bluetooth-isr-pseudo-code.png}{Sub Unit Bluetooth ISR Pseudo Code}{fig:sub-unit-bluetooth-isr-pseudo-code}
+\begin{code}
+\captionof{listing}{Sub Unit Main.c}
+\label{code:sub-unit-main-func}
 \begin{minted}[breaklines,breakanywhere]{C}
 #include <msp430.h> 
 #include <temperatureSensor.h>
-#include <bluetooth.h>
+
+char at[] = "AT+ADDR?\n\r\0";
+
+char BUFF[10];
+
+unsigned int i = 0;
 
 typedef enum
 {
@@ -59,15 +68,13 @@ int main(void)
     ADC12CTL0 |= ADC12ENC;
 
 
-//    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
-//                                              // overflow interrupt enable
-//    RTCPS0CTL = RT0PSDIV_2;                   // ACLK, /8, start timer
-//    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
-    RTCCTL0 |= RTCTEVIE + RTCRDYIE;
-    RTCCTL1 |= RTCTEV_0 + RTCBCD;
+    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
+                                              // overflow interrupt enable
+    RTCPS0CTL = RT0PSDIV_3;                   // ACLK, /8, start timer
+    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;       // out from RT0PS, /16, start timer
 
-    P2DIR |= BIT0;
-    P2OUT &= ~BIT0;
+    P1DIR |= BIT4;
+    P1OUT &= ~BIT4;
 
     P3SEL = BIT4 + BIT5;
     UCA0CTL1 |= UCSWRST;
@@ -79,14 +86,8 @@ int main(void)
     UCA0IE |= UCTXIE + UCRXIE;
     __enable_interrupt();
 
-    executeAT_Command("AT",NULL,NULL);
+    __delay_cycles(10000);
     __bis_SR_register(LPM3_bits);
-}
-
-#pragma vector=RTC_VECTOR
-__interrupt void RTC_ISR(void)
-{
-
 }
 
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
@@ -110,7 +111,7 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
             ADC12CTL0 |= ADC12SC;
             while (ADC12CTL1 & ADC12BUSY);
             voltage = ADC12MEM0;
-            tempts[tempindex] = (voltage) / 10.0;
+            tempts[tempindex] = (voltage-500) / 10.0;
             tempindex = (++tempindex) % TEMPBUFSIZE;
         }
         float average = average_celsius();
@@ -140,7 +141,7 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
         checkExpDate();
         if (error == NONE)
         {
-            P2OUT &= ~BIT0;
+            P1OUT &= ~BIT4;
         }
 
         __bic_SR_register_on_exit(LPM3_bits);   // Exit active CPU
@@ -166,7 +167,7 @@ void checkExpDate()
 void raiseError(ERROR err)
 {
     error = err;
-    P2OUT |= BIT0;
+    P1OUT |= BIT4;
     sprintf(BTTXBUF,"%s %s",LOT,ERROR_STRING[err]);
     UCA0IE |= UCTXIE;
 
@@ -174,29 +175,39 @@ void raiseError(ERROR err)
 
 #pragma vector=USCI_A0_VECTOR
 __interrupt void USCI_A0_ISR(){
+
     switch(__even_in_range(UCA0IV,4)){
     case 0: break;
     case 2:
-        if (rxcharindex < BTBUFSIZE && rxcharindex < strlen(BTRXBUF)){
-            UCA0RXBUF = BTRXBUF[rxcharindex];
-            rxcharindex += 1;
-        }
-        else {
-            resetBuffer(BTRXBUF);
-            rxcharindex = 0;
-        }
+        BUFF[i] = UCA0RXBUF;
+        i = (++i)%10;
+        volatile char buffcpy[10] = BUFF;
         break;
     case 4:
-        if (txcharindex < BTBUFSIZE && txcharindex < strlen(BTTXBUF)){
-            UCA0TXBUF = BTTXBUF[txcharindex];
-            txcharindex += 1;
-        }
-        else {
-            txcharindex = 0;
-            UCA0IE &= ~UCTXIE;
-        }
+        UCA0TXBUF = 'A';
         break;
     default: break;
     }
 }
 \end{minted}
+\end{code}
+\begin{code}
+\captionof{listing}{Sub Unit Temperature Sensor Library}
+\label{code:sub-unit-temp-func}
+\begin{minted}[breaklines,breakanywhere]{C}
+#define TEMPBUFSIZE 10
+
+float tempts[TEMPBUFSIZE];
+unsigned int tempindex = 0;
+unsigned int voltage = 0;
+
+float average_celsius(){
+    float total= 0;
+    unsigned int i = 0;
+    for(;i<TEMPBUFSIZE;i++){
+        total +=tempts[i];
+    }
+    return total/((float)TEMPBUFSIZE);
+}
+\end{minted}
+\end{code}
