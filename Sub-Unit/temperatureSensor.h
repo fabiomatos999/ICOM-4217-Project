@@ -1,4 +1,4 @@
-#define TEMPBUFSIZE 10
+#define TEMPBUFSIZE 100
 
 float tempts[TEMPBUFSIZE];
 unsigned int tempindex = 0;
