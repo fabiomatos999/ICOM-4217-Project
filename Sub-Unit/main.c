@@ -1,19 +1,9 @@
 #include <msp430.h> 
 #include <temperatureSensor.h>
-#include "stdio.h"
 
 #define BUFFSIZE 40
 
-void resetBuffer(char *buf)
-{
-    unsigned int i = 0;
-    for (; i < 38; i++)
-    {
-        buf[i] = ' ';
-    }
-}
-
-char at[] = "AT+ADDR?\r\n";
+char at[] = "AT\r\n";
 
 char BUFF[BUFFSIZE];
 
@@ -25,13 +15,13 @@ typedef enum
 } ERROR;
 
 char*ERROR_STRING[7] = {
-    "OLD",
+    "OLD   ",
     "FROZEN",
-    "COLD",
-    "WARM",
-    "HOT",
-    "TRASH",
-    "NONE"
+    "COLD  ",
+    "WARM  ",
+    "HOT   ",
+    "TRASH ",
+    "NONE  "
 };
 
 char LOT[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234";
@@ -71,10 +61,12 @@ int main(void)
     UCA0BR1 = 0;                              // 1MHz 115200
     UCA0MCTL |= UCBRS_2 + UCBRF_0;            // Modulation UCBRSx=1, UCBRFx=0
     UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+    UCA0IE |= UCTXIE;
     __enable_interrupt();
 
-    while(1){
-    }
+//    while(1){
+//    }
+    __bis_SR_register(LPM0_bits);
 }
 
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
@@ -141,6 +133,8 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
     case 16: break;                         // Reserved
     default: break;
   }
+  __bis_SR_register_on_exit(LPM0_bits);
+
 }
 
 void checkExpDate()
@@ -158,8 +152,19 @@ void raiseError(ERROR err)
 {
     error = err;
     P1OUT |= BIT4;
-    sprintf(BUFF ,"%s %s\r\n",LOT,ERROR_STRING[err]);
-    UCA0IE |= UCTXIE;
+    i = 0;
+    for(;i<30;i++){
+        BUFF[i] = LOT[i];
+    }
+    BUFF[30] = ' ';
+    i = 31;
+    for(;i<38;i++){
+          BUFF[i] = ERROR_STRING[err][i-31];
+      }
+    BUFF[37] = '\r';
+    BUFF[38] = '\n';
+    i=0;
+    UCA0IFG |= BIT1;
 }
 
 // Echo back RXed character, confirm TX buffer is ready first
@@ -170,13 +175,15 @@ __interrupt void USCI_A0_ISR(void)
   {
   case 0:break;                             // Vector 0 - no interrupt
   case 2:                                   // Vector 2 - RXIFG
-
     break;
   case 4:
       if (error == NONE || i >= BUFFSIZE) {
+          unsigned int x = 0;
+          for (; x < BUFFSIZE; x++)
+          {
+              BUFF[x] = '\0';
+          }
           i = 0;
-          resetBuffer(BUFF);
-          UCA0IE &= ~UCTXIE;
       }
       else {
           UCA0TXBUF = BUFF[i];
