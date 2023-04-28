@@ -1,0 +1,48 @@
+\section{System Integration Table}
+\begin{landscape}
+\begin{table}[!ht]
+\begin{tabularx}{1.2\textwidth}{|X|X|}
+    \hline
+    \multicolumn{2}{|X|}{Main Unit}\\
+    \hline
+    Integration&\begin{itemize}
+        \item Battery Backup Mains Power Supply
+        \item Main Unit
+    \end{itemize}\\
+    \hline
+    Functionality&\begin{itemize}
+        \item ADC 12 Initialization using VEREF+ and VEREF- reference and input channel 7.
+        \item UART initialization at 9600 baud with receiver interrupts enabled.
+        \item Bluetooth.h library provides the AT commands for the bluetooth module.
+        \item Forwards errors from sub units along with the current time.
+    \end{itemize}\\
+    \hline
+\end{tabularx}
+\caption{Main Unit Integration Table}
+\label{tab:main-unit-integration-table}
+\end{table}
+\begin{table}[!ht]
+\begin{tabularx}{1.2\textwidth}{|X|X|}
+    \hline
+    \multicolumn{2}{|X|}{Sub Unit}\\
+    \hline
+    Integration&\begin{itemize}
+        \item Power Supply
+        \item Sub Unit
+    \end{itemize}\\
+    \hline
+    Functionality&\begin{itemize}
+        \item ADC 12 Initialization using VEREF+ and VEREF- reference and input channel 7.
+        \item UART initialization at 9600 baud.
+        \item RTC initialization at once per hour.
+        \item RTC runs the ADC 100 times and averages the results and checks if the temperature meets compliance.
+        \item If an error is raised, the UART is activated and sends an error along with the lot number.
+        \item Bluetooth.h library provides the AT commands for the bluetooth module.
+    \end{itemize}\\
+    \hline
+\end{tabularx}
+\caption{Sub Unit Integration Table}
+\label{tab:sub-unit-integration-table}
+\end{table}
+\end{landscape}
+Here is the link for the integration demonstration \href{https://youtu.be/0NSB7EPtz0U}{video}.
