@@ -1,0 +1,31 @@
+\section{System Core Design}
+\subsubsection{Integration Order and Verification Plan}
+\begin{enumerate}
+  \item Connect both MSPEXP-4305438 to the 3.3\si{\V} supply with their respective power supplies.
+  \item Connect the LEDs with their respective resistors with the MCU pins and ground.
+        \begin{itemize}
+         \item To verify that the MSPEXP-4305438 are working, an LED will be lit by a push button in order by the MCU.
+        \end{itemize}
+  \item Connect the power sense pin to a GPIO of the main unit.
+        \begin{itemize}
+         \item  To verify that this is working, an LED shall be lit by the MCU when power is absent and off when power is present.
+        \end{itemize}
+  \item Connect the HM-10 bluetooth modules to the 5\si{\V} supply of their respective power supplies.
+  \item Connect the UART pins from the MCU to the HM-10s.
+        \begin{itemize}
+         \item To verify this, we shall check if it can send a ``Hello World'' to a serial monitor.
+        \end{itemize}
+  \item Connect the external temperature sensor to the 3.3\si{\V} supply and connect the output pin to a ADC pin on the MCU.
+        \begin{itemize}
+         \item In order to verify that this is working, we shall use the debugger to see the ADC registers.
+        \end{itemize}
+\end{enumerate}
+\subsubsection{Member Logistic}
+\begin{enumerate}
+  \item Fabio will complete the ADC integration with thee temperature sensor plus op amp.
+  \item Enrique will give the main unit prototype to Fabio.
+  \item Fabio will integrate the main and sub units with their respective power supplies.
+  \item Fabio will verify that the sub unit can communicate with the main unit.
+  \item Enrique will complete the UART integration with the Bluetooth module for the HM-10 for both TXD and RXD interrupts.
+  \item Fabio will verify that the host computer can communicate with a host computer.
+\end{enumerate}

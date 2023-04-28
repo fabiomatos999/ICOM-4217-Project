@@ -4,14 +4,14 @@
    height="91.919998pt"
    viewBox="0 0 141.119995 91.919998"
    version="1.1"
-   id="svg103"
+   id="svg116"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg" content="%3Cmxfile%20host%3D%22app.diagrams.net%22%20modified%3D%222023-04-27T12%3A04%3A47.002Z%22%20agent%3D%22Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F112.0.0.0%20Safari%2F537.36%22%20etag%3D%22CLBwawqgNX92Digpf8cT%22%20version%3D%2221.2.3%22%20type%3D%22device%22%3E%20%20%20%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22PgpEz5eGaeOxbe2_-0Hr%22%3E%20%20%20%20%20%3CmxGraphModel%20dx%3D%22127%22%20dy%3D%22215%22%20grid%3D%220%22%20gridSize%3D%2210%22%20guides%3D%221%22%20tooltips%3D%221%22%20connect%3D%221%22%20arrows%3D%221%22%20fold%3D%221%22%20page%3D%220%22%20pageScale%3D%221%22%20pageWidth%3D%22850%22%20pageHeight%3D%221100%22%20math%3D%220%22%20shadow%3D%220%22%3E%20%20%20%20%20%20%20%3Croot%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%220%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%221%22%20parent%3D%220%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-26%22%20value%3D%22%22%20style%3D%22rounded%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%2293%22%20y%3D%22329%22%20width%3D%22120%22%20height%3D%2260%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-27%22%20value%3D%22Power%20Supply%22%20style%3D%22text%3Bhtml%3D1%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%22119.5%22%20y%3D%22344%22%20width%3D%2260%22%20height%3D%2230%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-28%22%20value%3D%22%22%20style%3D%22endArrow%3Dnone%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2228%22%20y%3D%22347%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2293%22%20y%3D%22347%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-29%22%20value%3D%22%22%20style%3D%22endArrow%3Dnone%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2228%22%20y%3D%22371%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2293%22%20y%3D%22371%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-30%22%20value%3D%22%22%20style%3D%22shape%3Dor%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%2232%22%20y%3D%22339.5%22%20width%3D%2222%22%20height%3D%2239%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-31%22%20value%3D%22%22%20style%3D%22endArrow%3Dclassic%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%22152.86%22%20y%3D%22328%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%22152.86%22%20y%3D%22290%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-32%22%20value%3D%223.3V%22%20style%3D%22text%3Bhtml%3D1%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%22139.5%22%20y%3D%22271%22%20width%3D%2227%22%20height%3D%2219%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%3C%2Froot%3E%20%20%20%20%20%3C%2FmxGraphModel%3E%20%20%20%3C%2Fdiagram%3E%20%3C%2Fmxfile%3E%20">
+   xmlns:svg="http://www.w3.org/2000/svg" content="%3Cmxfile%20host%3D%22app.diagrams.net%22%20modified%3D%222023-04-07T11%3A44%3A45.963Z%22%20agent%3D%22Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F112.0.0.0%20Safari%2F537.36%22%20etag%3D%22SsHjp_GxwvH1moXOzaYW%22%20version%3D%2221.1.2%22%20type%3D%22device%22%3E%20%20%20%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22PgpEz5eGaeOxbe2_-0Hr%22%3E%20%20%20%20%20%3CmxGraphModel%20dx%3D%221410%22%20dy%3D%22775%22%20grid%3D%220%22%20gridSize%3D%2210%22%20guides%3D%221%22%20tooltips%3D%221%22%20connect%3D%221%22%20arrows%3D%221%22%20fold%3D%221%22%20page%3D%220%22%20pageScale%3D%221%22%20pageWidth%3D%22850%22%20pageHeight%3D%221100%22%20math%3D%220%22%20shadow%3D%220%22%3E%20%20%20%20%20%20%20%3Croot%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%220%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%221%22%20parent%3D%220%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-26%22%20value%3D%22%22%20style%3D%22rounded%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%2293%22%20y%3D%22329%22%20width%3D%22120%22%20height%3D%2260%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-27%22%20value%3D%22Power%20Supply%22%20style%3D%22text%3Bhtml%3D1%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%22119.5%22%20y%3D%22344%22%20width%3D%2260%22%20height%3D%2230%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-28%22%20value%3D%22%22%20style%3D%22endArrow%3Dnone%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2228%22%20y%3D%22347%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2293%22%20y%3D%22347%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-29%22%20value%3D%22%22%20style%3D%22endArrow%3Dnone%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2228%22%20y%3D%22371%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%2293%22%20y%3D%22371%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-30%22%20value%3D%22%22%20style%3D%22shape%3Dor%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%2232%22%20y%3D%22339.5%22%20width%3D%2222%22%20height%3D%2239%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-31%22%20value%3D%22%22%20style%3D%22endArrow%3Dclassic%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%22127%22%20y%3D%22329%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%22127%22%20y%3D%22291%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22kMqFWPZwfPMzuTIqopDS-32%22%20value%3D%223.3V%22%20style%3D%22text%3Bhtml%3D1%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%22115%22%20y%3D%22271%22%20width%3D%2227%22%20height%3D%2219%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22U00xUSWn-wB9ARBARLGA-2%22%20value%3D%22%22%20style%3D%22endArrow%3Dclassic%3Bhtml%3D1%3Brounded%3D0%3BstartSize%3D14%3BendSize%3D14%3BsourcePerimeterSpacing%3D8%3BtargetPerimeterSpacing%3D8%3Bcurved%3D1%3B%22%20parent%3D%221%22%20edge%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%22182%22%20y%3D%22329%22%20as%3D%22sourcePoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%3CmxPoint%20x%3D%22182%22%20y%3D%22291%22%20as%3D%22targetPoint%22%20%2F%3E%20%20%20%20%20%20%20%20%20%20%20%3C%2FmxGeometry%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%20%20%3CmxCell%20id%3D%22U00xUSWn-wB9ARBARLGA-3%22%20value%3D%225V%22%20style%3D%22text%3Bhtml%3D1%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20parent%3D%221%22%20vertex%3D%221%22%3E%20%20%20%20%20%20%20%20%20%20%20%3CmxGeometry%20x%3D%22170%22%20y%3D%22271%22%20width%3D%2227%22%20height%3D%2219%22%20as%3D%22geometry%22%20%2F%3E%20%20%20%20%20%20%20%20%20%3C%2FmxCell%3E%20%20%20%20%20%20%20%3C%2Froot%3E%20%20%20%20%20%3C%2FmxGraphModel%3E%20%20%20%3C%2Fdiagram%3E%20%3C%2Fmxfile%3E%20">
   <defs
-     id="defs49">
+     id="defs52">
     <g
-       id="g44">
+       id="g47">
       <g
          id="glyph-0-0">
         <path
@@ -96,13 +96,19 @@
            d="M 2.53125 0 L 0.046875 -6.4375 L 0.96875 -6.4375 L 2.640625 -1.765625 C 2.773438 -1.390625 2.882813 -1.035156 2.96875 -0.703125 C 3.070313 -1.054688 3.191406 -1.410156 3.328125 -1.765625 L 5.0625 -6.4375 L 5.9375 -6.4375 L 3.40625 0 Z M 2.53125 0 "
            id="path41" />
       </g>
+      <g
+         id="glyph-0-14">
+        <path
+           d="M 0.375 -1.6875 L 1.203125 -1.765625 C 1.265625 -1.359375 1.40625 -1.050781 1.625 -0.84375 C 1.851563 -0.644531 2.125 -0.546875 2.4375 -0.546875 C 2.820313 -0.546875 3.144531 -0.6875 3.40625 -0.96875 C 3.675781 -1.257813 3.8125 -1.640625 3.8125 -2.109375 C 3.8125 -2.566406 3.679688 -2.925781 3.421875 -3.1875 C 3.171875 -3.445313 2.84375 -3.578125 2.4375 -3.578125 C 2.175781 -3.578125 1.941406 -3.515625 1.734375 -3.390625 C 1.535156 -3.273438 1.375 -3.128906 1.25 -2.953125 L 0.515625 -3.046875 L 1.140625 -6.359375 L 4.34375 -6.359375 L 4.34375 -5.59375 L 1.765625 -5.59375 L 1.421875 -3.875 C 1.804688 -4.132813 2.210938 -4.265625 2.640625 -4.265625 C 3.203125 -4.265625 3.675781 -4.070313 4.0625 -3.6875 C 4.445313 -3.300781 4.640625 -2.800781 4.640625 -2.1875 C 4.640625 -1.601563 4.472656 -1.097656 4.140625 -0.671875 C 3.722656 -0.148438 3.15625 0.109375 2.4375 0.109375 C 1.851563 0.109375 1.375 -0.0507813 1 -0.375 C 0.632813 -0.707031 0.425781 -1.144531 0.375 -1.6875 Z M 0.375 -1.6875 "
+           id="path44" />
+      </g>
     </g>
     <clipPath
        id="clip-0">
       <path
          clip-rule="nonzero"
          d="M 0 41 L 32 41 L 32 90.75 L 0 90.75 Z M 0 41 "
-         id="path46" />
+         id="path49" />
     </clipPath>
   </defs>
   <path
@@ -117,71 +123,71 @@
      stroke-miterlimit="4"
      d="M 66.000003 59.000002 L 186.000008 59.000002 L 186.000008 119.000005 L 66.000003 119.000005 Z M 66.000003 59.000002 "
      transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
-     id="path51" />
+     id="path54" />
   <g
      fill="#000000"
      fill-opacity="1"
-     id="g63">
+     id="g66">
     <use
        xlink:href="#glyph-0-1"
        x="79.488281"
        y="64.5"
-       id="use53" />
+       id="use56" />
     <use
        xlink:href="#glyph-0-2"
        x="85.491203"
        y="64.5"
-       id="use55" />
+       id="use58" />
     <use
        xlink:href="#glyph-0-3"
        x="90.496574"
        y="64.5"
-       id="use57" />
+       id="use60" />
     <use
        xlink:href="#glyph-0-4"
        x="96.996094"
        y="64.5"
-       id="use59" />
+       id="use62" />
     <use
        xlink:href="#glyph-0-5"
        x="102.00146"
        y="64.5"
-       id="use61" />
+       id="use64" />
   </g>
   <g
      fill="#000000"
      fill-opacity="1"
-     id="g77">
+     id="g80">
     <use
        xlink:href="#glyph-0-6"
        x="78.480469"
        y="75.75"
-       id="use65" />
+       id="use68" />
     <use
        xlink:href="#glyph-0-7"
        x="84.483398"
        y="75.75"
-       id="use67" />
+       id="use70" />
     <use
        xlink:href="#glyph-0-8"
        x="89.48877"
        y="75.75"
-       id="use69" />
+       id="use72" />
     <use
        xlink:href="#glyph-0-8"
        x="94.494141"
        y="75.75"
-       id="use71" />
+       id="use74" />
     <use
        xlink:href="#glyph-0-9"
        x="99.499504"
        y="75.75"
-       id="use73" />
+       id="use76" />
     <use
        xlink:href="#glyph-0-10"
        x="101.49902"
        y="75.75"
-       id="use75" />
+       id="use78" />
   </g>
   <path
      fill="none"
@@ -193,7 +199,7 @@
      stroke-miterlimit="10"
      d="M 1 77.000003 C 1 77.000003 22.666668 77.000003 66.000003 77.000003 "
      transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
-     id="path79" />
+     id="path82" />
   <path
      fill="none"
      stroke-width="1"
@@ -204,16 +210,16 @@
      stroke-miterlimit="10"
      d="M 1 101.000004 C 1 101.000004 22.666668 101.000004 66.000003 101.000004 "
      transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
-     id="path81" />
+     id="path84" />
   <path
      fill-rule="nonzero"
      fill="rgb(100%, 100%, 100%)"
      fill-opacity="1"
      d="M 4.125 52.5 C 15.125 52.5 20.625 57.375 20.625 67.125 C 20.625 76.875 15.125 81.75 4.125 81.75 Z M 4.125 52.5 "
-     id="path83" />
+     id="path86" />
   <g
      clip-path="url(#clip-0)"
-     id="g87">
+     id="g90">
     <path
        fill="none"
        stroke-width="1"
@@ -224,7 +230,7 @@
        stroke-miterlimit="10"
        d="m 5,69.500003 c 14.666668,0 22.000001,6.5 22.000001,19.500001 C 27.000001,102 19.666668,108.50001 5,108.50001 Z m 0,0"
        transform="matrix(0.75,0,0,0.75,0.375,0.375)"
-       id="path85" />
+       id="path88" />
   </g>
   <path
      fill="none"
@@ -234,9 +240,9 @@
      stroke="rgb(0%, 0%, 0%)"
      stroke-opacity="1"
      stroke-miterlimit="10"
-     d="M 125.85938 58.000002 C 125.85938 58.000002 125.85938 49.458335 125.85938 32.369793 "
+     d="M 100.000004 59.000002 C 100.000004 59.000002 100.000004 50.458335 100.000004 33.369793 "
      transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
-     id="path89" />
+     id="path92" />
   <path
      fill-rule="nonzero"
      fill="rgb(0%, 0%, 0%)"
@@ -247,32 +253,71 @@
      stroke="rgb(0%, 0%, 0%)"
      stroke-opacity="1"
      stroke-miterlimit="10"
-     d="M 125.85938 21.119793 L 133.359381 36.119793 L 125.85938 32.369793 L 118.35938 36.119793 Z M 125.85938 21.119793 "
+     d="M 100.000004 22.119793 L 107.500005 37.119793 L 100.000004 33.369793 L 92.500004 37.119793 Z M 100.000004 22.119793 "
      transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
-     id="path91" />
+     id="path94" />
   <g
      fill="#000000"
      fill-opacity="1"
-     id="g101">
+     id="g104">
     <use
        xlink:href="#glyph-0-11"
-       x="85.617188"
+       x="66.867188"
        y="11.25"
-       id="use93" />
+       id="use96" />
     <use
        xlink:href="#glyph-0-12"
-       x="90.622559"
+       x="71.872559"
        y="11.25"
-       id="use95" />
+       id="use98" />
     <use
        xlink:href="#glyph-0-11"
-       x="93.123039"
+       x="74.373047"
        y="11.25"
-       id="use97" />
+       id="use100" />
     <use
        xlink:href="#glyph-0-13"
-       x="98.12841"
+       x="79.378418"
        y="11.25"
-       id="use99" />
+       id="use102" />
+  </g>
+  <path
+     fill="none"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     stroke="rgb(0%, 0%, 0%)"
+     stroke-opacity="1"
+     stroke-miterlimit="10"
+     d="M 155.000006 59.000002 C 155.000006 59.000002 155.000006 50.458335 155.000006 33.369793 "
+     transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
+     id="path106" />
+  <path
+     fill-rule="nonzero"
+     fill="rgb(0%, 0%, 0%)"
+     fill-opacity="1"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     stroke="rgb(0%, 0%, 0%)"
+     stroke-opacity="1"
+     stroke-miterlimit="10"
+     d="M 155.000006 22.119793 L 162.500007 37.119793 L 155.000006 33.369793 L 147.500006 37.119793 Z M 155.000006 22.119793 "
+     transform="matrix(0.75, 0, 0, 0.75, 0.375, 0.375)"
+     id="path108" />
+  <g
+     fill="#000000"
+     fill-opacity="1"
+     id="g114">
+    <use
+       xlink:href="#glyph-0-14"
+       x="111.86718"
+       y="11.25"
+       id="use110" />
+    <use
+       xlink:href="#glyph-0-13"
+       x="116.87255"
+       y="11.25"
+       id="use112" />
   </g>
 </svg>
