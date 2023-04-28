@@ -11,6 +11,6 @@
 	<linkerCommandFile value="lnk_msp430f5438.cmd"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
-	<templateProperties value="id=com.ti.common.project.core.emptyProjectTemplate"/>
-	<filesToOpen value=""/>
+	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate_msp430"/>
+	<filesToOpen value="main.c"/>
 </projectOptions>
