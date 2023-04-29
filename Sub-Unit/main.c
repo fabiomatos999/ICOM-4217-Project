@@ -35,7 +35,7 @@ void ATRESET(){
 }
 
 void ATNAME(){
-    char AT[] = "AT+NAMEOWO\r\n";
+    char AT[] = "AT+NAMESUB-UNIT\r\n";
     unsigned int i = 0;
     for(;i<strlen(AT);i++){
         while((UCA0STAT&UCBUSY));
@@ -52,10 +52,51 @@ void ATRENEW(){
     }
 }
 
-void ATCON(char ADDR[]){
-    char AT[19] = "AT+CON";
+void ATCO(char ADDR[]){
+    char AT[19] = "AT+BIND";
     strcat(AT,ADDR);
     strcat(AT,"\r\n");
+
+    unsigned int i = 0;
+    for(;i<strlen(AT);i++){
+        while((UCA0STAT&UCBUSY));
+        UCA0TXBUF= AT[i];
+    }
+}
+
+void ATNOTI(){
+    char AT[] = "AT+NOTI1\r\n";
+    unsigned int i = 0;
+    for(;i<strlen(AT);i++){
+        while((UCA0STAT&UCBUSY));
+        UCA0TXBUF= AT[i];
+    }
+}
+
+void ATROLE(char role[]){
+    char AT[19] = "AT+ROLE";
+    strcat(AT,role);
+    strcat(AT,"\r\n");
+
+    unsigned int i = 0;
+    for(;i<strlen(AT);i++){
+        while((UCA0STAT&UCBUSY));
+        UCA0TXBUF= AT[i];
+    }
+}
+
+void ATIMME(){
+    char AT[19] = "AT+IMME1\r\n";
+    unsigned int i = 0;
+    for(;i<strlen(AT);i++){
+        while((UCA0STAT&UCBUSY));
+        UCA0TXBUF= AT[i];
+    }
+}
+
+
+void ATDISC(){
+    char AT[19] = "AT+DISC?\r\n";
 
     unsigned int i = 0;
     for(;i<strlen(AT);i++){
@@ -107,11 +148,23 @@ int main(void)
     UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
     ATRENEW();
     __delay_cycles(100000);
-    ATRESET();
+    ATIMME();
     __delay_cycles(100000);
-    ATRENEW();
+    ATNAME();
     __delay_cycles(100000);
-    ATCON("845F042FF7F3");
+    ATNOTI();
+    __delay_cycles(100000);
+    AT();
+    __delay_cycles(100000);
+    ATNAME();
+    __delay_cycles(100000);
+    ATDISC();
+    __delay_cycles(100000);
+    ATROLE("1");
+    __delay_cycles(100000);
+    ATCO("88C255AE00EE");
+    __delay_cycles(100000);
+    ATCO("88C255AE00EE");
     __delay_cycles(100000);
     startup = 1;
     UCA0IE |= UCTXIE + UCRXIE;
@@ -157,8 +210,8 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
         {
             ADC12CTL0 |= ADC12SC;
             while (ADC12CTL1 & ADC12BUSY);
-            voltage = ADC12MEM0;
-            tempts[tempindex] = ((voltage-650.0)/10.0);
+            voltage = (3300.0*ADC12MEM0)/4095.0;
+            tempts[tempindex] = ((voltage-500)/10.0);
             tempindex = (++tempindex) % TEMPBUFSIZE;
         }
         checkExpDate();
@@ -179,7 +232,7 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
             }
             else if (average >= 15 && average < 30)
             {
-                raiseError(WARM);
+                raiseError(HOT);
             }
             else
             {
@@ -249,7 +302,6 @@ __interrupt void USCI_A0_ISR(void)
     break;
   case 4:
       if ((error == NONE || txcharindex >= strlen(BTTXBUF) )&& startup == 1) {
-          unsigned int x = 0;
           resetTXBUFFER();
           txcharindex = 0;
       }

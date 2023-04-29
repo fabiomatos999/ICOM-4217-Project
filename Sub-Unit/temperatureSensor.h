@@ -2,7 +2,7 @@
 
 float tempts[TEMPBUFSIZE];
 unsigned int tempindex = 0;
-unsigned int voltage = 0;
+float voltage = 0;
 
 float average_celsius(){
     float total= 0;
