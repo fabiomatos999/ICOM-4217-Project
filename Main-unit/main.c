@@ -213,7 +213,7 @@ int main(void)
     UCA0BR1 = 0;
     UCA0MCTL = UCBRS_2+UCBRF_0;
     UCA0CTL1 &= ~UCSWRST;
-//    ATRENEW();
+    ATRENEW();
 //    __delay_cycles(100000);
 //    ATRESET();
 //    __delay_cycles(100000);
@@ -295,7 +295,9 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
         min = RTCMIN;
         sec = RTCSEC;
         resetTXBUFFER();
-        strcat(BTTXBUF,citoa(year,BUFF,10));
+        BTTXBUF[0] = power + 48;
+        BTTXBUF[1] = '\r';
+        BTTXBUF[2] = '\n';
         UCA0IE |= UCTXIE;
         UCA0IFG |= UCTXIFG;
       break;
@@ -345,15 +347,6 @@ __interrupt void USCI_A0_ISR(){
     switch(__even_in_range(UCA0IV,4)){//takes first 3 bits
     case 0: break; //Irrelevant
     case 2:
-//        BTRXBUF[rxcharindex] = UCA0RXBUF;
-//        if(rxcharindex >= strlen(BTRXBUF)){
-//            resetTXBUFFER();
-//            rxcharindex=0;
-//        }
-//        else{
-//            rxcharindex++;
-//        }
-//        break;
         break;
     case 4:
         if (txcharindex >= strlen(BTTXBUF) && startup == 1) {
