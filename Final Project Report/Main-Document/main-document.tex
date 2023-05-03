@@ -40,6 +40,26 @@
  \end{figure}
 }
 
+\newcommand\createfigurew[3]{
+  \begin{center}
+  \begin{figure}[H]
+    \centering \includegraphics[width=\textwidth]{#1}
+    \caption{#2}
+    \label{#3}
+  \end{figure}
+  \end{center}
+}
+
+\newcommand\createfigurel[3]{
+  \begin{center}
+  \begin{figure}[H]
+    \centering \includegraphics[height=0.8\textheight]{#1}
+    \caption{#2}
+    \label{#3}
+  \end{figure}
+  \end{center}
+}
+
 \begin{document}
 \linespread{1.0}
 \input{../Title-Page/title-page.tex}

@@ -31,6 +31,11 @@ In order to connect both devices to each other, for communication, the best prot
 \end{equation}
 This means if we select the maximum baud-rate of the HM-10 module, which is 230400, using the formula, we would need a frequency of 3.68MHz, which is still below the maximum frequency the eUSCI module on the MSP430FR2110. This will allow us to be able to use the HM-10 communicate via UART with the MSP430FR2110.\\
 \subsubsection{Software Support}
+\createfigurel{../Modular Design/Main-Unit/Figures/main-unit-main-function.png}{Main Unit Main Function}{fig:main-unit-main-function}
+\createfigurel{../Modular Design/Main-Unit/Figures/main-unit-rtc-isr.png}{Main Unit RTC ISR}{fig:main-unit-rtc-isr}
+\createfigurel{../Modular Design/Main-Unit/Figures/main-unit-bluetooth-isr.png}{Main Unit Bluetooth ISR}{fig:main-unit-bluetooth-isr}
 \subsubsection{Memory Requirements}
+The program itself consists of 300 instructions, which assuming a 1 to 10 conversion ration between C and Assembly language yields a total of 3000 bytes of program data. Since the main unit's source code has two buffers for RX and TX of 83 bytes each plus the buffer for lot number (30 bytes), the string versions of the error enums (56 bytes), the error enum (1 byte) and the error state (1 byte) gives us a size of 344 bytes of data memory.
 \subsubsection{Reliability \& Design Criteria}
+The main unit was the backbone of the whole system, without
 \subsubsection{Level of Completion}
