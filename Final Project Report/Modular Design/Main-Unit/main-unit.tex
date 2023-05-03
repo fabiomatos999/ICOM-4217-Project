@@ -14,9 +14,22 @@
   \end{center}
   \end{landscape}
 \subsubsection{Power Analysis}
-The main unit comprised of a 3.3\si{\V} microcontroller \cite{MSP430FR2110DataSheet}, a 2.7\si{\V} to 5.5\si{\V} temperature sensor \cite{TMP36GT9Z} and a 3.6\si{\V} to 6\si{\V} BLE Bluetooth module, a red LED and a green LED. According to the datasheet for the MSP430FR2110, at LPM 3.5, it consumes 1\si{\micro\ampere} and the Bluetooth module consumes from 400\si{\micro\ampere} to 1.5\si{\milli\ampere}. Since a 1\si{\kilo\ohm}
 \subsubsection{Loading, Driving, and Compatibility}
+The Main Unit consists of the MSP430FR2110IPW16 MCU and the HM-10 Bluetooth module. For the MCU, it has an input voltage range from 1.8\si{\V} to 3.6\si{\V} according to it's data sheet \cite{MSP430FR2110IPW16R}. Meanwhile, the HM-10 Bluetooth module has an input voltage from 3.6\si{\V} to 6\si{\V} according to it's product listing \cite{AmazonComHiLetgo}. Due to this the MSP430FR2110 has to be supplied by the 3.3\si{V} output of the PSU and the HM-10 has to be supplied by the 5\si{\V} output of the power supply.\\
+For the power available pin, according to the MSP430FR2110 data sheet, the GPIO pins can handle up to VDD =0.3\si{\V}, since in this design VDD is 3.3\si{\V} and the power available pin is at 3.3\si{\V}, it is compatible with the power sense input.\\
+In order to calculate the resistor values for the green and red LEDs we used the following formula:
+\begin{equation}
+R = \frac{V_{cc} - V_{f}}{I_{f}}
+\end{equation}
+Where VCC is 3.3\si{\V} $V_{f}$ is the forward voltage for each LED and $I_{f}$ is the forward current for each LED. For the green LED \cite{GreenDiffused5mmStandard} it has a forward voltage of 2.25\si{\V} and since the MCU has a max I/O current of 2\si{\mA}, this would mean that it requires a 525\si{\ohm} resistor. Similarly, for the RED LED, it has a 2\si{\V} forward voltage and a max I/O current of 2\si{\mA}, this gives us a resistor value of  650\si{\ohm}.\\\\
+Finally, for the temperature sensor (U5) \cite{TMP36GT9Z} and operational amplifier (U4) \cite{MCP6022I}, they both can be supplied by a 3.3\si{\V} supply and thus are compatible. Since the temperature sensor range for this application will be from 0\si{\celsius} to 40\si{\celsius}, at a resolution of 0.1\si{\celsius}, since there is an offset of 0.5\si{\V} by the temperature sensor gives us a range of 900 unique values so that the temperature sensor can reach its full negative temperature range. At 40\si{\celsius} the temperature sensor will be at 900\si{\milli\volt}, setting the ADC to use a 1.5\si{\V} reference. gives us a $A_{v}$ of 1.666. Setting up the op amp in a non inverting configuration, using 1\si{\kilo\ohm}, 620\si{\ohm}, 39\si{\ohm} and 5.1\si{\ohm} resistors will yield a $A_{v}$ of 1.6642.
 \subsubsection{Base Times and Timing Analysis}
+In order to connect both devices to each other, for communication, the best protocol to use will be UART. The MSP430FR2110 has 4 pins for UART communication using the eUSCI modules, which can detect automatically the baud-rate to be used. According to the datasheet for the HM-10 module\cite{AmazonComHiLetgo}, it can select the baud-rate to be used, which ranges from a minimum 1200 to a maximum of 230400. In the datasheet of the MSP430FR2110, the eUSCI clock frequency, UART mode, can reach a maximum of 5MHz, which means it can reach the maximum baud-rate of the Bluetooth module and can also select lower baud-rates, according to the formula:
+\begin{equation}
+	Clk Frequency = Baudrate \cdot 16
+	\label{eq:UART Frequency}
+\end{equation}
+This means if we select the maximum baud-rate of the HM-10 module, which is 230400, using the formula, we would need a frequency of 3.68MHz, which is still below the maximum frequency the eUSCI module on the MSP430FR2110. This will allow us to be able to use the HM-10 communicate via UART with the MSP430FR2110.\\
 \subsubsection{Software Support}
 \subsubsection{Memory Requirements}
 \subsubsection{Reliability \& Design Criteria}
