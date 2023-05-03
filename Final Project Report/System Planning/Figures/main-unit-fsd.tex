@@ -1,0 +1,72 @@
+\begin{landscape}
+\begin{figure}[!ht]
+\begin{center}
+  \begin{subfigure}[b]{0.6\textwidth}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (36.8,-8) circle (3);
+\draw (36.8,-8) node {$INIT$};
+\draw [black] (55.1,-16.2) circle (3);
+\draw (55.1,-16.2) node {$SLEEP$};
+\draw [black] (39.5,-18.2) circle (3);
+\draw (39.5,-18.2) node {$WAKE$};
+\draw [black] (59,-29.4) circle (3);
+\draw (59,-29.4) node {$SEND$};
+\draw [black] (39.9,-2.8) -- (38.34,-5.42);
+\draw (43.45,-2.3) node [above] {$RESET$};
+\fill [black] (38.34,-5.42) -- (39.18,-4.99) -- (38.32,-4.48);
+\draw [black] (39.29,-6.344) arc (115.82686:15.90003:11.012);
+\fill [black] (54.68,-13.24) -- (54.94,-12.33) -- (53.98,-12.61);
+\draw [black] (55.741,-13.281) arc (195.34019:-92.65981:2.25);
+\draw (61.76,-10.43) node [above] {$\overline{RTC}$};
+\fill [black] (57.81,-14.93) -- (58.71,-15.2) -- (58.45,-14.24);
+\draw [black] (41.319,-15.829) arc (133.66152:60.95:9.714);
+\fill [black] (41.32,-15.83) -- (42.24,-15.64) -- (41.55,-14.92);
+\draw (46.1,-12.5) node [above] {$RTC$};
+\draw [black] (57.903,-17.214) arc (58.79222:-25.87219:7.596);
+\fill [black] (57.9,-17.21) -- (58.33,-18.06) -- (58.85,-17.2);
+\draw (62.02,-20.97) node [right] {$SENT$};
+\draw [black] (57.113,-31.721) arc (-46.74993:-192.99266:11.248);
+\fill [black] (57.11,-31.72) -- (56.19,-31.9) -- (56.87,-32.63);
+\draw (37.11,-30.8) node [below] {$\overline{RTC}$};
+\draw [black] (61.977,-29.145) arc (122.62938:-165.37062:2.25);
+\draw (66.04,-32.72) node [right] {$\overline{SENT}$};
+\fill [black] (61.01,-31.61) -- (61.02,-32.55) -- (61.87,-32.01);
+\draw [black] (36.522,-17.955) arc (293.03624:5.03624:2.25);
+\draw (33.07,-13.46) node [left] {$RTC$};
+\fill [black] (37.88,-15.69) -- (38.03,-14.76) -- (37.11,-15.15);
+\end{tikzpicture}
+\caption{Main Unit Functional State Diagram}
+\label{fig:main-unit-fsd-img}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+      \begin{tabular}{c|ccc}
+        STATE&\multicolumn{3}{c}{OUTPUTS}\\
+        \hline
+        &&&\\
+        INIT&$RESET$&$\overline{RTC}$&$\overline{SENT}$\\
+        SLEEP&$\overline{RESET}$&$\overline{RTC}$&$\overline{SENT}$\\
+        WAKE&$\overline{RESET}$&$RTC$&$\overline{SENT}$\\
+        SEND&$\overline{RESET}$&$\overline{RTC}$&$\overline{SENT}$\\
+      \end{tabular}
+      \caption{Main Unit Functional State Diagram: State and Outputs}
+      \label{fig:main-unit-fsd-state-outputs}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+   \begin{tabular}{|c|}
+    \hline
+     Output List\\
+    \hline
+     RESET = Power on Reset\\
+     SLEEP = MCU is in LPM4\\
+     WAKE = RTC Timer turned on MCU\\
+     SEND = Bluetooth module is sending data\\
+    \hline
+   \end{tabular}
+      \caption{Main Unit Functional State Diagram: Output List}
+      \label{fig:main-unit-fsd-outputs-list}
+  \end{subfigure}
+\end{center}
+\caption{Main Unit Functional State Diagram}
+\label{fig:main-unit-fsd}
+\end{figure}
