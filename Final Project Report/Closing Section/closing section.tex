@@ -1,4 +1,7 @@
 \section{Closing Section}
 \subsection{Conclusion}
+In summary, we were successfully able to create a design that ensures that ensures the safe storage of insulin. The Insulin Temperature Warning System's design was split up into a main unit, a sub unit and a host computer that runs the log file software. The sub units verify that the insulin meets temperature safety compliance and if not sends a error to the main unit. The main unit monitors the presence of mains power along with forwarding the current date, power status and any errors from the sub units. The host computer receives the messages from the main unit logs them into a log file.
 \subsection{Future Work}
+The next step for furthering the Insulin Temperature Warning System is to create a PCB version with surface mount components in order to both decrease size and cost. Furthermore, adapting the software to accept more medications or even create a version that can be programmed by a non-engineer for a new medication's storage guidelines could be within the realm of possibility.
 \subsection{Reflections/Recommendations}
+On retrospection, this design can be streamlined by compressing the roles of the main and sub units into a single design that leverages software for the connection of the Bluetooth module. Furthermore, we believe that using micro-controllers with open source designs and software will help greatly in the speed of prototyping and the fixing of bugs in both the design and software.
