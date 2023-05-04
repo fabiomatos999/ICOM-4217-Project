@@ -1,0 +1,12 @@
+@startuml
+!pragma useVerticalIf on
+:RTC_ISR;
+if (Mains Power GPIO High?) then (yes)
+        :POWER_AVAILABLE = TRUE;
+        else (no)
+        :POWER_AVAILABLE = FALSE;
+    endif
+:Write DATE, TIME, POWER_AVAILABLE, and Sub Unit errrors to the BTTXBUF;
+:Enable UARTTX interrupt flag;
+:RETI;
+@enduml

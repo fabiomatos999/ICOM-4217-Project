@@ -1,0 +1,9 @@
+@startuml
+start
+:Initialize PORT1;
+:Initalize RTC (Real Time Clock);
+:Syncronize RTC;
+:Initialize UART at 9600 Baud;
+:Enable Global Interrupts;
+:Activate Low Power Mode;
+@enduml
