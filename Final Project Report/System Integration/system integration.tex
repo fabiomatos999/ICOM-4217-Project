@@ -71,3 +71,33 @@ As mentioned previously, the reliability of the main and sub units is paramount 
   \end{table}
 \end{landscape}
 \subsection{User’s Guide}
+\subsubsection{Installation}
+\large{Main Unit}
+\normalsize
+\begin{enumerate}
+  \item Charge the 18650 batteries for the main unit.
+  \item Place the batteries in the holder with the positive terminals facing up.
+  \item Place main unit in an area that will be the center of where the sub units will be stored in.
+  \item Connect the main unit to mains power.
+\end{enumerate}
+\large{Sub Unit}
+\normalsize
+\begin{enumerate}
+  \item Charge the 18650 batteries for the sub unit.
+  \item Program the individual sub unit with a LOT number.
+  \item Place the batteries in the holder with the positive terminals facing up.
+  \item Glue the sub unit to the insulin box.
+\end{enumerate}
+\subsubsection{Setup}
+\large{Main Unit}
+\normalsize
+\begin{enumerate}
+  \item Download \href{https://pypi.org/project/ble-serial/}{ble-serial} or any other BLE serial monitor and follow the connection instructions to connect the main unit.
+  \item run log-file.bash passing the virtual serial port as an argument.
+  \item Verify that the log file is being created in the home folder of the current user.
+\end{enumerate}
+\large{Sub Unit}
+\normalsize
+No setup is required.
+\subsubsection{Operation}
+The log file that is in the user's home folder on the host computer will contain the log data in the following format: date (year, month, day, hour:minute:second), power status and all error codes for any sub units.
