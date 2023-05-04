@@ -1,6 +1,16 @@
 @startuml
 :UART_ISR;
-    :Create Logfile including POWER_AVAILABLE, CURR_TIME, CURR_TEMP, ERROR;
-    :Send logfile to host computer;
+if (UCA0IFG == UCRXIFG) then (yes)
+        while (character != \0) is (Yes)
+                :BTRXBUF[i] = UCRXBUF;
+                :i++;
+        endwhile
+elseif (UCA0IFG == UCTXIFG)
+        while (character != \0) is (Yes)
+                :UCTXBUF = BTTXBUF[i];
+                :i++;
+        endwhile
+else (no)
+endif
 :RETI;
 @enduml

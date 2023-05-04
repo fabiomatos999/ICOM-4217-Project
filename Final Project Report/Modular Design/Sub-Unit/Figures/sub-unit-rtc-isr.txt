@@ -18,7 +18,7 @@ if (2°C <= CURR_TEMP <= 8°C) then (yes)
     else (no)
         :ERROR = TRASH;
     endif
-:Create a log file incuding ERROR and TEMP;
-:Send logfile to the host computer via bluetooth;
+:Write LOT number and ERROR to BTTXBUF;
+:Send the contents of BTTXBUF to the main unit;
 :RETI;
 @enduml

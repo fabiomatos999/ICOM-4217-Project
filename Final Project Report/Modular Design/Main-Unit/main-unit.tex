@@ -39,14 +39,14 @@ The main function is used to:
     \item Enable global interrupts.
     \item Activate low power mode.
   \end{itemize}
-\createfigurel{../Modular Design/Main-Unit/Figures/main-unit-rtc-isr.png}{Main Unit RTC ISR}{fig:main-unit-rtc-isr}
-This is the error verification subroutine that runs periodically, it first checks weather the temperature detected from the ADC is within 2\si{\celsius} to 8\si{\celsius}, if this check fails it determines which temperature range is detected. Then checks if mains power is available and assigns a boolean variable depending on the availability of mains power. Finally writes the current time, power status, error from the sub unit (if any are raised) to the bluetooth TX buffer
+\createfigurew{../Modular Design/Main-Unit/Figures/main-unit-rtc-isr.png}{Main Unit RTC ISR}{fig:main-unit-rtc-isr}
+This is the error verification subroutine that runs periodically, it checks if mains power is available and assigns a boolean variable depending on the availability of mains power and then captures the current time from the RTC. Then writes the current time, power status, error from the sub unit (if any are raised) to the bluetooth TX buffer
 \createfigurew{../Modular Design/Main-Unit/Figures/main-unit-bluetooth-isr.png}{Main Unit Bluetooth ISR}{fig:main-unit-bluetooth-isr}
-If the interreupt is from the transmitter, it will write the incoming message to the BTRXBUF until the UART goes idle. If the interrupt is from the transmitter, it first checks wether if the buffer has contents, if it does, it transmits the message until a null terminator character.
+If the interrupt is from the receiver, it will write the incoming message to the BTRXBUF until the UART goes idle. If the interrupt is from the transmitter, it first checks weather the buffer has contents, if it does, it transmits the message until a null terminator character.
 \subsubsection{Memory Requirements}
 The program itself consists of 300 instructions, which assuming a 1 to 10 conversion ration between C and Assembly language yields a total of 3000 bytes of program data. Since the main unit's source code has two buffers for RX and TX of 83 bytes each plus the buffer for lot number (30 bytes), the string versions of the error enums (56 bytes), the error enum (1 byte) and the error state (1 byte) gives us a size of 344 bytes of data memory.
 \subsubsection{Reliability \& Design Criteria}
-The main unit was the backbone of the whole system, without it there cannot be communication from the sub units to the main unit. Therefore, reliability for the main unit has to be at 100\%. Using a battle tested platform such as the MSP430FR2310 was a paramount choice in assuring the reliability of the system that ensures the safety of life saving medication. Power efficiency for the main unit is not such of a great concern since it is ideally will operate on mains power always but since the power supply has a battery backup system it can virtually guarantee 100\% reliability.
+The main unit was the backbone of the whole system, without it there cannot be communication from the sub units to the main unit. Therefore, reliability for the main unit has to be at 100\%. Using a battle tested platform such as the MSP430FR2310 was a paramount choice in assuring the reliability of the system that ensures the safety of life saving medication. Power efficiency for the main unit is not such of a great concern since it will ideally will operate on mains power always but since the power supply has a battery backup system it can virtually guarantee 100\% reliability.
 \subsubsection{Level of Completion}
 \begin{landscape}
   \begin{table}[!ht]
