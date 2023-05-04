@@ -1,6 +1,73 @@
 \section{System Integration}
 \subsection{System Integration Plan}
+\begin{enumerate}
+  \item Connect both MSP430FR2311 to the 3.3\si{\V} supply with their respective power supplies.
+  \item Connect the LEDs with their respective resistors with the MCU pins and ground.
+        \begin{itemize}
+         \item To verify that the MSP430FR2311s are working, an LED will be lit by a push button in order by the MCU.
+        \end{itemize}
+  \item Connect the power sense pin to a GPIO of the main unit.
+        \begin{itemize}
+         \item  To verify that this is working, an LED shall be lit by the MCU when power is absent and off when power is present.
+        \end{itemize}
+  \item Connect the HM-10 bluetooth modules to the 5\si{\V} supply of their respective power supplies.
+  \item Connect the UART pins from the MCU to the HM-10s.
+        \begin{itemize}
+         \item To verify this, we shall check if it can send a ``Hello World'' to a serial monitor.
+        \end{itemize}
+  \item Connect the external temperature sensor to the 3.3\si{\V} supply and connect the output pin to a ADC pin on the MCU.
+        \begin{itemize}
+         \item In order to verify that this is working, we shall use the debugger to see the ADC registers.
+        \end{itemize}
+\end{enumerate}
 \subsection{Host/Multi-unit Software Support}
+The software that binds main unit and the host computer is a BASH script. This script connects the main unit to the host computer via bluetooth and redirects the serial monitor of the main unit transmitter to standard output and to a log-file that is written to home folder of the current user.
 \subsection{System reliability \& Design Criteria}
+As mentioned previously, the reliability of the main and sub units is paramount to ensure that the insulin vials are safe to use. The reliability of the host computer was also essential because it serves as the log file creator for the entire system. A major design consideration for this design was for the client to be able to integrate this product within their existing assembly process for insulin and be relatively inexpensive for repair and replace both the main ans sub units. For the log-file creator, BASH was chosen since it is a battle tested shell for Linux operating systems that themselves are reliable and battle tested.
+\begin{landscape}
 \subsection{Level of Completion}
+  \begin{table}[!ht]
+    \begin{tabularx}{\textwidth}{|X|X|}
+      \hline
+      \multicolumn{2}{|X|}{Main Unit}\\
+      \hline
+      Integration&\begin{itemize}
+                    \item Battery Backup Mains Power Supply
+                    \item Main Unit
+                  \end{itemize}\\
+                  \hline
+      Functionality&\begin{itemize}
+          \item ADC 12 Initialization using VEREF+ and VEREF- reference and input channel 7.
+          \item UART initialization at 9600 baud with receiver interrupts enabled.
+          \item Forwards errors from sub units along with the current time.
+          \item Verifies the availability of mains power and forwards that information to the host computer.
+        \end{itemize}\\
+      \hline
+    \end{tabularx}
+    \caption{Main Unit Level of Completion Table}
+    \label{tab:main-unit-completion-table}
+  \end{table}
+  \begin{table}[!ht]
+    \begin{tabularx}{\textwidth}{|X|X|}
+      \hline
+      \multicolumn{2}{|X|}{Main Unit}\\
+      \hline
+      Integration&\begin{itemize}
+                    \item Power Supply
+                    \item Main Unit
+                  \end{itemize}\\
+                  \hline
+      Functionality&\begin{itemize}
+          \item ADC 12 Initialization using VEREF+ and VEREF- reference and input channel 7.
+          \item UART initialization at 9600 baud with receiver interrupts enabled.
+          \item RTC initialization at once twice per day.
+          \item RTC runs the ADC 100 times and averages the results and checks if the temperature meets compliance.
+          \item If an error is raised, the UART is activated and sends an error along with the lot number.
+        \end{itemize}\\
+      \hline
+    \end{tabularx}
+    \caption{Sub Unit Level of Completion Table}
+    \label{tab:sub-unit-completion-table}
+  \end{table}
+\end{landscape}
 \subsection{User’s Guide}
