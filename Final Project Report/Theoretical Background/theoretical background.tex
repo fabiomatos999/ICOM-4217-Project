@@ -1,5 +1,13 @@
 \section{Theoretical Background}
-The major considerations for laying out the requirements for this design were the state guidelines for insulin storage and the expiration dates for various manufacturers of insulin. According to the Centers for Disease Control (CDC)\cite{ManagingInsulinEmergency2022}, the Food and Drug Administration (FDA) \cite{researchInformationRegardingInsulin2018} and the National Institute of Health (NIH) \cite{bahendekaEADSGGuidelinesInsulin2019} along with our client, for long term storage vials of insulin ought to be stored between 2\si{\celsius} and 8\si{\celsius} and can have a shelf life of up to 2 years. With these criteria in mind, our team set of to create a design that was:
+The major considerations for laying out the requirements for this design were the state guidelines for insulin storage and the expiration dates for various manufacturers of insulin. According to the Centers for Disease Control (CDC)\cite{ManagingInsulinEmergency2022}, the Food and Drug Administration (FDA) \cite{researchInformationRegardingInsulin2018} and the National Institute of Health (NIH) \cite{bahendekaEADSGGuidelinesInsulin2019} along with our client, for long term storage vials of insulin ought to be stored between 2\si{\celsius} and 8\si{\celsius} and can have a shelf life of up to 2 years. The following demonstrates why each temperature range outside the recommended is not advisable for short/long term storage:
+\begin{itemize}
+  \item TEMP $<$ 0\textcelsius: The ingridients inside the insulin degrade when frozen, should be discarded immediately.
+  \item 0\textcelsius $\leq$ TEMP $<$ 2\textcelsius: The vial has the potential of freezing and some ingredients degrade.
+  \item 8\textcelsius $<$ TEMP $\leq$ 15\textcelsius: If left for long term, ingridients inside the insulin could degrade.
+  \item 15\textcelsius $<$ TEMP $<$ 30\textcelsius: The ingredients inside the insulin immediately have a 2 week remaining shelflife.
+  \item TEMP $>$ 30\textcelsius: The insulin has overheated, should immediately discard.
+\end{itemize}
+With these criteria in mind, our team set of to create a design that was:
 \begin{itemize}
   \item Inexpensive to manufacture
   \item Uses off the shelf parts
