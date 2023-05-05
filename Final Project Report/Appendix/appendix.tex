@@ -2,17 +2,33 @@
 
 \usepackage{pdfpages}
 \usepackage{longtable}
+\usepackage{verbatim}
 \usepackage{pdflscape}
 \usepackage{float}
 \usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage[scaled]{helvet}
 \usepackage[export]{adjustbox}
 \renewcommand\familydefault{\sfdefault}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{ colorlinks, citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={Insulin Temperature Warning System: Final Report Appendix},
+  pdfpagemode=FullScreen,
+}
+\usepackage{siunitx}
+\usepackage{pdfpages}
+\usepackage{bookmark}
+\bookmarksetup{
+  numbered,
+  open,
+}
 
 \begin{document}
 \appendix
-\section{Comprehensive Schematics}
 \begin{landscape}
+\section{Comprehensive Schematics}
   \begin{center}
   \begin{figure}[H]
     \includegraphics[width=1.6\textwidth, left]{../Modular Design/Main-Unit-PSU/Figures/main-unit-psu.png}
@@ -62,9 +78,403 @@
     \label{fig:sub-with-psu-schematic}
   \end{figure}
   \end{center}
-\end{landscape}
 \section{Bill of Materials}
+\begin{center}
+  \begin{table}[ht]
+    \addtocounter{table}{-1}
+  \begin{longtable}[c]{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{9}{|c|}{Bill of Materials: Main Unit}\\
+    \hline
+    Item\#&Qty&Description&Ref&Part\#&Unit Price&Est. Cost&Supplier&Datasheet\\
+    \hline
+    1&1&12V AC-DC Converter&U4&RAC03-12SK&\$7.70&\$7.70&\href{https://www.digikey.com/en/products/detail/recom-power/RAC03-12SK/10131801}{Digi-Key}&\href{https://recom-power.com/pdf/Powerline_AC-DC/RAC03-K.pdf}{Data-sheet}\\
+    \hline
+    2&1&Schottky Diode&CR1&1N5819&\$0.39&\$0.39&\href{https://www.digikey.com/en/products/detail/stmicroelectronics/1N5819/1037326}{Digi-key}&\href{https://www.st.com/content/ccc/resource/technical/document/datasheet/26/db/14/60/52/47/47/5b/CD00001625.pdf/files/CD00001625.pdf/jcr:content/translations/en.CD00001625.pdf}{Data-sheet}\\
+    \hline
+    3&2&Regular Diode&D1,D3&1N4004-G&\$0.21&\$0.42&\href{https://www.digikey.com/en/products/detail/comchip-technology/1N4004-G/1979655}{Digi-Key}&\href{https://www.comchiptech.com/admin/files/product/1N4001-G\%20Thru.\%201N4007-G\%20RevB.pdf}{Data-sheet}\\
+    \hline
+    4&2&3.6\si{\V} Battery&BT1,BT2&NURE18650-1&\$13.99&\$27.98&\href{https://www.batteriesplus.com/productdetails/nure18650=1}{BatteryPlus}&\href{https://www.batteriesplus.com/productdetails/nure18650=1}{Data-sheet}\\
+    \hline
+    5&2&3.3\si{\V} DC-DC Converter&DC1,DC2&K7803-500R3&\$3.25&\$6.50&\href{https://www.digikey.com/en/products/detail/recom-power/R-78E3-3-0-5/3593412?s=N4IgTCBcDaIEoFoDsAOAogZgHQYQBiwFYQBdAXyA}{Digi-Key}&\href{https://recom-power.com/pdf/Innoline/R-78E-0.5.pdf}{Data-sheet}\\
+    \hline
+    6&2&3.3\si{\V} LDO&U1-U2&BA33BC0T&\$2.62&\$5.24&\href{https://www.digikey.com/en/products/detail/rohm-semiconductor/BA33BC0T/722279?s=N4IgTCBcDaIEIEEDMS4GEAMAVEBdAvkA}{Digi-Key}&\href{https://www.rohm.com/datasheet?p=BA33BC0T&dist=Digi-key&media=referral&source=digi-key.com&campaign=Digi-key}{Data-sheet}\\
+    \hline
+    7&3&0.1\si{\micro\farad} 50\si{\V} Capacitor&C1,C2&UVR1H0R1MDD1TD&\$0.28&\$0.84&\href{https://www.digikey.com/en/products/detail/nichicon/UVR1H0R1MDD1TD/4328983}{Digi-Key}&\href{https://download.datasheets.com/pdfs/2016/10/6/6/6/44/578/nch_/manual/93896153625063e-uvr.pdf}{Data-sheet}\\
+	\hline
+    8&1&16 MHz MCU&U3&MSP430FR2110IPW16&\$1.21&\$1.21&\href{https://www.digikey.com/en/products/detail/texas-instruments/MSP430FR2110IPW16R/6570204}{Digi-key}&\href{https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1678667024727&ref_url=https\%253A\%252F\%252Fgoogle.com}{Data-sheet}\\
+     \hline
+	9&1&Bluetooth Module& HM-10& HM-10& \$5.30&\$5.30&\href{https://www.amazon.com/HiLetgo-Bluetooth-Wireless-Compatible-Arduino/dp/B00WGPKZ8Y/ref=sr_1_3?crid=3SILST2625K4B&keywords=hm-10+ble+hiletgo&qid=1679932067&sprefix=hm-10+ble+hiletgo\%2Caps\%2C133&sr=8-3}{Amazon}&\href{https://people.ece.cornell.edu/land/courses/ece4760/PIC32/uart/HM10/DSD\%20TECH\%20HM-10\%20datasheet.pdf}{Data-sheet}\\
+	\hline
+    10&1&18650 Battery Holder&BT1,BT2&BK-18650-PC4&\$6.22&\$6.22&\href{https://www.digikey.com/en/products/detail/mpd-memory-protection-devices/BK-18650-PC4/2330513?s=N4IgTCBcDaIEIGkC0BGAHANgKwAYkAUBhAFhAF0BfIA}{Digi-Key}&\href{https://www.memoryprotectiondevices.com/datasheets/BK-18650-PC4-datasheet.pdf}{Data-sheet}\\
+	\hline
+    11&1&Op Amp&U4&MCP6022-I/P&\$1.97&\$1.97&\href{https://www.digikey.com/en/products/detail/microchip-technology/MCP6022-I-P/417828}{Digi-Key}&\href{https://ww1.microchip.com/downloads/en/DeviceDoc/20001685E.pdf}{Data-sheet}\\
+	\hline
+    12&1&39\si{\ohm} Resistor&R5&CF18JT39R0&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF18JT39R0/1741693?s=N4IgTCBcDaIMIDECMAOAUgFQMwE4BKADCALoC\%2BQA}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    13&1&5.1\si{\ohm} Resistor&R6&CFM14JT5R10&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CFM14JT5R10/1742230?s=N4IgTCBcDaIMIDECyBGALAKQCoFYBKKADCALoC\%2BQA}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    14&1&1\si{\kilo\ohm} Resistor&R7&CF14JT1K00&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT1K00/1741314}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    15&1&620\si{\ohm} Resistor&R4&CF18JT620R&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF18JT620R/1741752?s=N4IgTCBcDaIMIDECMAOAUgFQGxgAwCUQBdAXyA}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    16&1&5\si{\V} DC-DC Converter&DC4&TSR 1-2450&\$5.80&\$5.80&\href{https://www.digikey.com/en/products/detail/traco-power/TSR-1-2450/9383780}{Digi-Key}&\href{https://www.tracopower.com/sites/default/files/products/datasheets/tsr1_datasheet.pdf}{Data-sheet}\\
+	\hline
+    17&1&5\si{\V} LDO&U6&L7805CV&\$0.69&\$0.69&\href{https://www.digikey.com/en/products/detail/stmicroelectronics/L7805CV/585964}{Digi-Key}&\href{https://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf}{Data-sheet}\\
+	\hline
+    18&1&Temperature Sensor&U5&TMP36GT9Z&\$2.40&\$2.40&\href{https://www.digikey.com/en/products/detail/analog-devices-inc/TMP36GT9Z/820404?s=N4IgTCBcDaICoFkAKBmAbAcTgTgFogF0BfIA}{Digi-Key}&\href{https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf}{Data-sheet}\\
+	\hline
+    19&1&18650 Battery Charger&&Snado&\$12.69&\$12.69&\href{https://www.amazon.com/dp/B0721JP6FK?psc=1&ref=ppx_yo2ov_dt_b_product_details}{Amazon}&\href{https://www.amazon.com/dp/B0721JP6FK?psc=1&ref=ppx_yo2ov_dt_b_product_details}{Data-sheet}\\
+	\hline
+    20&2&330\si{\ohm} Resistor&R1,R2&CF18JT330R&\$0.10&\$0.20&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    21&1&100\si{\ohm} Resistor&R3&CF14JT100R&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT100R/1741261}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    22&1&Red LED&LED1&XLUR12D&\$0.29&\$0.29&\href{https://www.digikey.com/en/products/detail/sunled/XLUR12D/4745846}{Digi-Key}&\href{https://octopart.com/datasheet/lhg3392-jameco+valuepro-2312745}{Data-sheet}\\
+	\hline
+    23&1&Green LED&LED2&WP7113GD&\$0.33&\$0.33&\href{https://www.digikey.com/en/products/detail/kingbright/WP7113GD/1747662}{Digi-Key}&\href{https://octopart.com/datasheet/lhg3392-jameco+valuepro-2312745}{Data-sheet}\\
+	\hline
+    \multicolumn{5}{|c|}{}&Total&\$98.66&\multicolumn{2}{c|}{}\\
+    \hline
+  \end{longtable}
+  \caption{Bill of Materials: Main Unit}
+  \label{BOM:Main-Unit}
+  \end{table}
+\begin{table}[ht]
+    \addtocounter{table}{-1}
+  \begin{longtable}[c]{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{9}{|c|}{Bill of Materials: Sub Unit}\\
+    \hline
+    Item\#&Qty&Description&Ref&Part\#&Unit Price&Est. Cost&Supplier&Datasheet\\
+    \hline
+    1&2&3.6\si{\V} Battery&BT1,BT2&NURE18650-1&\$13.99&\$27.98&\href{https://www.batteriesplus.com/productdetails/nure18650=1}{BatteryPlus}&\href{https://www.batteriesplus.com/productdetails/nure18650=1}{Data-sheet}\\
+    \hline
+    2&1&3.3\si{\V} DC-DC Converter&DC1&K7803-500R3&\$2.26&\$2.26&\href{https://www.digikey.com/en/products/detail/mornsun-america-llc/K7803-500R3/13168320}{Digi-Key}&\href{https://www.mornsun-power.com/html/pdf/K7803-500R3.html}{Data-sheet}\\
+    \hline
+    3&1&3.3\si{\V} LDO&U1&BA033CC0FP-E2&\$1.41&\$1.41&\href{https://www.digikey.com/en/products/detail/rohm-semiconductor/BA033CC0FP-E2/722186?s=N4IgTCBcDaIEIEEAMBmFBhdSBiAFAtAKIQC6AvkA}{Digi-Key}&\href{https://www.rohm.com/datasheet?p=BA033CC0FP&dist=Digi-key&media=referral&source=digi-key.com&campaign=Digi-key}{Data-sheet}\\
+    \hline
+    4&1&0.1\si{\micro\farad} 50\si{\V} Capacitor&C1,C2&UVR1H0R1MDD1TD&\$0.28&\$0.28&\href{https://www.digikey.com/en/products/detail/nichicon/UVR1H0R1MDD1TD/4328983}{Digi-Key}&\href{https://download.datasheets.com/pdfs/2016/10/6/6/6/44/578/nch_/manual/93896153625063e-uvr.pdf}{Data-sheet}\\
+    \hline
+    5&1&16\si{\MHz} MCU&U2&MSP430FR2000IPW16&\$1.31&\$1.31&\href{https://www.digikey.com/en/products/detail/texas-instruments/MSP430FR2000IPW16/7650247}{Digi-Key}&\href{https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https\%3A\%2F\%2Fwww.ti.com\%2Flit\%2Fgpn\%2Fmsp430fr2000}{Data-Sheet}\\
+    \hline
+    6&1&68\si{\ohm} Resistor&R1&CF18JT68R0&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF18JT68R0/1741755}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+    \hline
+    7&1&Red LED&LED1&SSL-LX3052ID&\$0.46&\$0.46&\href{https://www.digikey.com/en/products/detail/lumex-opto-components-inc/SSL-LX3052ID/39603?s=N4IgTCBcDaIMpwDIFpEA0DMAGArGAkgCIgC6AvkA}{Digi-Key}&\href{https://www.lumex.com/spec/SSL-LX3052ID.pdf}{Data-sheet}\\
+	\hline
+    8&1&5\si{\V} DC-DC Converter&DC2&TSR 1-2450&\$5.80&\$5.80&\href{https://www.digikey.com/en/products/detail/traco-power/TSR-1-2450/9383780}{Digi-Key}&\href{https://www.tracopower.com/sites/default/files/products/datasheets/tsr1_datasheet.pdf}{Data-sheet}\\
+	\hline
+    9&1&5\si{\V} LDO&U5&L7805CV&\$0.69&\$0.69&\href{https://www.digikey.com/en/products/detail/stmicroelectronics/L7805CV/585964}{Digi-Key}&\href{https://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf}{Data-sheet}\\
+    \hline
+	10&1&Bluetooth Module& HM-10& HM-10& \$5.30&\$5.30&\href{https://www.amazon.com/HiLetgo-Bluetooth-Wireless-Compatible-Arduino/dp/B00WGPKZ8Y/ref=sr_1_3?crid=3SILST2625K4B&keywords=hm-10+ble+hiletgo&qid=1679932067&sprefix=hm-10+ble+hiletgo\%2Caps\%2C133&sr=8-3}{Amazon}&\href{https://people.ece.cornell.edu/land/courses/ece4760/PIC32/uart/HM10/DSD\%20TECH\%20HM-10\%20datasheet.pdf}{Data-sheet}\\
+    \hline
+    11&1&18650 Battery Holder&BT1,BT2&BK-18650-PC4&\$6.22&\$6.22&\href{https://www.digikey.com/en/products/detail/mpd-memory-protection-devices/BK-18650-PC4/2330513?s=N4IgTCBcDaIEIGkC0BGAHANgKwAYkAUBhAFhAF0BfIA}{Digi-Key}&\href{https://www.memoryprotectiondevices.com/datasheets/BK-18650-PC4-datasheet.pdf}{Data-sheet}\\
+    \hline
+    12&1&Op Amp&U3&TLR342F-GE2&\$0.70&\$0.70&\href{https://www.digikey.com/en/products/detail/rohm-semiconductor/TLR342F-GE2/7896247?s=N4IgTCBcDaICoBkBKBmALGAYgWgOIFEIBdAXyA}{Digi-Key}&\href{https://www.rohm.com/datasheet?p=TLR342F&dist=Digi-key&media=referral&source=digi-key.com&campaign=Digi-key}{Data-sheet}\\
+	\hline
+    13&1&39\si{\ohm} Resistor&R6&CF18JT39R0&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF18JT39R0/1741693?s=N4IgTCBcDaIMIDECMAOAUgFQMwE4BKADCALoC\%2BQA}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    14&1&5.1\si{\ohm} Resistor&R7&CFM14JT5R10&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CFM14JT5R10/1742230?s=N4IgTCBcDaIMIDECyBGALAKQCoFYBKKADCALoC\%2BQA}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    15&1&1\si{\kilo\ohm} Resistor&R8&CF14JT1K00&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT1K00/1741314}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    16&1&620\si{\ohm} Resistor&R5&CF18JT620R&\$0.10&\$0.10&\href{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF18JT620R/1741752?s=N4IgTCBcDaIMIDECMAOAUgFQGxgAwCUQBdAXyA}{Digi-Key}&\href{https://www.seielect.com/Catalog/SEI-CF_CFM.pdf}{Data-sheet}\\
+	\hline
+    17&1&Temperature Sensor&U4&TMP36GT9Z&\$2.40&\$2.40&\href{https://www.digikey.com/en/products/detail/analog-devices-inc/TMP36GT9Z/820404?s=N4IgTCBcDaICoFkAKBmAbAcTgTgFogF0BfIA}{Digi-Key}&\href{https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf}{Data-sheet}\\
+	\hline
+    18&1&18650 Battery Charger&&Snado&\$12.69&\$12.69&\href{https://www.amazon.com/dp/B0721JP6FK?psc=1&ref=ppx_yo2ov_dt_b_product_details}{Amazon}&\href{https://www.amazon.com/dp/B0721JP6FK?psc=1&ref=ppx_yo2ov_dt_b_product_details}{Data-sheet}\\
+	\hline
+    \multicolumn{5}{|c|}{}&Total&\$68.00&\multicolumn{2}{c|}{}\\
+    \hline
+  \end{longtable}
+  \caption{Bill of Materials: Sub Unit}
+  \label{BOM:Sub-Unit}
+  \end{table}
+\end{center}
+\end{landscape}
 \section{Datasheets}
+\subsection{Main Unit}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/RAC03-K.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/en.CD00001625.pdf}
+\includegraphics[width=\textwidth]{../Appendix/Figures/Main-Unit/ 5-May-2023-13-05.png}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/R-78E-0.5.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/baxxbc0-e.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/93896153625063e-uvr.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/msp430fr2111.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/DSD TECH HM-10 datasheet.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/BK-18650-PC4-datasheet.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/20001685E.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/SEI-CF_CFM.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/tsr1_datasheet.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/en.CD00000444.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Main-Unit/TMP35_36_37.pdf}
+\includegraphics[width=\textwidth]{../Appendix/Figures/Main-Unit/LED Datasheet.png}
+\includegraphics[width=\textwidth]{../Appendix/Figures/Main-Unit/LED Datasheet2.png}
+\subsection{Sub Unit}
+\includegraphics[width=\textwidth]{../Appendix/Figures/Sub-Unit/ 5-May-2023-13-05.png}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/K78xx-500R3.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/baxxdd0-e.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/93896153625063e-uvr.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/msp430fr2000.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/SEI-CF_CFM.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/SSL-LX3052ID.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/tsr1_datasheet.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/en.CD00000444.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/DSD TECH HM-10 datasheet.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/BK-18650-PC4-datasheet.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/tlr342f-e.pdf}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/TMP35_36_37.pdf}
 \section{Project Journal}
+\begin{verbatim}
+2023-05-05 10:19:41 -0400 fabio.matos999 <fabio.matos@upr.edu> db4864f Started-appendix
+2023-05-05 10:09:22 -0400 fabio.matos999 <fabio.matos@upr.edu> 3991d71 Added-pictures-of-modules
+2023-05-05 09:15:49 -0400 fabio.matos999 <fabio.matos@upr.edu> 43025c2 Finished-abstract-and-some-fixes
+2023-05-04 16:45:30 -0400 fabio.matos999 <fabio.matos@upr.edu> 7331491 Finished-Closing-Section
+2023-05-04 16:15:11 -0400 fabio.matos999 <fabio.matos@upr.edu> 2b2fb10 Finished-Closing-Section
+2023-05-04 15:41:35 -0400 fabio.matos999 <fabio.matos@upr.edu> 43c0e5b Finished-System-Integration
+2023-05-04 14:41:36 -0400 fabio.matos999 <fabio.matos@upr.edu> 75654b4 Almost-finished-system-integration
+2023-05-04 13:19:41 -0400 fabio.matos999 <fabio.matos@upr.edu> 5e32c6c Finished-Module-analysis
+2023-05-04 11:50:01 -0400 fabiomatos999 <fabio.matos@upr.edu> ff5c466 Fixing-main-unit-flowcharts
+2023-05-03 17:44:27 -0400 fabiomatos999 <fabio.matos@upr.edu> 4c54d89 Almost-Finished-Main-Unit-module-analysis
+2023-05-03 17:21:20 -0400 fabiomatos999 <fabio.matos@upr.edu> fe09135 Finished-module-analysis-for-main-and-sub-psu
+2023-05-03 15:16:54 -0400 fabiomatos999 <fabio.matos@upr.edu> 48a4a26 Going-through-power-analysis
+2023-05-03 15:00:12 -0400 fabiomatos999 <fabio.matos@upr.edu> 22340ce Half-way-through-main-unit-module
+2023-05-03 14:08:39 -0400 fabiomatos999 <fabio.matos@upr.edu> d5c7fd6 Need-to-add-analytical-methods-to-theoretical-back
+2023-05-03 11:59:58 -0400 fabiomatos999 <fabio.matos@upr.edu> 1c05978 Added-logging-functionality-to-log-file.bash
+2023-05-03 09:45:35 -0400 fabio.matos999 <fabio.matos@upr.edu> 757cd40 Finished-introduction
+2023-05-03 08:40:16 -0400 fabio.matos999 <fabio.matos@upr.edu> ebf24e7 Finished-final-report-skeleton
+2023-05-03 08:21:45 -0400 fabio.matos999 <fabio.matos@upr.edu> 6397f31 Created-latex-document-creator-and-final-report
+2023-05-01 15:21:35 -0400 fabiomatos999 <fabio.matos@upr.edu> eeb2238 Fixed-log-file-generator
+2023-04-30 14:26:48 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 0d2f8f0 Finished-main-unit
+2023-04-30 13:57:53 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 55725a2 Update-Main-Unit
+2023-04-30 13:54:16 -0400 fabio.matos999 <fabio.matos@upr.edu> 0ce8780 Finished-log-file-displayer
+2023-04-29 18:29:23 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 86885d0 Finished-sub-unit
+2023-04-29 09:18:34 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 2ca84b2 Added-AT-Commands-to-sub-unit
+2023-04-28 19:35:59 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 74ce763 Fixed-printing-bug
+2023-04-28 18:48:15 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> dbdb140 Got-ble-to-work-on-msp430-sub-unit
+2023-04-28 16:55:40 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> e03f475 Started-debugging-of-ble
+2023-04-27 20:51:05 -0400 fabio.matos999 <fabio.matos@upr.edu> 7deba04 Finished-progress-report-5
+2023-04-27 20:04:57 -0400 fabio.matos999 <fabio.matos@upr.edu> 32e6620 Thingy
+2023-04-27 19:51:18 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 1462141 Merge-branch-main-of-https-github.com-fabiomatos999-ICOM-4217-Project
+2023-04-27 19:50:43 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 9115a37 Fixed-Main-Unit
+2023-04-27 12:17:48 -0400 fabiomatos999 <fabio.matos@upr.edu> 33ea2b8 Started-System-Integration-Table
+2023-04-27 12:04:02 -0400 fabiomatos999 <fabio.matos@upr.edu> b592063 Added-sub-unit-code-appendix
+2023-04-27 11:40:43 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 44f3ec6 Refactored-code-for-sub-unit
+2023-04-27 11:37:04 -0400 fabiomatos999 <fabio.matos@upr.edu> 90ca8d5 Started-minted
+2023-04-27 08:13:18 -0400 fabio.matos999 <fabio.matos@upr.edu> 30f3aa5 Updated-Individual-schematics-bd-and-pictures
+2023-04-27 07:46:45 -0400 fabio.matos999 <fabio.matos@upr.edu> 9116cd7 Fixed-Voltage-analysis
+2023-04-27 07:24:22 -0400 fabio.matos999 <fabio.matos@upr.edu> 575a189 Updated-Schematics-and-BOM
+2023-04-27 07:24:02 -0400 fabio.matos999 <fabio.matos@upr.edu> 6b07c15 Updated-schematics-and-BOM
+2023-04-26 21:11:42 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 4ea4f9f Updated-Main-Unit
+2023-04-26 19:17:31 -0400 fabio.matos999 <fabio.matos@upr.edu> 8855795 Updated-Block-diagrams
+2023-04-26 19:11:05 -0400 fabio.matos999 <fabio.matos@upr.edu> e6385e1 Started-report-5
+2023-04-26 08:48:46 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 1a9c6fc Started-Refactor-for-RTC
+2023-04-26 08:00:16 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 334e9de Ported-to-MSP430F5438
+2023-04-25 19:07:11 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> a5ae2de Fixed-RTC-Clock-bug
+2023-04-25 13:43:50 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> a38ac16 Fixed-bugs-with-temperature-sensor
+2023-04-25 09:59:09 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> f4176c2 Added-resolution-to-ADC
+2023-04-25 09:45:04 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 0300998 Fixed-ADC
+2023-04-22 16:52:41 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 094916d Main-unit-added
+2023-04-22 16:51:21 -0400 EnriqueChompre <enrique.chompre1@upr.edu> be205cd Sub-unit-changes
+2023-04-19 15:14:44 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 0f245a7 FInished-sub-unit-mostly-need-to-test
+2023-04-19 12:23:09 -0400 fabiomatos999 <fabio.matos@upr.edu> 6ba0aa5 Fixed-typo-added-argument-printers
+2023-04-19 10:26:39 -0400 fabiomatos999 <fabio.matos@upr.edu> 9b00f1e Fixed-typo
+2023-04-19 10:24:17 -0400 fabiomatos999 <fabio.matos@upr.edu> 284d6b6 Finished-adding-comments-to-AT_COMMANDS-array
+2023-04-19 08:31:54 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 720eeb7 Minor-refactor-and-added-AT-commands-array-needs-comments
+2023-04-18 17:46:06 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 36fddc0 Finished-Sub-Unit-Code-except-for-bluetooth-library
+2023-04-18 17:20:45 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 706bc4f Started-Sub-Unit-Code
+2023-04-10 20:13:42 -0400 fabio.matos999 <fabio.matos@upr.edu> 2dd85b4 Fixed-error-in-figures
+2023-04-10 20:09:59 -0400 fabio.matos999 <fabio.matos@upr.edu> 3cc919b Added-sub-unit-pictures-finished-report-4
+2023-04-10 11:25:46 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> e150a40 ADDED-SUB-UNIT-CODE
+2023-04-10 07:44:54 -0400 fabio.matos999 <fabio.matos@upr.edu> e2f5fcf Added-main-unit-and-psu-pictures
+2023-04-08 10:04:38 -0400 fabio.matos999 <fabio.matos@upr.edu> 8ae9519 Finished-progress-report-4-need-module-images
+2023-04-07 17:09:19 -0400 fabio.matos999 <fabio.matos@upr.edu> 3d8d0cd Finished-analysis-for-main-unit-psu
+2023-04-07 15:28:29 -0400 fabio.matos999 <fabio.matos@upr.edu> 76123b0 Finished-detailed-software-plan
+2023-04-07 13:09:01 -0400 fabio.matos999 <fabio.matos@upr.edu> 1a2f3ac Added-state-diagrams
+2023-04-07 11:07:38 -0400 fabio.matos999 <fabio.matos@upr.edu> 7bd6d7d Added-main-sub-flowcharts-and-pseudo-code
+2023-04-07 09:07:39 -0400 fabio.matos999 <fabio.matos@upr.edu> 90c91be Finished-completion-table-and-bd-for-individual
+2023-04-06 16:57:16 -0400 fabio.matos999 <fabio.matos@upr.edu> 0c2104a Finished-BOM-SCH-1-3-of-Modules
+2023-04-06 15:05:33 -0400 fabio.matos999 <fabio.matos@upr.edu> 863b635 Fixed-system-schematics
+2023-04-03 12:22:53 -0400 fabiomatos999 <fabio.matos@upr.edu> 61faf71 Finished-adding-Bdv4
+2023-04-03 12:21:23 -0400 fabiomatos999 <fabio.matos@upr.edu> 10e95b4 Started-bdv4
+2023-04-03 08:24:13 -0400 fabio.matos999 <fabio.matos@upr.edu> 826a05d Added-Progress-Report-4
+2023-03-30 18:53:32 -0400 fabio.matos999 <fabio.matos@upr.edu> ccb44aa Uppdated-block-diagrams
+2023-03-28 15:15:03 -0400 fabiomatos999 <fabio.matos@upr.edu> 37fc00e Minor-formatting-fix
+2023-03-28 15:10:41 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 78ad0d2 Added-5V-regulator-to-PSU-schematics
+2023-03-28 15:00:05 -0400 fabiomatos999 <fabio.matos@upr.edu> 6e7c116 Fixed-software-plan
+2023-03-28 14:26:07 -0400 fabiomatos999 <fabio.matos@upr.edu> a376452 Finished-BOM
+2023-03-28 13:22:06 -0400 fabiomatos999 <fabio.matos@upr.edu> b34d528 Fixed-BOM-again
+2023-03-28 13:06:39 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> f4b32dd Added-5v-regulator-to-schematics
+2023-03-28 12:31:29 -0400 fabiomatos999 <fabio.matos@upr.edu> 3cda013 Fixed-typos-in-BOM
+2023-03-28 10:40:52 -0400 fabio.matos999 <fabio.matos@upr.edu> b7d96b4 Fixed-schematics
+2023-03-27 15:49:22 -0400 fabiomatos999 <fabio.matos@upr.edu> e8650ed Fixed-BOM-after-purchasing-parts
+2023-03-13 19:06:29 -0400 fabio.matos999 <fabio.matos@upr.edu> ea5bc29 Finished-review-for-proposal-3
+2023-03-13 15:05:26 -0400 fabiomatos999 <fabio.matos@upr.edu> f193012 Finished-proposal-3-needs-review
+2023-03-13 13:30:15 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 26b6bc1 Finished-Sub-Unit-Voltage-Analysis
+2023-03-13 13:25:24 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 611d4fa Finished-Sub-Unit
+2023-03-13 13:18:46 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 0304a8b Finished-Sub-Unit-voltage-analysis
+2023-03-13 12:06:40 -0400 EnriqueChompre <enrique.chompre1@upr.edu> d36a7ad Merge-branch-main-of-https-github.com-fabiomatos999-ICOM-4217-Project
+2023-03-13 12:06:38 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 248aac6 Added-Main-Unit-analysis
+2023-03-13 12:04:49 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 09b864f BOM-R1-Updated
+2023-03-13 11:35:04 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> a41e287 Fixed-R1-value
+2023-03-13 08:49:48 -0400 fabio.matos999 <fabio.matos@upr.edu> b0a745f Fixed-title-page
+2023-03-13 08:42:12 -0400 fabio.matos999 <fabio.matos@upr.edu> e89c2ea Integraded-members-parts
+2023-03-12 23:33:14 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 070d472 Added-the-new-doc-file-of-the-poster
+2023-03-12 23:30:37 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 6af860c Updated-Project-Poster
+2023-03-12 22:38:12 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> cd7a55f Small-editing
+2023-03-12 22:01:44 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> e3dd1d2 Sub-Unit-Schematics-added
+2023-03-12 20:48:23 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 7bbef29 Updated-BOM-for-Main-Unit
+2023-03-12 20:37:22 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 05f404f Added-Main-Unit
+2023-03-12 09:49:43 -0400 fabio.matos999 <fabio.matos@upr.edu> 1a8cee1 Almost-finished-cost-analysis-need-totals
+2023-03-11 17:06:30 -0400 EnriqueChompre <enrique.chompre1@upr.edu> bf59144 Added-Architectual-Diagrams
+2023-03-10 10:02:02 -0400 fabio.matos999 <fabio.matos@upr.edu> 273a032 Finished-BOM-analysis-and-diagrams-for-PSUs
+2023-03-09 17:00:08 -0400 fabio.matos999 <fabio.matos@upr.edu> 241e88e Redid-voltage-analysis
+2023-03-09 13:39:09 -0400 fabio.matos999 <fabio.matos@upr.edu> 8882bf2 Fixed-label-and-added-total-to-BOM
+2023-03-09 13:20:51 -0400 fabio.matos999 <fabio.matos@upr.edu> b5f1e95 Fixed-main-and-sub-unit-designs-for-voltage-compat
+2023-03-09 12:05:58 -0400 fabio.matos999 <fabio.matos@upr.edu> bbc5a51 Fixed-error-in-sub-unit-BOM
+2023-03-09 12:01:17 -0400 fabio.matos999 <fabio.matos@upr.edu> fa16839 Finished-most-of-BOM-and-added-list-of-tables
+2023-03-08 08:50:08 -0400 fabio.matos999 <fabio.matos@upr.edu> 28162fc Fixed-3.3-regulator-and-BOM
+2023-03-08 08:41:53 -0400 fabio.matos999 <fabio.matos@upr.edu> daaa8f8 Fixed-main-and-sub-unit-psu-sch
+2023-03-07 19:31:55 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 027c3d1 Uploaded-main-and-unit-sch
+2023-03-07 14:36:00 -0400 fabiomatos999 <fabio.matos@upr.edu> 1f72b69 Fixed-diode
+2023-03-07 12:46:33 -0400 fabiomatos999 <fabio.matos@upr.edu> 2787d9a Fixed-some-formatting
+2023-03-07 12:43:59 -0400 fabiomatos999 <fabio.matos@upr.edu> 17c75ed Fixed-voltage-analysis
+2023-03-07 09:50:43 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 53e89b3 Added-battery-need-to-fix-analysis
+2023-03-07 08:25:37 -0400 fabio.matos999 <fabio.matos@upr.edu> 7394da3 Finished-delegation-of-tasks
+2023-03-07 07:53:19 -0400 fabio.matos999 <fabio.matos@upr.edu> 2d63568 Updated-BOM-and-finished-analysis-for-main-sub-psu
+2023-03-06 17:21:59 -0400 fabio.matos999 <fabio.matos@upr.edu> 99fbd1e Added-delegation-of-tasks-section
+2023-03-06 15:24:47 -0400 fabiomatos999 <fabio.matos@upr.edu> 70bd568 Almost-finished-eqations-for-main-PSU
+2023-03-06 13:30:05 -0400 fabiomatos999 <fabio.matos@upr.edu> d92f244 Added-figures-to-proposal-3
+2023-03-06 12:20:03 -0400 EnriqueChompre <enrique.chompre1@upr.edu> cbe7dcd Updated-name-for-poster
+2023-03-06 12:18:34 -0400 EnriqueChompre <enrique.chompre1@upr.edu> dea8207 Merge-branch-main-of-https-github.com-fabiomatos999-ICOM-4217-Project
+2023-03-06 12:18:18 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 9dd8c14 Added-Project-Poster-as-DOCX
+2023-03-06 12:16:32 -0400 fabiomatos999 <fabio.matos@upr.edu> ae53848 Added-figures-to-proposal-3
+2023-03-06 08:40:34 -0400 fabio.matos999 <fabio.matos@upr.edu> 40affd2 Created-progress-report-3-skeleton
+2023-03-06 07:50:54 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 17be94b Added-node-labels
+2023-03-06 07:32:12 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 2c933b6 Fixed-main-psu-and-BOM
+2023-03-05 18:13:39 -0400 fabio.matos999 <fabio.matos@upr.edu> b61587d Started-meeting-log
+2023-03-05 14:40:53 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> b99cbd1 Finished-finding-parts
+2023-03-05 13:01:16 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 4fd48ae Started-BOM-for-main-and-sub-unit-psu
+2023-03-05 11:12:26 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 34dd47b Fixed-errors-in-flowcharts
+2023-03-04 11:22:46 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> ea70efe Started-main-unit-and-sub-unit-psu
+2023-03-03 12:23:10 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 6e8d9a2 Fixed-sub-unit-isr
+2023-03-03 12:19:42 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 064877f Added-missing-photo
+2023-03-03 12:18:33 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 3a9f88d Finished-software-plan-diagrams
+2023-03-03 12:00:00 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> a246744 Finished-Main-unit-RTC-ISR
+2023-03-03 10:24:00 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 69bc43c Finished-bluetooth-isr-for-main-unit
+2023-03-03 07:10:55 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 43dbb61 Cleaned-working-tree
+2023-03-03 11:09:54 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> b7a2561 Finished-sub-unit-flowchart
+2023-03-02 10:42:26 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> ae48a7a Merge-branch-main-of-https-github.com-fabiomatos999-ICOM-4217-Project
+2023-03-02 10:42:24 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> e494566 Added-diagrams-correctly
+2023-03-02 10:16:37 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 06c719d Midway-through-main-unit-diagrams
+2023-03-02 08:27:58 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 240034b Started-Flowcharts
+2023-02-27 17:55:59 -0400 fabiomatos999 <fabio.matos@upr.edu> 0365deb Fixed-compile-and-title-page
+2023-02-16 21:09:23 -0400 fabio.matos999 <fabio.matos@upr.edu> 83e72f3 Added-project-poster
+2023-02-16 10:19:38 -0400 fabio.matos999 <fabio.matos@upr.edu> 89c0f42 Added-presentations-to-Proposal-2
+2023-02-16 07:05:40 -0400 fabio.matos999 <fabio.matos@upr.edu> ed0693a Finished-product-life-cycle
+2023-02-16 06:42:23 -0400 fabio.matos999 <fabio.matos@upr.edu> 549e1d0 Finished-processor-selection
+2023-02-15 15:41:03 -0400 fabiomatos999 <fabio.matos@upr.edu> 3094649 Midway-through-processor-selection
+2023-02-15 10:22:52 -0400 fabio.matos999 <fabio.matos@upr.edu> 7f25758 In-processor-selection
+2023-02-15 08:10:54 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> b3a2509 Add-files-via-upload
+2023-02-15 07:35:48 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> e2a4fcc Add-files-via-upload
+2023-02-15 07:32:45 -0400 fabio.matos999 <fabio.matos@upr.edu> 604c6f4 Started-Microprocessor-Selection-and-BDV2
+2023-02-14 19:08:13 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 4db8d2c Add-files-via-upload
+2023-02-14 19:07:26 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> ec92a1e Add-files-via-upload
+2023-02-14 18:47:53 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 0cd6de4 Add-files-via-upload
+2023-02-14 18:09:14 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 76e64cd Updated-market-description-tex-APP-via-Bluetooth
+2023-02-14 18:03:28 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> f3cf277 Fixed-market-description-App-via-bluetooth
+2023-02-14 18:02:06 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> c7485e6 Replacing-pdf-with-fixed-one
+2023-02-12 21:36:57 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 458fa74 Fixed-pdf-table-of-market-description
+2023-02-12 21:36:29 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> dc82e19 Delete-market-description.pdf
+2023-02-11 16:41:07 -0400 fabio.matos999 <fabio.matos@upr.edu> 58334dd Fixed-design-criteria
+2023-02-11 16:30:58 -0400 fabio.matos999 <fabio.matos@upr.edu> 697483a Fixed-abstract-and-finished-specifications
+2023-02-11 15:40:32 -0400 fabio.matos999 <fabio.matos@upr.edu> 94f234b Finished-processor-selection
+2023-02-11 14:09:48 -0400 fabiomatos999 <fabio.matos@upr.edu> 9746ef9 Did-research
+2023-02-11 10:04:59 -0400 fabio.matos999 <fabio.matos@upr.edu> 745604b Refectored-main-document.tex-and-fixed-references
+2023-02-10 16:46:43 -0400 fabio.matos999 <fabio.matos@upr.edu> 5e5ce5a Fixed-system-architecture
+2023-02-10 15:48:25 -0400 fabiomatos999 <fabio.matos@upr.edu> 6af33f7 Working-on-system-architecture
+2023-02-10 15:27:55 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> c15631e Add-files-via-upload
+2023-02-10 14:23:26 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 612f3d2 Add-files-via-upload
+2023-02-10 12:23:35 -0400 fabiomatos999 <fabio.matos@upr.edu> 6203b10 Started-proposal-review-finished-intro-abstract
+2023-02-04 09:27:01 -0400 fabiomatos999 <fabio.matos@upr.edu> be8dc90 Added-market-description-documentation
+2023-02-04 09:21:59 -0400 fabiomatos999 <fabio.matos@upr.edu> 8393e2c Added-market-description.pdf
+2023-02-02 14:44:13 -0400 fabiomatos999 <fabio.matos@upr.edu> 08ef5e0 Added-appendices-and-fixed-some-issues
+2023-02-02 15:17:21 -0400 EnriqueChompre <enrique.chompre1@upr.edu> e12e861 Update-appendices.tex
+2023-02-02 11:06:40 -0400 fabiomatos999 <fabio.matos@upr.edu> 849add0 Added-time-table
+2023-02-01 15:07:00 -0400 fabiomatos999 <fabio.matos@upr.edu> e140a4e Finished-client-opinion.-Need-to-fix-bibliography
+2023-02-01 14:56:13 -0400 fabiomatos999 <fabio.matos@upr.edu> aac79cb Finished-specifications
+2023-02-01 13:52:42 -0400 fabiomatos999 <fabio.matos@upr.edu> 32298a4 Finished-processor-selection
+2023-02-01 12:18:31 -0400 fabiomatos999 <fabio.matos@upr.edu> 0cfa567 2-3-way-through-the-processor-selection
+2023-01-31 18:37:00 -0400 fabiomatos999 <fabio.matos@upr.edu> 001e217 Added-jeep-formatting
+2023-01-31 12:19:32 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> f40e74e Add-files-via-upload
+2023-01-31 10:42:19 -0400 fabio.matos999 <fabio.matos@upr.edu> a8f8d46 Finished-part-3
+2023-01-31 09:45:14 -0400 fabio.matos999 <fabio.matos@upr.edu> e37861c Added-system-architecture-block-diagram
+2023-01-31 09:10:59 -0400 fabio.matos999 <fabio.matos@upr.edu> 699ab3f Fixed-references-in-introduction
+2023-01-30 20:55:09 -0400 fabio.matos999 <fabio.matos@upr.edu> 57b498d Fixed-some-formatting
+2023-01-30 20:45:15 -0400 EnriqueChompre <enrique.chompre1@upr.edu> f5d94d1 Update-ranking.tex
+2023-01-30 20:18:17 -0400 EnriqueChompre <enrique.chompre1@upr.edu> d9498ac Update-Pre-Proposal-Enrique.tex
+2023-01-30 20:01:01 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 31e29ee Updated-Ranking.tex
+2023-01-30 18:28:55 -0400 fabio.matos999 <fabio.matos@upr.edu> b701d97 Fixed-pre-proposal-font
+2023-01-30 18:26:19 -0400 fabio.matos999 <fabio.matos@upr.edu> 915c963 Fixed-error-in-rankings
+2023-01-30 16:57:04 -0400 fabio.matos999 <fabio.matos@upr.edu> 5447579 Finished-system-conception
+2023-01-30 14:48:42 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> bc8769e Add-files-via-upload
+2023-01-30 14:48:00 -0400 fabiomatos999 <fabio.matos@upr.edu> ec317cb Created-figures-foler-in-system-conception
+2023-01-30 14:37:25 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 88ccbad Add-files-via-upload
+2023-01-30 14:37:03 -0400 fabiomatos999 <fabio.matos@upr.edu> ac6d85a Changed-title
+2023-01-30 14:08:23 -0400 fabiomatos999 <fabio.matos@upr.edu> c59ba7a Finished-the-introduction
+2023-01-30 12:24:04 -0400 fabiomatos999 <fabio.matos@upr.edu> 134bc66 Working-through-the-introduction
+2023-01-29 14:55:23 -0400 fabio.matos999 <fabio.matos@upr.edu> b730c58 Added-hyperref-to-toc
+2023-01-29 14:39:20 -0400 fabio.matos999 <fabio.matos@upr.edu> 92e1b8f Finished-Proposal-skeleton
+2023-01-29 13:11:49 -0400 fabiomatos999 <fabio.matos@upr.edu> 09804c7 Made-cover-page
+2023-01-29 11:40:18 -0400 fabio.matos999 <fabio.matos@upr.edu> 88d8097 Started-proposal-skeleton-title-in-progress
+2023-01-29 09:10:10 -0400 fabio.matos999 <fabio.matos@upr.edu> ddb7f78 Added-.pdf-to-gitignore
+2023-01-29 09:06:36 -0400 fabio.matos999 <fabio.matos@upr.edu> 346f11e Found-more-files
+2023-01-29 08:59:52 -0400 fabio.matos999 <fabio.matos@upr.edu> c92f0eb Added-missing-file
+2023-01-29 08:48:29 -0400 fabio.matos999 <fabio.matos@upr.edu> 7001a8c Cleaned-working-directory
+2023-01-28 16:19:40 -0400 fabio.matos999 <fabio.matos@upr.edu> 6977d41 3-4-rankings-done-and-document-compiles
+2023-01-28 16:04:30 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> f25163c Delete-Ignore
+2023-01-28 16:04:08 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 3888579 Add-files-via-upload
+2023-01-28 16:03:44 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> b2938b9 Create-Ignore
+2023-01-28 16:02:29 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> ea792ae Delete-Pre-Proposal-Guillermo.pdf
+2023-01-28 16:02:19 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 573293e Delete-Pre-Proposal-Guillermo.tex
+2023-01-28 15:05:37 -0400 Ru590io <ruben.marrero@upr.edu> 43067fc Merge-branch-main-of-https-github.com-fabiomatos999-ICOM-4217-Project
+2023-01-28 15:05:25 -0400 Ru590io <ruben.marrero@upr.edu> 3740d8a done
+2023-01-28 15:05:15 -0400 fabio.matos999 <fabio.matos@upr.edu> 90eac83 Added-to-gitignore
+2023-01-28 15:02:50 -0400 Ru590io <70116988+Ru590io@users.noreply.github.com> 175021b Add-files-via-upload
+2023-01-28 14:57:10 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> b613a57 Add-files-via-upload
+2023-01-28 14:56:45 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> c8844ef Add-files-via-upload
+2023-01-28 14:50:39 -0400 fabio.matos999 <fabio.matos@upr.edu> 45d47ea Fixed-git-conflict
+2023-01-28 14:06:59 -0400 Ru590io <ruben.marrero@upr.edu> 26889fa Update
+2023-01-28 14:05:55 -0400 Ru590io <ruben.marrero@upr.edu> 6fc847d Updated-pre-proporsal
+2023-01-27 15:38:07 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 9db6153 Delete-Pre-Proposal-Fabio-Proposal-.auctex-auto-directory
+2023-01-27 15:37:15 -0400 fabiomatos999 <fabio.matos@upr.edu> a464571 Fixed-pro-proposal-and-formatting
+2023-01-27 10:14:44 -0400 fabiomatos999 <fabio.matos@upr.edu> 31e5f3d Fixed-margins
+2023-01-24 10:08:22 -0400 fabio.matos <fabio.matos@upr.edu> 9176f73 Added-All-Members-Parts-in-merged-proposal
+2023-01-24 09:19:34 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 5058ce5 Merge-branch-main-of-https-github.com-fabiomatos999-ICOM-4217-Project
+2023-01-24 08:23:14 -0400 fabio.matos <fabio.matos@upr.edu> a39b65c Imported-into-merged-pre-proposal-and-fixed-import
+2023-01-24 01:04:29 -0400 EnriqueChompre <enrique.chompre1@upr.edu> e4c3277 Pre-Poposal
+2023-01-23 23:28:12 -0400 Ru590io <ruben.marrero@upr.edu> de72f14 Added-contact
+2023-01-23 19:04:42 -0400 Ru590io <ruben.marrero@upr.edu> 5d0ae66 Pre-proporsal_Rub-n
+2023-01-23 16:17:58 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 3b001a1 Delete-Ignore
+2023-01-23 16:16:41 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 21d5bbb Add-files-via-upload
+2023-01-23 16:15:59 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 67c8809 Create-Ignore
+2023-01-23 16:15:12 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> dd56863 Delete-Guillermo-Proposal
+2023-01-23 16:03:09 -0400 GuillermoColonBernardi <70712369+GuillermoColonBernardi@users.noreply.github.com> 27f7aba Create-Guillermo-Proposal
+2023-01-23 08:08:37 -0400 fabio.matos <fabio.matos@upr.edu> ea1fc12 Added-contact-information
+2023-01-22 17:26:32 -0400 EnriqueChompre <70545068+EnriqueChompre@users.noreply.github.com> d385b46 Rename
+2023-01-21 17:47:45 -0400 fabio.matos <fabio.matos@upr.edu> 6efdb97 Removed-test
+2023-01-21 17:43:29 -0400 nikolaizombie1 <fabio.matos999@gmail.com> f9198e5 Test
+2023-01-21 16:45:43 -0400 nikolaizombie1 <fabio.matos999@gmail.com> 44719e0 Fixed-additional-accent
+2023-01-21 16:42:50 -0400 nikolaizombie1 <fabio.matos999@gmail.com> 779915c Fixed-accents
+2023-01-21 16:03:01 -0400 nikolaizombie1 <fabio.matos999@gmail.com> e0095fe fixed-proposal-formatting
+2023-01-21 15:53:49 -0400 Ru590io <ruben.marrero@upr.edu> 5e1599b Ruben-Pre-proposal
+2023-01-21 15:52:00 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 7ca2cf0 Created-Proposal-merged-folder
+2023-01-21 15:47:41 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 10aa952 Addition-of-Pre-Proposal
+2023-01-21 15:39:30 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> 0d62948 Delete-test.txt
+2023-01-21 15:37:32 -0400 EnriqueChompre <enrique.chompre1@upr.edu> 3391258 Create-test.txt
+2023-01-19 15:18:43 -0400 fabiomatos999 <fabio.matos@upr.edu> 2222718 Finished-summary
+2023-01-18 15:14:29 -0400 fabiomatos999 <fabio.matos@upr.edu> 17d1e94 Added-pre-proposal
+2023-01-18 14:07:43 -0400 fabiomatos999 <78383665+fabiomatos999@users.noreply.github.com> cd57102 Initial-commit
+\end{verbatim}
 \section{Work Distribution}
 \end{document}
