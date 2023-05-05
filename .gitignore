@@ -386,3 +386,5 @@ Main-unit/targetConfigs/MSP430F5438.ccxml
 Main-unit/targetConfigs/readme.txt
 Sub-Unit/Debug/Sub-Unit_linkInfo.xml
 Sub-Unit/Debug/subdir_rules.mk
+!Final Project Report/Appendix/Figures/Main-Unit/*.pdf
+!Final Project Report/Appendix/Figures/Sub-Unit/*.pdf
