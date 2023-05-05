@@ -2,10 +2,67 @@
 
 \usepackage{pdfpages}
 \usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[scaled]{helvet}
+\usepackage[export]{adjustbox}
+\renewcommand\familydefault{\sfdefault}
 
 \begin{document}
 \appendix
 \section{Comprehensive Schematics}
+\begin{landscape}
+  \begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=1.6\textwidth, left]{../Modular Design/Main-Unit-PSU/Figures/main-unit-psu.png}
+    \caption{Main Unit PSU Schematic}
+    \label{fig:main-psu-schematic}
+  \end{figure}
+  \end{center}
+
+
+  \begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=1.6\textwidth, left]{../Appendix/Figures/Main-Unit.png}
+    \caption{Main Unit Schematic}
+    \label{fig:main-schematic}
+  \end{figure}
+  \end{center}
+
+
+
+  \begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=\pdfpagewidth,height=0.65\textheight]{../Modular Design/Main-Unit/Figures/main-unit-and-psu.png}
+    \caption{Main Unit with PSU Schematic}
+    \label{fig:main-with-psu-schematic}
+  \end{figure}
+  \end{center}
+
+  \begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=1.6\textwidth, left]{../Modular Design/Sub-Unit-PSU/Figures/sub-unit-psu.png}
+    \caption{Sub Unit PSU Schematic}
+    \label{fig:sub-psu-schematic}
+  \end{figure}
+  \end{center}
+  \begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=1.6\textwidth, left]{../Appendix/Figures/sub-unit.png}
+    \caption{Sub Unit Schematic}
+    \label{fig:sub-schematic}
+  \end{figure}
+  \end{center}
+
+  \begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=\pdfpagewidth,height=0.65\textheight]{../Modular Design/Sub-Unit/Figures/sub-unit-and-psu.png}
+    \caption{Sub Unit with PSU Schematic}
+    \label{fig:sub-with-psu-schematic}
+  \end{figure}
+  \end{center}
+\end{landscape}
 \section{Bill of Materials}
 \section{Datasheets}
 \section{Project Journal}
