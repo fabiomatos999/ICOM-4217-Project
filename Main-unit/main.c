@@ -88,13 +88,6 @@ void resetTXBUFFER(){
     }
 }
 
-void resetRXBUFFER(){
-    unsigned int i = 0;
-    for(;i<BTBUFSIZE;i++){
-        BTRXBUF[i] = '\0';
-    }
-}
-
 void AT(){
     char AT[] = "AT\r\n";
     unsigned int i = 0;
@@ -170,29 +163,6 @@ void ATCON(char ADDR[]){
     }
 }
 
-typedef enum
-{
-    OLD, FROZEN, COLD, WARM, HOT, TRASH, NONE
-} ERROR;
-
-
-char*ERROR_STRING[7] = {
-    "OLD",
-    "FROZEN",
-    "COLD",
-    "WARM",
-    "HOT",
-    "TRASH",
-    "NONE"
-};
-
-char BUFF[] = "";
-
-char LOT[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234";
-
-void raiseError(ERROR err);
-
-ERROR error = NONE;
 bool power = false;
 
 
@@ -214,11 +184,7 @@ int main(void)
     UCA0MCTL = UCBRS_2+UCBRF_0;
     UCA0CTL1 &= ~UCSWRST;
     ATRENEW();
-//    __delay_cycles(100000);
-//    ATRESET();
-//    __delay_cycles(100000);
-//    ATRENEW();
-//    __delay_cycles(100000);
+    __delay_cycles(100000);
     ATIMME();
     __delay_cycles(100000);
     ATBAUD();
@@ -233,41 +199,41 @@ int main(void)
     UCA0IE |= UCTXIE + UCRXIE;
 
     P4OUT &= ~(BIT1 + BIT0);
-        P4DIR |= BIT1+BIT0;//P2.1 = GREEN LED, P2.0= RED LED, P2.2= Voltage sensing pin
-        P1REN |= BIT3;
-        P1IE |= BIT3;
-        if (((P1IN>>3)& 1)==1){//verifies that power is present
-                    P4OUT &= ~BIT0;
-                    P4OUT |= BIT1;
-                    P1IES |= BIT3;
-                    power = true;
-                    //toggles LEDs
-                }
-                else {
-                    P4OUT &= ~BIT1;
-                    P4OUT |= BIT0;
-                    P1IES &= ~BIT3;
-                    power = false;
-                    //toggles LEDs
-                }
-        P1IFG &= ~BIT3;
+    P4DIR |= BIT1+BIT0;
+    P1REN |= BIT3;
+    P1IE |= BIT3;
 
-        RTCSEC = 0;
-        RTCMIN = 30;
-        RTCHOUR = 15;
-        RTCDOW = 2;
-        RTCDAY = 1;
-        RTCMON = 5;
-        RTCYEARL = 0x23;
-        RTCYEARH = 0x21;
+    if (((P1IN>>3)& 1)==1){//verifies that power is present
+       P4OUT &= ~BIT0;
+       P4OUT |= BIT1;
+       P1IES |= BIT3;
+       power = true;
+       //toggles LEDs
+    }
+    else {
+       P4OUT &= ~BIT1;
+       P4OUT |= BIT0;
+       P1IES &= ~BIT3;
+       power = false;
+       //toggles LEDs
+    }
+    P1IFG &= ~BIT3;
 
-        RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0; // Counter Mode, RTC1PS, 8-bit ovf
-                                                  // overflow interrupt enable
-        RTCPS0CTL = RT0PSDIV_2;                   // ACLK, /8, start timer
-        RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;
+    RTCSEC = 0;
+    RTCMIN = 30;
+    RTCHOUR = 15;
+    RTCDOW = 2;
+    RTCDAY = 1;
+    RTCMON = 5;
+    RTCYEARL = 0x23;
+    RTCYEARH = 0x21;
+
+    RTCCTL01 = RTCTEVIE + RTCSSEL_2 + RTCTEV_0;
+    RTCPS0CTL = RT0PSDIV_2;
+    RTCPS1CTL = RT1SSEL_2 + RT1PSDIV_3;
 
     __enable_interrupt();
-    __bis_SR_register(LPM0_bits);
+    while(1);
 
 }
 
@@ -296,8 +262,6 @@ void __attribute__ ((interrupt(RTC_VECTOR))) RTC_ISR (void)
         sec = RTCSEC;
         resetTXBUFFER();
         BTTXBUF[0] = power + 48;
-        BTTXBUF[1] = '\r';
-        BTTXBUF[2] = '\n';
         UCA0IE |= UCTXIE;
         UCA0IFG |= UCTXIFG;
       break;
@@ -337,7 +301,7 @@ __interrupt void PORT1_ISR(void)
     default:
     break;
     }
-    __bis_SR_register(LPM0_bits);
+    __bis_SR_register_on_exit(LPM0_bits);
 }
 
 
