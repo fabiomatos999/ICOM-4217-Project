@@ -2,9 +2,11 @@
 
 \usepackage{pdfpages}
 \usepackage{longtable}
+\usepackage{caption}
 \usepackage{verbatim}
 \usepackage{svg}
 \usepackage{pdflscape}
+\usepackage[newfloat]{minted}
 \usepackage{float}
 \usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage[scaled]{helvet}
@@ -28,6 +30,8 @@
 \usepackage{listings}
 \lstset{breaklines=true}
 
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Source Code}
 
 \begin{document}
 \appendix
@@ -40,8 +44,6 @@
     \label{fig:main-psu-schematic}
   \end{figure}
   \end{center}
-
-
   \begin{center}
   \begin{figure}[H]
     \includegraphics[width=1.6\textwidth, left]{../Appendix/Figures/Main-Unit.png}
@@ -49,9 +51,6 @@
     \label{fig:main-schematic}
   \end{figure}
   \end{center}
-
-
-
   \begin{center}
   \begin{figure}[H]
     \includegraphics[width=\pdfpagewidth,height=0.65\textheight]{../Modular Design/Main-Unit/Figures/main-unit-and-psu.png}
@@ -59,7 +58,6 @@
     \label{fig:main-with-psu-schematic}
   \end{figure}
   \end{center}
-
   \begin{center}
   \begin{figure}[H]
     \includegraphics[width=1.6\textwidth, left]{../Modular Design/Sub-Unit-PSU/Figures/sub-unit-psu.png}
@@ -74,7 +72,6 @@
     \label{fig:sub-schematic}
   \end{figure}
   \end{center}
-
   \begin{center}
   \begin{figure}[H]
     \includegraphics[width=\pdfpagewidth,height=0.65\textheight]{../Modular Design/Sub-Unit/Figures/sub-unit-and-psu.png}
@@ -228,6 +225,20 @@
 \includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/BK-18650-PC4-datasheet.pdf}
 \includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/tlr342f-e.pdf}
 \includepdf[pages=-,pagecommand={},width=\textwidth]{../Appendix/Figures/Sub-Unit/TMP35_36_37.pdf}
+\section{Code Appendix}
+\subsection{Main Unit}
+\begin{code}
+  \captionof{listing}{Main Unit main.c}
+  \label{code:main-unit-main.c}
+    \inputminted[breaklines,breakanywhere]{C}{../../Main-unit/main.c}
+\end{code}
+\subsection{Sub Unit}
+\begin{code}
+  \captionof{listing}{Sub Unit main.c}
+  \label{code:sub-unit-main.c}
+    \inputminted[breaklines,breakanywhere]{C}{../../Sub-Unit/main.c}
+
+\end{code}
 \section{Project Journal}
 \begin{lstlisting}
 2023-05-05 10:19:41 -0400 fabio.matos999 <fabio.matos@upr.edu> db4864f Started-appendix
